@@ -1,0 +1,130 @@
+{
+  "author": {
+    "name": "Carsten Kraus",
+    "email": "sgtmurtaugh@gmx.de",
+    "url": ""
+  },
+  "_babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
+  "bin": {
+    "clickdummy-template": "./dist/clickdummy-template.js"
+  },
+  "bugs": {
+    "url": "https://github.com/sgtmurtaugh/clickdummy-template/issues",
+    "email": "sgtmurtaugh@gmx.de"
+  },
+  "bundledDependencies": [],
+  "_config": {
+    "port": "8080"
+  },
+  "_contributors": [
+    {
+      "name": "",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "dependencies": {
+    "foundation-sites": "^6.6.1",
+    "jquery-ui": "^1.12.1",
+    "what-input": "^5.2.7",
+    "foundation-sites-extensions": "^0.3.1",
+    "submodules-install": "^1.0.1",
+    "underscore": "^1.9.2"
+  },
+  "description": "clickdummy-template based on the official ZURB Template for Foundation for Sites.",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.3",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-load-plugins": "^2.0.2",
+    "gulp-promise": "^1.0.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "panini": "^1.6.3",
+    "rimraf": "^3.0.2",
+    "style-sherpa": "^1.0.2",
+    "yargs": "^15.3.1"
+  },
+  "_directories": {
+    "bin": "",
+    "man": "./man/",
+    "doc": "./doc/",
+    "example": "./example/",
+    "test": "./test/"
+  },
+  "engines": {
+    "node": ">=8.4.0 <=10.9.0",
+    "npm": ">=2.14.2 <=6.2.0"
+  },
+  "files": [
+    "*"
+  ],
+  "homepage": "https://github.com/sgtmurtaugh/clickdummy-template",
+  "keywords": [
+    "css",
+    "scss",
+    "sass",
+    "js",
+    "sprites",
+    "responsive",
+    "mobile-first",
+    "framework"
+  ],
+  "license": "MIT",
+  "main": "./dist/clickdummy-template.js",
+  "man": [
+    "./man/doc"
+  ],
+  "name": "clickdummy-template",
+  "_optionalDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-load-plugins": "^2.0.2",
+    "@babel/core": "^7.8.7",
+    "@babel/register": "^7.8.6",
+    "babel-preset-es2015": "^6.24.1",
+    "@babel/preset-env": "^7.8.7",
+    "fs": "^0.0.1-security",
+    "fs-extra": "^9.0.0",
+    "bigtext": "^1.0.1",
+    "classie": "^1.0.0",
+    "jquery": "^3.4.1",
+    "jquery.actual": "^1.0.19",
+    "jquery.cookie": "^1.4.1",
+    "slick-gallery": "^1.0.7",
+    "selectfx": "^1.0.0",
+    "skrollr": "^0.6.26",
+    "modernizr": "^3.9.1"
+  },
+  "os": [
+    "linux",
+    "win32"
+  ],
+  "peerDependencies": {},
+  "private": true,
+  "publishConfig": {},
+  "_repository": {
+    "type": "git",
+    "url": "https://github.com/zurb/foundation-zurb-template.git"
+  },
+  "scripts": {
+    "_preinstall": "submodules-install",
+    "start": "gulp",
+    "build": "gulp build --production"
+  },
+  "version": "0.0.1"
+}

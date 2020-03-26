@@ -1,0 +1,779 @@
+//  additional custom settings / definitions
+//  -----------------------------------------------------
+//  Table of Contents:
+//
+//   1. Global
+//   2. Breakpoints
+//   3. The Grid
+//   4. Base Typography
+//   5. Typography Helpers
+//   6. Abide
+//   7. Accordion
+//   8. Accordion Menu
+//   9. Badge
+//  10. Breadcrumbs
+//  11. Button
+//  12. Button Group
+//  13. Callout
+//  14. Close Button
+//  15. Drilldown
+//  16. Dropdown
+//  17. Dropdown Menu
+//  18. Flex Video
+//  19. Forms
+//  20. Label
+//  21. Media Object
+//  22. Menu
+//  23. Meter
+//  24. Off-canvas
+//  25. Orbit
+//  26. Pagination
+//  27. Progress Bar
+//  28. Reveal
+//  29. Slider
+//  30. Switch
+//  31. Table
+//  32. Tabs
+//  33. Thumbnail
+//  34. Title Bar
+//  35. Tooltip
+//  36. Top Bar
+//
+// CUSTOM ADDONS
+//  37. Page-Types
+//  38. Paddings
+//  39. Modules
+//  40. Layers
+//  41. Background-Images
+//  42. Colors Mappings
+//  43. Background Mappings
+//  44. Transitions
+//  45. Image Sizes
+
+
+// 1. Global
+// ---------
+
+// Font-Families
+$-kbs-font-family-prokyon-bold: 'DTL Prokyon Bold';
+$-kbs-font-family-prokyon-regular: 'DTL Prokyon Regular';
+$-kbs-font-family-profile-bold: 'FF Profile Bold';
+$-kbs-font-family-profile-regular: 'FF Profile Regular';
+$-kbs-font-family-profile-light: 'FF Profile Light';
+
+// Colors
+$custom-gray-4a4a4a: #4a4a4a;
+$custom-gray-666666: #666666;
+$custom-gray-cccccc: #cccccc;
+
+$-kbs-color-light-blue: #83D0F5;
+$-kbs-color-gray: #eeeeee;
+$kbs-color-box-shadow-16p: 0px 0px 5px 2px rgba(0, 0, 0, 0.16);
+
+$body-font-family: $-kbs-font-family-profile-regular, 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+
+$-kbs-image-hover-opacity: 0.7;
+
+
+// 4. Base Typography
+// ------------------
+
+$header-font-family: $-kbs-font-family-prokyon-bold;
+$-kbs-default-headline: 'h3';
+
+
+// 37. Page-Types
+// -----------
+
+/* ------------------------------
+    ## Definition der unterschiedlichen Seitentypen
+   ------------------------------ */
+$-kbs-page-type--applikationsseite: '.applikationsseite';
+$-kbs-page-type--artikelseite: '.artikelseite';
+$-kbs-page-type--bereichsverteiler: '.bereichsverteiler';
+$-kbs-page-type--detailseite: '.detailseite';
+$-kbs-page-type--formularseite: '.formularseite';
+$-kbs-page-type--newsletter: '.newsletter';
+$-kbs-page-type--regionalseite: '.regionalseite';
+$-kbs-page-type--startseite: '.startseite';
+$-kbs-page-type--suchergebnisseite: '.suchergebnisseite';
+$-kbs-page-type--verteilerseite: '.verteilerseite';
+
+$-kbs-page-types: (
+        #{$-kbs-page-type--applikationsseite},
+        #{$-kbs-page-type--artikelseite},
+        #{$-kbs-page-type--bereichsverteiler},
+        #{$-kbs-page-type--detailseite},
+        #{$-kbs-page-type--formularseite},
+        #{$-kbs-page-type--newsletter},
+        #{$-kbs-page-type--regionalseite},
+        #{$-kbs-page-type--startseite},
+        #{$-kbs-page-type--suchergebnisseite},
+        #{$-kbs-page-type--verteilerseite},
+);
+
+
+// 38. Paddings
+// -----------
+
+$-kbs-container-paddings: (
+        small: rem-calc(10px),
+        medium: rem-calc(10px),
+        large: rem-calc(20px),
+        xlarge: rem-calc(20px),
+        xxlarge: rem-calc(20px)
+);
+
+// 39. Modules
+// -----------
+
+$-kbs-module-offset-desktop: (
+        top: rem-calc(25px),
+        bottom: rem-calc(25px),
+);
+$-kbs-module-offset-mobile: (
+        top: rem-calc(15px),
+        bottom: rem-calc(15px),
+);
+$-kbs-module-paddings: (
+        small: rem-calc(10px),
+        medium: rem-calc(25px),
+        large: rem-calc(40px),
+        xlarge: rem-calc(80px),
+        xxlarge: rem-calc(80px)
+);
+$-kbs-module-container-paddings: (
+        small: rem-calc(10px),
+        medium: rem-calc(20px),
+        large: rem-calc(40px),
+        xlarge: rem-calc(60px),
+        xxlarge: rem-calc(100px)
+);
+$-kbs-box-edge-sizes: (
+        small: 10%,
+        medium: 25%,
+        large: 50%,
+        xlarge: 75%
+);
+$-kbs-default-box-edge-width: medium;
+
+
+/* ------------------------------
+    ## Definition der unterschiedlichen Module
+   ------------------------------ */
+$-kbs-module--3-fakten-box: 'module_3_fakten_box';
+$-kbs-module--akkordeon: '.module_akkordeon';
+$-kbs-module--applikationseinstieg: '.module_applikationseinstieg';
+$-kbs-module--auswahlliste: '.module_auswahlliste';
+$-kbs-module--auszeichnungen: '.module_auszeichnungen';
+$-kbs-module--bild-galerie: '.module_bild_galerie';
+$-kbs-module--bild-text-galerie: '.module_bild_text_galerie';
+$-kbs-module--buehne: '.module_buehne';
+$-kbs-module--call-to-action: '.module_call_to_action';
+$-kbs-module--checkliste: '.module_checkliste';
+$-kbs-module--fliesstext: '.module_fliesstext';
+$-kbs-module--geschaeftsstellensuche: '.module_geschaeftsstellensuche';
+$-kbs-module--highlight-text: '.module_highlight_text';
+$-kbs-module--linkliste-klein: '.module_linkliste_klein';
+$-kbs-module--links-und-downloads: '.module_links_und_downloads';
+$-kbs-module--markenteaser: '.module_markenteaser';
+$-kbs-module--newsteaser: '.module_newsteaser';
+$-kbs-module--ogs: '.module_ogs';
+$-kbs-module--seo-text: '.module_seo_text';
+$-kbs-module--service-teaser--hotline: '.module_service_teaser_hotline';
+$-kbs-module--service-teaser--kontakt: '.module_service_teaser_kontakt';
+$-kbs-module--service-teaser--geschaeftsstelle: '.module_service_teaser_geschaeftsstelle';
+$-kbs-module--sucheinstieg: '.module_sucheinstieg';
+$-kbs-module--suchergebnis: '.module_suchergebnis';
+$-kbs-module--suchergebnis--grau: '.module_suchergebnis-grau';
+$-kbs-module--suchergebnisfilter: '.module_suchergebnisfilter';
+$-kbs-module--suchfeld-autocomplete: '.module_suchfeld_autocomplete';
+$-kbs-module--tabelle: '.module_tabelle';
+$-kbs-module--testimonial--gross: '.testimonial-gross';
+$-kbs-module--testimonial--klein: '.testimonial-klein';
+$-kbs-module--verteilerkacheln: '.module_verteilerkacheln';
+$-kbs-module--verteilerkacheln-weiss: '.module_verteilerkacheln_weiss';
+$-kbs-module--verwandte-suchbegriffe: '.module_verwandte_suchbegriffe';
+$-kbs-module--video: '.module_video';
+
+
+// 40. Layers
+// ----------
+
+$-kbs-zindex-deko: 1;
+$-kbs-zindex-image: 50;
+$-kbs-zindex-image-headline: 80;
+$-kbs-zindex-module-headline: 100;
+$-kbs-zindex-navbar: 400;
+$-kbs-zindex-dropdown: 400;
+$-kbs-zindex-popover: 500;
+$-kbs-zindex-tooltip: 600;
+$-kbs-zindex-navbar-fixed: 800;
+$-kbs-zindex-modal-background: 900;
+$-kbs-zindex-modal: 1000;
+
+$-kbs-layer-max-width: (
+        small: (map-get($breakpoints, medium) - 1),
+        medium: (map-get($breakpoints, large) - 1),
+        large: (map-get($breakpoints, xlarge) - 1),
+        xlarge: 1200px
+);
+
+
+// 41. Background-Images
+// ----------
+
+$-kbs-button-background-image-indent: 60px;
+$-kbs-link-background-image-indent: 40px;
+
+
+// 42. Colors Mappings
+// ----------
+
+$-kbs-color-key--black: 'black';
+$-kbs-color-key--dark-gray: 'dark-gray';
+$-kbs-color-key--custom-4a4a4a-gray: 'custom-4a4a4a-gray';
+$-kbs-color-key--dark-red: 'dark-red';
+$-kbs-color-key--gold: 'gold';
+$-kbs-color-key--gray: 'gray';
+$-kbs-color-key--light-blue: 'light-blue';
+$-kbs-color-key--light-gray: 'light-gray';
+$-kbs-color-key--light-red: 'light-red';
+$-kbs-color-key--white: 'white';
+
+$-kbs-default-image-color-key: $-kbs-color-key--dark-gray;
+
+
+/* ------------------------------
+    # Color Mapping
+    Die oberste Map verwendet als Key die color-keys und als Value nested Maps fuer die default und die hover Werte.
+    Jede dieser nested Maps bekommt als Key die CSS color Property und die zu verwendenen Farbe.
+   ------------------------------ */
+$-kbs-color-mappings: (
+        #{$-kbs-color-key--black}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $white,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $white,
+                                color: $dark-gray,
+                                background-color: $white
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--white,
+                        hover: $-kbs-color-key--dark-gray
+                )
+        ),
+        #{$-kbs-color-key--dark-gray}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $white,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $white,
+                                color: $dark-gray,
+                                background-color: $white
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--white,
+                        hover: $-kbs-color-key--dark-gray
+                )
+        ),
+        #{$-kbs-color-key--custom-4a4a4a-gray}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $-kbs-color-light-blue,
+                                color: $black,
+                                background-color: $-kbs-color-light-blue
+                        ),
+                        hover: (
+                                border-color: $dark-gray,
+                                color: $white,
+                                background-color: $dark-gray
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--white,
+                        hover: $-kbs-color-key--dark-gray
+                )
+        ),
+        #{$-kbs-color-key--dark-red}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $dark-gray,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $white,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $white,
+                                color: $primary-color,
+                                background-color: $white
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--white,
+                        hover: $-kbs-color-key--white
+                )
+        ),
+        #{$-kbs-color-key--gold}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $body-font-color,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $primary-color,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $dark-gray,
+                                color: $body-font-color,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $secondary-color,
+                                color: $white,
+                                background-color: $secondary-color
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--dark-gray,
+                        hover: $-kbs-color-key--dark-red
+                )
+        ),
+        #{$-kbs-color-key--gray}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $body-font-color,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $primary-color,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $dark-gray,
+                                color: $body-font-color,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $secondary-color,
+                                color: $white,
+                                background-color: $secondary-color
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--dark-gray,
+                        hover: $-kbs-color-key--dark-red
+                )
+        ),
+        #{$-kbs-color-key--light-blue}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $dark-gray,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $dark-gray,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $dark-gray,
+                                color: $dark-gray,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $dark-gray,
+                                color: $white,
+                                background-color: $dark-gray
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--dark-gray,
+                        hover: $-kbs-color-key--white
+                )
+        ),
+        #{$-kbs-color-key--light-gray}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $body-font-color,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $primary-color,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $dark-gray,
+                                color: $body-font-color,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $secondary-color,
+                                color: $white,
+                                background-color: $secondary-color
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--dark-gray,
+                        hover: $-kbs-color-key--dark-red
+                )
+        ),
+        #{$-kbs-color-key--light-red}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $body-font-color,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $white,
+                                color: $white,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $white,
+                                color: $primary-color,
+                                background-color: $white
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--white,
+                        hover: $-kbs-color-key--white
+                )
+        ),
+        #{$-kbs-color-key--white}: (
+                link: (
+                        default: (
+                                border-color: transparent,
+                                color: $dark-gray,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: transparent,
+                                color: $primary-color,
+                                background-color: transparent
+                        )
+                ),
+                button: (
+                        default: (
+                                border-color: $dark-gray,
+                                color: $dark-gray,
+                                background-color: transparent
+                        ),
+                        hover: (
+                                border-color: $secondary-color,
+                                color: $white,
+                                background-color: $secondary-color
+                        )
+                ),
+                image: (
+                        default: $-kbs-color-key--dark-gray,
+                        hover: $-kbs-color-key--dark-red
+                )
+        ),
+);
+
+
+// 43. Background Mappings
+// ----------
+/* ------------------------------
+    ### Map der einzelnen Hintergruende. Hier werden als Value Objekte wieder Maps gespeichert, die als Key den
+        Modulnamen haben und als Value eine Liste der Seitentypen, auf denen diese auftreten
+   ------------------------------ */
+$-kbs-default-background: #{$-kbs-color-key--white} !default;
+
+$-kbs-background-mappings: (
+        #{$-kbs-color-key--dark-gray}: (
+        ),
+        #{$-kbs-color-key--dark-red}: (
+                #{$-kbs-module--call-to-action}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--geschaeftsstellensuche}: (
+                        #{$-kbs-page-type--applikationsseite}
+                ),
+                #{$-kbs-module--testimonial--gross}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--verteilerkacheln}: (
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+        ),
+        #{$-kbs-color-key--gold}: (
+                #{$-kbs-module--auswahlliste}: (
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--checkliste}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--highlight-text}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--sucheinstieg}: (
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--testimonial--klein}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+        ),
+        #{$-kbs-color-key--gray}: (
+                #{$-kbs-module--akkordeon}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--bild-text-galerie}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--seo-text}: (
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--suchergebnisfilter}: (
+                        #{$-kbs-page-type--suchergebnisseite}
+                ),
+                #{$-kbs-module--suchergebnis--grau}: (
+                        #{$-kbs-page-type--suchergebnisseite}
+                ),
+                #{$-kbs-module--service-teaser--kontakt}: (
+                        #{$-kbs-page-type--applikationsseite},
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+        ),
+        #{$-kbs-color-key--light-blue}: (
+                #{$-kbs-module--applikationseinstieg}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--auswahlliste}: (
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--detailseite},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--linkliste-klein}: (
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--service-teaser--geschaeftsstelle}: (
+                        #{$-kbs-page-type--applikationsseite},
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+        ),
+        #{$-kbs-color-key--light-gray}: (
+                #{$-kbs-module--bild-galerie}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+        ),
+        #{$-kbs-color-key--light-red}: (
+                #{$-kbs-module--buehne}: (
+                        #{$-kbs-page-type--applikationsseite},
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--formularseite},
+                        #{$-kbs-page-type--newsletter},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--markenteaser}: (
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--service-teaser--hotline}: (
+                        #{$-kbs-page-type--applikationsseite},
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite},
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--suchfeld-autocomplete}: (
+                        #{$-kbs-page-type--suchergebnisseite}
+                ),
+        ),
+        #{$-kbs-color-key--white}: (
+                #{$-kbs-module--3-fakten-box}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--auszeichnungen}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--fliesstext}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--ogs}: (
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--links-und-downloads}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--newsteaser}: (
+                        #{$-kbs-page-type--regionalseite},
+                        #{$-kbs-page-type--startseite}
+                ),
+                #{$-kbs-module--suchergebnis}: (
+                        #{$-kbs-page-type--suchergebnisseite}
+                ),
+                #{$-kbs-module--tabelle}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                ),
+                #{$-kbs-module--verteilerkacheln-weiss}: (
+                        #{$-kbs-page-type--verteilerseite}
+                ),
+                #{$-kbs-module--verwandte-suchbegriffe}: (
+                        #{$-kbs-page-type--suchergebnisseite}
+                ),
+                #{$-kbs-module--video}: (
+                        #{$-kbs-page-type--artikelseite},
+                        #{$-kbs-page-type--bereichsverteiler},
+                        #{$-kbs-page-type--regionalseite}
+                )
+        )
+) !default;
+
+
+// 44. Transitions
+// ----------
+$-kbs-transition--default-delay: '0s';
+$-kbs-transition--default-duration: '.3s';
+$-kbs-transition--default-transition-timing-function: 'ease';
+
+$-kbs-transition--text-color: '#{$-kbs-transition--default-duration} #{$-kbs-transition--default-transition-timing-function}';
+$-kbs-transition--background-color: '#{$-kbs-transition--default-duration} #{$-kbs-transition--default-transition-timing-function}';
+
+$-kbs-transition--scale--image-hover-zoom: 1.05;
+
+
+// 45. Image Sizes
+// ----------
+$-kbs-images-sizes--16px: 16px;
+$-kbs-images-sizes--25px: 25px;
+$-kbs-images-sizes--32px: 32px;
+$-kbs-images-sizes--64px: 64px;
+$-kbs-images-sizes: (
+        $-kbs-images-sizes--16px,
+        $-kbs-images-sizes--25px,
+        $-kbs-images-sizes--32px,
+        $-kbs-images-sizes--64px
+);
+
+$-kbs-default-image-size: $-kbs-images-sizes--25px !default;

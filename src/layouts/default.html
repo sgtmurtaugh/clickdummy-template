@@ -1,0 +1,32 @@
+<!doctype html><!--[if lt IE 7]>
+<html class="no-js" lang="de" class="lt-ie9 lt-ie8 lt-ie7"><![endif]--><!--[if IE 7]>
+<html class="no-js" lang="de" class="lt-ie9 lt-ie8"><![endif]--><!--[if IE 8]>
+<html class="no-js" lang="de" class="lt-ie9"> <![endif]--><!--[if gt IE 8]><!-->
+<html class="no-js" lang="de"><!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>clickdummy-template</title>
+    <link href="../assets/css/app.css" rel="stylesheet">
+    <script src="../assets/js/app.min.js" type="text/javascript"></script>
+</head>
+
+<body class="js-off">
+{{> header}}
+
+<main>
+    {{> navigation}}
+
+    {{!-- Pages you create in the src/pages/ folder are inserted here when the flattened page is created. --}}
+    <main class="main" id="skrollr-body">
+        {{> body}}
+    </main>
+</main>
+
+{{> footer}}
+
+{{!-- additional Scripts --}}
+<script src="../assets/js/app-additionals.min.js"></script>
+</body>
+</html>

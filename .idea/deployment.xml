@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="GSB 6.0 - hv1lxmap1115 (project level)" overwriteAll="false" deleteMissingItems="true">
+    <serverData>
+      <paths name="GSB 6.0 - hv1lxmap1111 - Contentserver (project level)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/cmadmin/gsb/customers/GSBAdmin_basis" local="$PROJECT_DIR$/GSBAdmin/GSBAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/intranet_basis" local="$PROJECT_DIR$/intranet/intranet_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Jobboerse_basis" local="$PROJECT_DIR$/Jobboerse/Jobboerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Kampagnen_basis" local="$PROJECT_DIR$/Kampagnen/Kampagnen_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSCommonBase_basis" local="$PROJECT_DIR$/KBSCommonBase/KBSCommonBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHilfeSystem_basis" local="$PROJECT_DIR$/KBSHilfeSystem/KBSHilfeSystem_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHostingBase_basis" local="$PROJECT_DIR$/KBSHostingBase/KBSHostingBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRecht_basis" local="$PROJECT_DIR$/KBSRecht/KBSRecht_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRegress_basis" local="$PROJECT_DIR$/KBSRegress/KBSRegress_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSSV_basis" local="$PROJECT_DIR$/KBSSV/KBSSV_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBS_basis" local="$PROJECT_DIR$/KBS/KBS_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KNMedia_basis" local="$PROJECT_DIR$/KNMedia/KNMedia_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KN_basis" local="$PROJECT_DIR$/KN/KN_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerseAdmin_basis" local="$PROJECT_DIR$/MJZBoerseAdmin/MJZBoerseAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerse_basis" local="$PROJECT_DIR$/MJZBoerse/MJZBoerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZ_basis" local="$PROJECT_DIR$/MJZ/MJZ_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Pflegenavigator_basis" local="$PROJECT_DIR$/Pflegenavigator/Pflegenavigator_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Praktikanten_basis" local="$PROJECT_DIR$/Praktikanten/Praktikanten_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Prototype_basis" local="$PROJECT_DIR$/Prototype/Prototype_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/standardlsg_basis" local="$PROJECT_DIR$/standardlsg/standardlsg_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Tagungszentren_basis" local="$PROJECT_DIR$/Tagungszentren/Tagungszentren_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/WebApplications_basis" local="$PROJECT_DIR$/WebApplications/WebApplications_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/BFB_basis" local="$PROJECT_DIR$/BFB/BFB_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/REHAPRO_basis" local="$PROJECT_DIR$/REHAPRO/REHAPRO_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/HIMIKompass_basis" local="$PROJECT_DIR$/HIMIKompass/HIMIKompass_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/REHAPRO_basis" local="$PROJECT_DIR$/HEMIKompass/HEMIKompass_basis" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="GSB 6.0 - hv1lxmap1112 - DevQS (project level)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/cmadmin/gsb/customers/BFB_basis" local="$PROJECT_DIR$/BFB/BFB_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/GSBAdmin_basis" local="$PROJECT_DIR$/GSBAdmin/GSBAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/intranet_basis" local="$PROJECT_DIR$/intranet/intranet_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Jobboerse_basis" local="$PROJECT_DIR$/Jobboerse/Jobboerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Kampagnen_basis" local="$PROJECT_DIR$/Kampagnen/Kampagnen_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSCommonBase_basis" local="$PROJECT_DIR$/KBSCommonBase/KBSCommonBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHilfeSystem_basis" local="$PROJECT_DIR$/KBSHilfeSystem/KBSHilfeSystem_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHostingBase_basis" local="$PROJECT_DIR$/KBSHostingBase/KBSHostingBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRecht_basis" local="$PROJECT_DIR$/KBSRecht/KBSRecht_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRegress_basis" local="$PROJECT_DIR$/KBSRegress/KBSRegress_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSSV_basis" local="$PROJECT_DIR$/KBSSV/KBSSV_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBS_basis" local="$PROJECT_DIR$/KBS/KBS_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KNMedia_basis" local="$PROJECT_DIR$/KNMedia/KNMedia_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KN_basis" local="$PROJECT_DIR$/KN/KN_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerseAdmin_basis" local="$PROJECT_DIR$/MJZBoerseAdmin/MJZBoerseAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerse_basis" local="$PROJECT_DIR$/MJZBoerse/MJZBoerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZ_basis" local="$PROJECT_DIR$/MJZ/MJZ_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Pflegenavigator_basis" local="$PROJECT_DIR$/Pflegenavigator/Pflegenavigator_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Praktikanten_basis" local="$PROJECT_DIR$/Praktikanten/Praktikanten_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Prototype_basis" local="$PROJECT_DIR$/Prototype/Prototype_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/standardlsg_basis" local="$PROJECT_DIR$/standardlsg/standardlsg_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Tagungszentren_basis" local="$PROJECT_DIR$/Tagungszentren/Tagungszentren_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/WebApplications_basis" local="$PROJECT_DIR$/WebApplications/WebApplications_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/REHAPRO_basis" local="$PROJECT_DIR$/REHAPRO/REHAPRO_basis" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="GSB 6.0 - hv1lxmap1114 (project level)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/cmadmin/gsb/customers/BFB_basis" local="$PROJECT_DIR$/BFB/BFB_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/GSBAdmin_basis" local="$PROJECT_DIR$/GSBAdmin/GSBAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/intranet_basis" local="$PROJECT_DIR$/intranet/intranet_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Jobboerse_basis" local="$PROJECT_DIR$/Jobboerse/Jobboerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Kampagnen_basis" local="$PROJECT_DIR$/Kampagnen/Kampagnen_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSCommonBase_basis" local="$PROJECT_DIR$/KBSCommonBase/KBSCommonBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHilfeSystem_basis" local="$PROJECT_DIR$/KBSHilfeSystem/KBSHilfeSystem_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHostingBase_basis" local="$PROJECT_DIR$/KBSHostingBase/KBSHostingBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRecht_basis" local="$PROJECT_DIR$/KBSRecht/KBSRecht_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRegress_basis" local="$PROJECT_DIR$/KBSRegress/KBSRegress_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSSV_basis" local="$PROJECT_DIR$/KBSSV/KBSSV_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBS_basis" local="$PROJECT_DIR$/KBS/KBS_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KNMedia_basis" local="$PROJECT_DIR$/KNMedia/KNMedia_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KN_basis" local="$PROJECT_DIR$/KN/KN_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerseAdmin_basis" local="$PROJECT_DIR$/MJZBoerseAdmin/MJZBoerseAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerse_basis" local="$PROJECT_DIR$/MJZBoerse/MJZBoerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZ_basis" local="$PROJECT_DIR$/MJZ/MJZ_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Pflegenavigator_basis" local="$PROJECT_DIR$/Pflegenavigator/Pflegenavigator_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Praktikanten_basis" local="$PROJECT_DIR$/Praktikanten/Praktikanten_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Prototype_basis" local="$PROJECT_DIR$/Prototype/Prototype_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/standardlsg_basis" local="$PROJECT_DIR$/standardlsg/standardlsg_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Tagungszentren_basis" local="$PROJECT_DIR$/Tagungszentren/Tagungszentren_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/WebApplications_basis" local="$PROJECT_DIR$/WebApplications/WebApplications_basis" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="GSB 6.0 - hv1lxmap1115 (project level)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/cmadmin/gsb/customers/BFB_basis" local="$PROJECT_DIR$/BFB/BFB_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/GSBAdmin_basis" local="$PROJECT_DIR$/GSBAdmin/GSBAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/intranet_basis" local="$PROJECT_DIR$/intranet/intranet_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Jobboerse_basis" local="$PROJECT_DIR$/Jobboerse/Jobboerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Kampagnen_basis" local="$PROJECT_DIR$/Kampagnen/Kampagnen_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSCommonBase_basis" local="$PROJECT_DIR$/KBSCommonBase/KBSCommonBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHilfeSystem_basis" local="$PROJECT_DIR$/KBSHilfeSystem/KBSHilfeSystem_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSHostingBase_basis" local="$PROJECT_DIR$/KBSHostingBase/KBSHostingBase_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRecht_basis" local="$PROJECT_DIR$/KBSRecht/KBSRecht_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSRegress_basis" local="$PROJECT_DIR$/KBSRegress/KBSRegress_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSSV_basis" local="$PROJECT_DIR$/KBSSV/KBSSV_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBS_basis" local="$PROJECT_DIR$/KBS/KBS_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KNMedia_basis" local="$PROJECT_DIR$/KNMedia/KNMedia_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KN_basis" local="$PROJECT_DIR$/KN/KN_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerseAdmin_basis" local="$PROJECT_DIR$/MJZBoerseAdmin/MJZBoerseAdmin_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZBoerse_basis" local="$PROJECT_DIR$/MJZBoerse/MJZBoerse_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/MJZ_basis" local="$PROJECT_DIR$/MJZ/MJZ_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Pflegenavigator_basis" local="$PROJECT_DIR$/Pflegenavigator/Pflegenavigator_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Praktikanten_basis" local="$PROJECT_DIR$/Praktikanten/Praktikanten_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Prototype_basis" local="$PROJECT_DIR$/Prototype/Prototype_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/standardlsg_basis" local="$PROJECT_DIR$/standardlsg/standardlsg_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/Tagungszentren_basis" local="$PROJECT_DIR$/Tagungszentren/Tagungszentren_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/WebApplications_basis" local="$PROJECT_DIR$/WebApplications/WebApplications_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/HIMIKompass_basis" local="$PROJECT_DIR$/HIMIKompass/HIMIKompass_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/HEMIKompass_basis" local="$PROJECT_DIR$/HEMIKompass/HEMIKompass_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/REHAPRO_basis" local="$PROJECT_DIR$/REHAPRO/REHAPRO_basis" web="/" />
+            <mapping deploy="/home/cmadmin/gsb/customers/KBSSites_basis" local="$PROJECT_DIR$/KBSSites/KBSSites_basis" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="LIVE - DB38MVS - Arbeitsgruppenabfrage Würzburg" uuid="15d487df-f407-4933-8c5c-ade3ce508a84">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - GeoDB - (hv1lxmap1122)" uuid="5ef6faeb-3cba-48fe-a919-224b3adcfedb">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - GeosDB - (hv1lxmap1122)" uuid="9841ffde-38ff-4c93-8ca0-c21199774333">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - HostDB - (hv1lxmap1122)" uuid="b6f89c19-40ae-41a9-bae2-9673b70d8d03">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - KBSDB - (hv1lxmap1122)" uuid="e2666984-9819-48ea-9f13-40cf23711329">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - PflegeDB - (hv1lxmap1122)" uuid="bb2c58c5-c9a0-45e2-bd0a-1dfe8200530f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - TPBDB - (hv1lxmap1122)" uuid="79433151-0a20-4be8-b6f4-71858cade970">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - HOST (Klon)" uuid="495ee6d2-cc06-4685-a0c4-7155960e022c">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - HOST" uuid="33e3a766-948a-479c-995d-aaa10937396f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - GSB_PRV - (hv1lxmap1122)" uuid="9468439c-3adc-492c-88fb-f406e6c8f982">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - GeoDB (gsb6privatdb01_02 - 198.18.180.221)" uuid="47064704-f3c8-461c-82c2-4944583bafbe">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - GSB_PRV (gsb6intradb01_02 - 198.18.188.221)" uuid="9c27eb57-b331-4754-85d6-e0ac231d5a15">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - GSB (gsb6privatdb01_02 - 198.18.180.221)" uuid="b7923443-dcaa-42bd-8f89-69ced86f00a4">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - KBSDB (gsb6privatdb01_02 - 198.18.180.221)" uuid="b10f7670-dbf2-4218-b441-75d73dde0d68">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - PflegeDB (gsb6privatsdb01 - 198.18.180.219)" uuid="3aa2c95a-f0ab-49c3-9b63-4276cb089bfb">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - TPBDB (gsb6privatsdb01 - 198.18.180.219)" uuid="240217fc-54fa-4e4e-8979-ec73b8997cae">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - GeosDB (gsb6privatsdb01 - 198.18.180.219)" uuid="f7aa9bc0-8e58-449e-b5fb-865e83e8622f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - CONTENT (gsb6intradb01_02 - 198.18.188.221)" uuid="19f81bbe-a039-407a-bcf6-f17b5c2e4c54">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="LIVE - GSB 6.0 - MASTER (gsb6privatdb01_02 - 198.18.180.221)" uuid="289407f3-a619-4c73-817c-08402bc3b00d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - CONTENT (gsb6testdb01_02 - 198.18.187.221)" uuid="93fd86e6-aeea-45e0-8e3a-a1ea6316192b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - GSB_PRV (gsb6testdb01_02 - 198.18.187.221)" uuid="8108293d-92e8-4503-be68-27a5a3866738">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - MASTER (gsb6testdb01_02 - 198.18.187.221)" uuid="3414b6b8-5bed-4af0-ba90-77d57e20a325">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - GSB (gsb6testdb01_02 - 198.18.187.221)" uuid="99b886e2-b754-440e-b51b-3e32c384d944">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - KBSDB (gsb6testdb01_02 - 198.18.187.221)" uuid="5af1176d-2177-4664-bf28-83aa113b089f">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - GeoDB (gsb6testdb01_02 - 198.18.187.221)" uuid="c628fb0e-d18b-4006-83d5-a4dbd538488b">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - PflegeDB (gsb6testsdb01_02 - 198.18.187.220)" uuid="c9bee48a-dd3a-409a-8a64-a4e046d16a93">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - TPBDB (gsb6testsdb01_02 - 198.18.187.220)" uuid="75495c38-70d3-48f9-9f0e-9cbfc2399e53">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="TEST - GSB 6.0 - GeosDB (gsb6testsdb01_02 - 198.18.187.220)" uuid="58cbdfee-6a51-4c64-aa2e-384e3dfea559">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEV - GSB 6.0 - Content - (hv1lxmap1122)" uuid="3fd0127c-a0f5-4d0a-993d-8d128d3ecd4a">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+  <data-source name="DEVQS - GSB 6.0 - Content2 - (hv1lxmap1122)" uuid="756bfe64-b9ef-4157-8847-0a118205a62d">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
+</component>

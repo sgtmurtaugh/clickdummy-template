@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+#parse("XML File Header.xml")
+<!DOCTYPE weblogic-ejb-jar PUBLIC '-//BEA Systems, Inc.//DTD WebLogic 8.1.0 EJB//EN' 'http://www.bea.com/servers/wls810/dtd/weblogic-ejb-jar.dtd' >
+
+<weblogic-ejb-jar>
+
+</weblogic-ejb-jar>

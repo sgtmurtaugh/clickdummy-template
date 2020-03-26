@@ -1,0 +1,93 @@
+/* ==============================
+    # reformatting slick-slider styles
+   ============================== */
+
+/* ==============================
+    # slider
+   ============================== */
+.slick-slider {
+  .slick-dots {
+    bottom: -35px;
+
+    li {
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
+      border-radius: 10px;
+      border: 1px solid $primary-color;
+      height: 15px;
+      width: 15px;
+
+      &.slick-active {
+        background-color: $primary-color;
+      }
+
+      button::before {
+        content: '';
+      }
+    }
+  }
+
+  .slick-arrow {
+    z-index: 599;
+    height: 40px;
+    width: 40px;
+    border-radius: 25px;
+    position: absolute !important;
+    @include -kbs-background-color-with-opacity($light-gray, 0.8);
+
+    @include breakpoint(small only) {
+      display: none !important;
+    }
+    @include breakpoint(medium only) {
+      display: none !important;
+    }
+    @include breakpoint(large only) {
+      display: none !important;
+    }
+
+    @include -kbs-on-user-action() {
+      @include -kbs-background-color-with-opacity($light-gray, 1);
+    }
+
+    &.slick-next {
+      right: 50px;
+
+      @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---32px---dark-gray-height) {
+        @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---32px---dark-gray);
+        right: 2px;
+      }
+
+      @include -kbs-on-user-action() {
+        &::after {
+          @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---32px---dark-red);
+        }
+      }
+    }
+
+    &.slick-prev {
+      left: 50px;
+
+      @include -kbs-add-after-image($-nsg-image-Budicon---arrow-left---32px---dark-gray-height) {
+        @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-left---32px---dark-gray);
+        left: 2px;
+      }
+
+      @include -kbs-on-user-action() {
+        &::after {
+          @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-left---32px---dark-red);
+        }
+      }
+    }
+
+    &.slick-disabled {
+      display: none !important;
+    }
+
+    &::before {
+      content: none;
+    }
+  }
+}
+
+
+

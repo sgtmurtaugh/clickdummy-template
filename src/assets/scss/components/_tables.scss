@@ -1,0 +1,20 @@
+/* ==============================
+    # Additional Table Styles
+   ============================== */
+
+.table-scroll {
+  &.module {
+    table.full {
+      width: 100%;
+
+      col.half {
+        width: 50%;
+      }
+
+      td.align-top {
+        vertical-align: top;
+      }
+    }
+  }
+}
+

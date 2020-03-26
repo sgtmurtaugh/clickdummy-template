@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+/* ------------------------------
+    ## font faces
+
+    Clickdummy Pfad: ..
+    GSB Pfad:        /static
+   ------------------------------ */
+$-kbs-font-url-prefix--clickdummy: '..';
+$-kbs-font-url-prefix--gsb: '/static';
+$-kbs-default-font-url-prefix: $-kbs-font-url-prefix--gsb;
+
+/* ==============================
+     # foundation-customizer-theme-KN
+   ============================== */
+
+@import 'src/assets/scss/settings';
+@import 'src/assets/scss/settings_extensions';
+
+/*! ==============================
+     # CSS-File: 01 - Foundation
+    ============================== */
+
+@import './node_modules/foundation-sites/scss/foundation';
+@import './node_modules/motion-ui/motion-ui';
+
+/* ------------------------------
+    ## foundation definitions
+   ------------------------------ */
+
+// ### simply every foundation module
+
+//@include foundation-everything();
+
+// ### or specific modules only
+
+@include foundation-global-styles;
+@include foundation-grid;
+//// @include foundation-flex-grid;
+@include foundation-typography;
+@include foundation-button;
+@include foundation-forms;
+//// @include foundation-range-input;
+@include foundation-accordion;
+//@include foundation-accordion-menu;
+//@include foundation-badge;
+@include foundation-breadcrumbs;
+@include foundation-button-group;
+//@include foundation-callout;
+@include foundation-close-button;
+//@include foundation-menu;
+//@include foundation-menu-icon;
+//@include foundation-drilldown-menu;
+//@include foundation-dropdown;
+//@include foundation-dropdown-menu;
+//@include foundation-flex-video;
+@include foundation-label;
+//@include foundation-media-object;
+//@include foundation-off-canvas;
+//@include foundation-orbit;
+//@include foundation-pagination;
+//@include foundation-progress-bar;
+//// @include foundation-progress-element;
+//// @include foundation-meter-element;
+//@include foundation-slider;
+@include foundation-sticky;
+//@include foundation-reveal;
+@include foundation-switch;
+@include foundation-table;
+@include foundation-tabs;
+@include foundation-thumbnail;
+@include foundation-title-bar;
+@include foundation-tooltip;
+@include foundation-top-bar;
+@include foundation-visibility-classes;
+@include foundation-float-classes;
+//// @include foundation-flex-classes;
+
+
+/* ------------------------------
+    ## motion-ui definitions
+   ------------------------------ */
+
+@include motion-ui-transitions;
+@include motion-ui-animations;
+
+/*! ==============================
+     # CSS-File: 02 - Vendor CSS
+    ============================== */
+
+@import "components/vendor";
+
+/*! ==============================
+    ## CSS-File: 03 - KN CSS core
+    ============================== */
+
+/* ------------------------------
+    ### sprites
+   ------------------------------ */
+@import "components/sprites/sprites";
+
+/* ------------------------------
+    ### mixins
+   ------------------------------ */
+@import "components/mixins/mixins";
+
+/* ------------------------------
+    ### table
+   ------------------------------ */
+
+@import "src/assets/scss/components/tables";
+
+/* ------------------------------
+    ### commons
+   ------------------------------ */
+
+@import "components/common";
+@import "components/utils";
+
+/* ------------------------------
+    ### reformattings
+   ------------------------------ */
+
+@import "src/assets/scss/components/reformatting/reformatting";
+@import "components/slider";
+@import "src/assets/scss/vendors/mediaelement";
+
+/* ------------------------------
+    ### page elements
+   ------------------------------ */
+
+@import "components/structure/structure";
+
+/*! ==============================
+    ## CSS-File: 04 - KN Fonts
+    ============================== */
+
+@import "components/font";
+
+/*! ==============================
+     # CSS-File: 05 - KN CSS Modules
+    ============================== */
+
+@import "components/modules/modules";
+
+/* ------------------------------
+    ### examples
+   ------------------------------ */
+//@import "examples/examples";

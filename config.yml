@@ -1,0 +1,66 @@
+##################################
+# Global Configuration Properties
+##################################
+
+# Your project's server will run on localhost:xxxx at this port
+PORT: 8000
+
+# Autoprefixer will make sure your CSS works with these browsers
+COMPATIBILITY:
+  - "last 2 versions"
+  - "ie >= 9"
+
+# UnCSS will use these settings
+UNCSS_OPTIONS:
+  html:
+    - "src/**/*.html"
+  ignore:
+    - !!js/regexp .foundation-mq
+    - !!js/regexp ^\.is-.*
+
+# Gulp will reference these paths when it copies files
+PATHS:
+  # Path to dist folder
+  dist: "dist"
+  # Paths to static assets that aren't images, CSS, or JavaScript
+  assets:
+    - "src/assets/**/*"
+    - "!src/assets/{img,js,scss}/**/*"
+  # Paths to Sass libraries, which can then be loaded with @import
+  sass:
+    - "node_modules/foundation-sites/scss"
+    - "node_modules/motion-ui/src"
+  # Paths to JavaScript libraries, which are compined into one file
+  javascript:
+    # Paths to your own project code are here
+    - "src/assets/js/**/app.js"
+    - "src/assets/js/**/!(app).js"
+
+
+############################################
+# Project specific configuration Properties
+############################################
+PROJECT:
+  name: &name "clickdummy-template"
+  version: 0.0.1
+  # Path to src folder
+  paths:
+    dist: "dist"
+    src: "src"
+    sass:
+      - "node_modules/foundation-sites/scss"
+      - "node_modules/motion-ui/src"
+    javascript:
+      # Libraries requried by Foundation
+      - "node_modules/jquery/dist/jquery.js"
+      - "node_modules/what-input/what-input.js"
+      # Core Foundation files
+      - "node_modules/foundation-sites/js/foundation.core.js"
+      - "node_modules/foundation-sites/js/foundation.util.*.js"
+      # Individual Foundation components
+      # If you aren't using a component, just remove it from the list
+      - "node_modules/foundation-sites/js/foundation.accordion.js"
+      - "node_modules/foundation-sites/js/foundation.sticky.js"
+      - "node_modules/foundation-sites/js/foundation.tabs.js"
+      - "node_modules/foundation-sites/js/foundation.tooltip.js"
+

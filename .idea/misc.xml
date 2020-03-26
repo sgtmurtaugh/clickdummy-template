@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <type id="web" />
+  </component>
+  <component name="IdProvider" IDEtalkID="8B7775750C3C86CB26D38E5186C13D4D" />
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="ES6" />
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="myConfigurationMap">
+      <map>
+        <entry key="$PROJECT_DIR$">
+          <value>
+            <SvnBranchConfiguration>
+              <option name="branchUrls">
+                <list>
+                  <option value="https://10.1.34.159/svn/gsb60/branches" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="https://10.1.34.159/svn/gsb60/trunk" />
+            </SvnBranchConfiguration>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="jetbrains.communicator.idea.IdProvider" IDEtalkID="E457FCE5547E28B78801F524DBBDE1F1" />
+</project>

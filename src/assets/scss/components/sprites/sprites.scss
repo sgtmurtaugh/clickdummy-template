@@ -1,0 +1,101 @@
+/* ==============================
+    # sprites
+   ============================== */
+
+/* ------------------------------
+    ## Base Mixin for a single icon of a given sprite
+   ------------------------------ */
+@mixin -kbs-sprite($image-url, $position: 0 0, $height: 0, $width: 0, $size: auto ) {
+  @if $image-url {
+    background-image: url($image-url);
+    background-position: $position;
+    height: $height;
+    width: $width;
+    background-size: $size;
+    display: inline-block;
+  } @else {
+    @warn ('Es wurde keine image-url an das Mixin -kbs-sprite--aperto-icon-sprite uebergeben.');
+  }
+}
+
+
+/* ------------------------------
+    ## Funktion for dynamic Sprite-Images
+    @param base-filename: main part of the filename, e.g. arrow-right
+    @param $size: When the icon size is part of the file name. The default value is null.
+    @param color-key: When the icon size is part of the file name. The default value is null.
+    @param separator: The separator for the tokens. The default value is '-'.
+    @param prefix: filename prefix, e.g. arrows. The default value is null.
+    @param suffix:  . The default value is null.
+
+    Example:
+    -kbs-sprite-image-filename(
+      'arrow-right',
+      '32',
+      'dark-gray',
+      $separator: '---',
+      'IconsetXY',
+      'Iconset-suffix'
+    )
+    returns 'IconsetXY---arrow-right---Iconset-suffix---32---dark-gray'
+   ------------------------------ */
+@function -kbs-sprite-image-name($base-filename, $size: null, $color-key: null, $separator: '---', $prefix: null, $suffix: null) {
+  $filename: null;
+
+  @if $base-filename {
+    $filename: '';
+
+    @if not $separator {
+      $separator: '';
+    }
+
+    @if $prefix {
+      $filename: $prefix;
+    }
+
+    $filename: $filename + $base-filename;
+
+    @if $size {
+      $filename: $filename + $separator + $size;
+    }
+
+    @if $color-key {
+      $filename: $filename + $separator + $color-key;
+    }
+
+    @if $suffix {
+      $filename: $filename + $suffix;
+    }
+  }
+  @return $filename;
+}
+
+
+/* ------------------------------
+    ### Mixin for 180° rotation
+   ------------------------------ */
+@mixin -kbs-sprite--rotate-180() {
+  transform: rotate(180deg);
+  transform-origin: 50% 50%;
+}
+
+/* ------------------------------
+    ### Mixin to receive the dimensions of the given sprite
+   ------------------------------ */
+@function -kbs-extract-sprite-position($sprite) {
+  @return nth($sprite, 1) nth($sprite, 2);
+}
+
+@function -kbs-extract-sprite-width($sprite) {
+  @return nth($sprite, 3);
+}
+
+@function -kbs-extract-sprite-height($sprite) {
+  @return nth($sprite, 4);
+}
+
+
+/* ------------------------------
+    ## include separate sprite files
+   ------------------------------ */
+@import "sprite_SocialMedia_sprite";

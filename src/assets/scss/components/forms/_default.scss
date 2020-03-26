@@ -1,0 +1,226 @@
+/* ------------------------------
+    ## Formular Element-Klassen
+   ------------------------------ */
+
+.form-group-caption,
+.form-element-caption {
+  @extend label;
+}
+
+.form-label {
+  label {
+    display: inline;
+  }
+}
+
+.form-element,
+.form-group {
+  padding: 0 5px;
+
+  @include breakpoint(medium) {
+    padding: 0 6px;
+  }
+  @include breakpoint(large) {
+    padding: 0 8px;
+  }
+  @include breakpoint(xlarge) {
+    padding: 0 10px;
+  }
+
+  .form-field {
+    display: block;
+    position: relative;
+    margin: 0 0 1em 0;
+  }
+}
+
+.form-message {
+  margin: 0 0 2em 0;
+  text-align: center;
+
+  &.is-error {
+    font-family: $-kbs-font-family-profile-bold;
+
+    .validation-icon {
+      margin: 0 .5em;
+
+      @include -kbs-add-after-image($-nsg-image-Budicon---cross-cancel---32px---dark-red-height) {
+        @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---cross-cancel---32px---dark-red);
+      }
+    ;
+    }
+  }
+}
+
+.form-handle {
+  input {
+    &:first-child {
+      float: left;
+    }
+
+    &:last-child {
+      float: right;
+    }
+  }
+}
+
+.additional_information {
+  margin-top: 2em;
+}
+
+/* ------------------------------
+    ## Checkboxen
+   ------------------------------ */
+
+.checkbox-container {
+  float: left;
+  display: block;
+
+  input[type=checkbox] {
+    position: absolute;
+    visibility: hidden;
+
+    ~ label {
+      padding: 5px 0 0 50px;
+      cursor: pointer;
+      -webkit-transition: all 0.25s linear;
+      position: relative;
+      height: 40px;
+      margin: 10px 50px 10px 0;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        //border: 20px solid $white;
+
+        height: 40px;
+        width: 40px;
+        background-color: white;
+        z-index: 5;
+
+        border: 2px solid $custom-gray-cccccc;
+      }
+
+      @include -kbs-on-user-action() {
+        &::before {
+          border: 2px solid $dark-gray;
+        }
+      }
+
+      @include -kbs-add-after-image($-nsg-image-Budicon---tick-done-2---32px---black-height) {
+        @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---tick-done-2---32px---black);
+        content: none;
+        position: absolute;
+        top: 5px;
+        left: 5px;
+        z-index: 99;
+        transition: all 0.25s linear;
+        -webkit-transition: all 0.25s linear;
+
+      }
+    }
+
+    &:checked {
+      ~ label {
+        &::after {
+          content: '';
+        }
+      }
+    }
+  }
+
+  .infoButton {
+    vertical-align: top;
+  }
+}
+
+/* ------------------------------
+    ## Radiobuttons
+   ------------------------------ */
+
+.radiobutton-container {
+  float: left;
+
+  input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+
+    ~ label {
+      padding: 5px 0 0 50px;
+      cursor: pointer;
+      -webkit-transition: all 0.25s linear;
+      position: relative;
+      height: 40px;
+      margin: 10px 50px 10px 0;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        //border: 20px solid $white;
+        border-radius: 100%;
+        height: 40px;
+        width: 40px;
+        background-color: $white;
+        z-index: 5;
+
+        border: 2px solid $custom-gray-cccccc;
+      }
+
+      @include -kbs-on-user-action() {
+        &::before {
+          border: 2px solid $dark-gray;
+        }
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 13px;
+        border-radius: 100%;
+        height: 15px;
+        width: 15px;
+        z-index: 10;
+        transition: background 0.25s linear;
+        -webkit-transition: background 0.25s linear;
+      }
+    }
+
+    &:checked {
+      ~ label {
+        &::after {
+          background: $black;
+        }
+      }
+    }
+  }
+
+  .infoButton {
+    vertical-align: top;
+  }
+}
+
+.vertical {
+  .radiobutton-container,
+  .checkbox-container {
+    float: none;
+  }
+}
+
+
+/* ------------------------------
+    ## Text-Separatoren
+   ------------------------------ */
+
+.form-element-textseparator {
+  padding-top: rem-calc(20px);
+  padding-bottom: rem-calc(20px);
+}
+

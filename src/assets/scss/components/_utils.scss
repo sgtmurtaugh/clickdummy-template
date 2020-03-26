@@ -1,0 +1,244 @@
+/* ==============================
+    # util classes
+   ============================== */
+
+/* ------------------------------
+    ## softwrap
+   ------------------------------ */
+
+.softwrap {
+  hyphens: auto;
+  word-break: break-all;
+}
+
+
+/* ------------------------------
+    ## colors
+   ------------------------------ */
+.is-bg-light-blue {
+  background-color: $-kbs-color-light-blue;
+}
+
+.is-bg-grey {
+  background-color: $light-gray;
+}
+
+.is-bg-red {
+  background-color: $primary-color;
+}
+
+.is-bg-light-red {
+  background-color: $secondary-color;
+}
+
+
+/* ------------------------------
+    ## positions
+   ------------------------------ */
+
+.is-center {
+}
+
+.is-left {
+}
+
+.is-right {
+}
+
+.is-fixed,
+.is-sticky {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: top .8s ease, padding .8s ease;
+  border-top: 0;
+  float: none;
+  left: 50%;
+  -webkit-perspective: 0;
+  perspective: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100
+}
+
+.aural {
+  @extend .show-for-sr;
+}
+
+/* ------------------------------
+    ## styles
+   ------------------------------ */
+
+.is-strong {
+}
+
+.is-underline {
+  border-bottom: 1px dotted $body-font-color;
+}
+
+/* ------------------------------
+    ## animations
+   ------------------------------ */
+
+@-webkit-keyframes scaleUpCenter {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.7);
+    transform: scale(.7)
+  }
+}
+
+@keyframes scaleUpCenter {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(.7);
+    transform: scale(.7)
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.scaleUpAnimation {
+  -webkit-animation: scaleUpCenter .6s ease both;
+  animation: scaleUpCenter .6s ease both;
+  transform: none !important;
+}
+
+.fadeInAnimation {
+  -webkit-animation: fadeIn .6s ease both;
+  animation: fadeIn .6s ease both;
+  transform: none !important;
+}
+
+/*
+ *
+ * UNSORTIERT
+ *
+ */
+.isnt-overflow {
+  overflow: hidden;
+}
+
+.is-sticky {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-top: 0;
+  left: 50%;
+  -webkit-perspective: 0;
+  perspective: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.is-next {
+  right: 0;
+}
+
+.is-previous {
+  left: 0;
+}
+
+.is-clone {
+}
+
+.is-container {
+  padding: 0;
+}
+
+.is-headline {
+}
+
+.is-icon-check {
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -4px;
+    left: -60px;
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---tick-done---32px---white);
+
+    .no-svg & {
+      background-image: url(../img/KN/sprites/sprites-icons-sprite-medium.png)
+    }
+  }
+}
+
+@mixin onlyIE {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+
+  @media screen and (min-width: 0 \0
+  ) {
+    @content;
+  }
+}
+
+@mixin blurAndBrightness($blur, $brightness) {
+  -webkit-filter: blur($blur) brightness($brightness);
+  -moz-filter: blur($blur) brightness($brightness);
+  -o-filter: blur($blur) brightness($brightness);
+  -ms-filter: blur($blur) brightness($brightness);
+  filter: blur($blur) brightness($brightness);
+
+  @include onlyIE() {
+    display: none;
+  }
+}
+
+
+.is-image {
+}
+
+.is-long {
+}
+
+.is-active {
+}
+
+.is-shadowed {
+}
+
+.is-static {
+}
+
+.is-top-edge {
+}
+
+.is-sub-right {
+}
+
+.is-margin-top-mobile {
+}
+
+.isnt-padding {
+}
+
+.isnt-margin {
+}
+
+.isnt-margin-top {
+}
+

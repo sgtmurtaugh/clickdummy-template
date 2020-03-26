@@ -1,0 +1,10 @@
+#parse("Drools File Header.drl")
+
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+dialect  "mvel"
+
+rule "${RULE_NAME}"
+    when
+    then
+end

@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+#parse("XML File Header.xml")
+<${Superclass} xmlns:fx="http://ns.adobe.com/mxml/2009">
+</${Superclass}>

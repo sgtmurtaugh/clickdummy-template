@@ -1,0 +1,515 @@
+/* ------------------------------
+    ### Private Helper Mixins
+    Base Config for Background images
+    Weiterer Content kann an das Mixin uebergeben werden..
+   ------------------------------ */
+@mixin --base-background-image-settings($image-height) {
+  content: '';
+  position: absolute;
+  top: calc(50% - (#{$image-height} / 2));
+
+  @content;
+}
+
+/* ------------------------------
+    ### Base Config for Element with Background-Image
+    @param add-padding: Wenn der Parameter fuer $add-padding true ist, dann wird noch fuer alle breakpoints das in
+                        $button-sizes definierte Padding gesetzt.
+    Weiterer Content kann an das Mixin uebergeben werden.
+   ------------------------------ */
+@mixin --add-settings-for-element-with-background-image($add-padding: false) {
+  position: relative;
+
+  @if $add-padding {
+    @each $size, $value in map-remove($button-sizes, default) {
+      &.#{$size} {
+        padding: $value;
+      }
+    }
+  }
+  @content;
+}
+
+/* ------------------------------
+    ### Mixin fuer Elemente, deren after Pseudo-Element ein Hintergrundbild darstellen soll.
+    @param indent: // TODO
+    @param add-padding: // TODO
+    @param is-button: // TODO
+    Weiterer Content kann an das Mixin uebergeben werden. Dieser wird innerhalb des after Pseudoelements ausgegeben.
+   ------------------------------ */
+@mixin -kbs-add-after-image($image-height, $indent: true, $add-padding: false, $is-button: false) {
+  @include --add-settings-for-element-with-background-image($add-padding) {
+    @if $indent {
+      @if $is-button {
+        padding-right: rem-calc($-kbs-button-background-image-indent);
+      } @else {
+        padding-right: rem-calc($-kbs-link-background-image-indent);
+      }
+    }
+
+    &::after {
+      @include --base-background-image-settings($image-height) {
+        @if $is-button {
+          right: map-get($button-sizes, default);
+
+          @each $size, $value in map-remove($button-sizes, default) {
+            &.#{$size} {
+              right: $value;
+            }
+          }
+        } @else {
+          right: 0;
+        }
+      }
+      @content;
+    }
+  }
+}
+
+/* ------------------------------
+    ### Mixin fuer Elemente, deren before Pseudo-Element ein Hintergrundbild darstellen soll.
+    @param image-height: Der Parameter wird fuer die vertikale Zentrierung des Bildes verwendet.
+    @param indent: boolsche Variable, die steuert, ob das Icon eingerueckt werden soll.
+    @param add-padding: boolsche Variable, die steuert, ob der Link rundum ein Padding erhalten soll. Es wird dann das
+                        Button-Padding aus der Konfiguration verwendet.
+    @param is-button: boolsche Variable, die steuert, ob der Link normale Link Formatierungen oder spezielle
+                      Button-Style Formatierungen verwenden soll.
+    Weiterer Content kann an das Mixin uebergeben werden. Dieser wird innerhalb des before Pseudoelements ausgegeben.
+   ------------------------------ */
+@mixin -kbs-add-before-image($image-height, $indent: true, $add-padding: false, $is-button: false) {
+  @include --add-settings-for-element-with-background-image($add-padding) {
+    @if $indent {
+      @if $is-button {
+        padding-left: rem-calc($-kbs-button-background-image-indent);
+      } @else {
+        padding-left: rem-calc($-kbs-link-background-image-indent);
+      }
+    }
+
+    &::before {
+      @include --base-background-image-settings($image-height) {
+        @if $is-button {
+          left: map-get($button-sizes, default);
+
+          @each $size, $value in map-remove($button-sizes, default) {
+            &.#{$size} {
+              left: $value;
+            }
+          }
+        } @else {
+          left: 0;
+        }
+      }
+
+      @content;
+    }
+  }
+}
+
+
+/* ==============================
+    ## Arrows
+   ============================== */
+/* ==============================
+    ### Arrows Right
+   ============================== */
+/* ------------------------------
+    #### Arrow Right (dark-gray)
+    @param // TODO
+    @param // TODO
+   ------------------------------ */
+@mixin -kbs-bg-icon-arrow-right-dark-gray($indent: false, $is-button: false) {
+  @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---25px---dark-gray-height, $indent, true, $is-button) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---25px---dark-gray);
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right on Action (dark-gray)
+   ------------------------------ */
+@mixin -kbs-bg-icon-arrow-right-dark-gray-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-arrow-right-dark-gray();
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right (dark red)
+    @param // TODO
+    @param // TODO
+   ------------------------------ */
+@mixin -kbs-bg-icon-arrow-right-dark-red($indent: false, $is-button: false) {
+  @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---25px---dark-red-height, $indent, true, $is-button) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---25px---dark-red);
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right on Action (dark red)
+   ------------------------------ */
+@mixin -kbs-bg-icon-arrow-right-dark-red-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-arrow-right-dark-red();
+  }
+}
+
+
+/* ------------------------------
+    #### Arrow Right (white)
+    @param // TODO
+    @param // TODO
+   ------------------------------ */
+@mixin -kbs-bg-icon-arrow-right-white($indent: false, $is-button: false) {
+  @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---25px---white-height, $indent, true, $is-button) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---25px---white);
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right on Action (white)
+   ------------------------------ */
+@mixin -kbs-bg-icon-arrow-right-white-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-arrow-right-white();
+  }
+}
+
+
+/* ==============================
+    ### Centered Arrows
+   ============================== */
+/* ------------------------------
+    #### Centered Arrow Right (dark gray)
+   ------------------------------ */
+@mixin -kbs-bg-icon-centered-arrow-right-dark-gray() {
+  @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---32px---dark-gray-height) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---32px---dark-gray);
+    left: calc(50% - (#{$-nsg-image-Budicon---arrow-right---32px---dark-gray-width} / 2));
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right on Action (dark gray)
+   ------------------------------ */
+@mixin -kbs-bg-icon-centered-arrow-right-dark-gray-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-centered-arrow-right-dark-gray();
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right (dark red)
+   ------------------------------ */
+@mixin -kbs-bg-icon-centered-arrow-right-dark-red() {
+  @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---32px---dark-red-height) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---32px---dark-red);
+    left: calc(50% - (#{$-nsg-image-Budicon---arrow-right---32px---dark-red-width} / 2));
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right on Action (dark red)
+   ------------------------------ */
+@mixin -kbs-bg-icon-centered-arrow-right-dark-red-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-centered-arrow-right-dark-red();
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right (white)
+   ------------------------------ */
+@mixin -kbs-bg-icon-centered-arrow-right-white() {
+  @include -kbs-add-after-image($-nsg-image-Budicon---arrow-right---32px---white-height) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---arrow-right---32px---white);
+    left: calc(50% - (#{$-nsg-image-Budicon---arrow-right---32px---white-width} / 2));
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right on Action (white)
+   ------------------------------ */
+@mixin -kbs-bg-icon-centered-arrow-right-white-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-centered-arrow-right-white();
+  }
+}
+
+
+/* ==============================
+    ### Plus
+   ============================== */
+/* ------------------------------
+    #### Plus (dark-gray)
+    @param // TODO
+   ------------------------------ */
+@mixin -kbs-bg-icon-plus-dark-gray($indent: false) {
+  @include -kbs-add-after-image($-nsg-image-Budicon---plus-add---25px---dark-gray-height, $indent, true, true) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---plus-add---25px---dark-gray);
+  }
+}
+
+/* ------------------------------
+    #### Plus on Action (dark-gray)
+   ------------------------------ */
+@mixin -kbs-bg-icon-plus-dark-gray-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-plus-dark-gray;
+  }
+}
+
+/* ------------------------------
+    #### Plus (dark red)
+    @param // TODO
+   ------------------------------ */
+@mixin -kbs-bg-icon-plus-dark-red($indent: false) {
+  @include -kbs-add-after-image($-nsg-image-Budicon---plus-add---25px---dark-red-height, $indent, true, true) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---plus-add---25px---dark-red);
+  }
+}
+
+/* ------------------------------
+    #### Plus on Action (dark red)
+   ------------------------------ */
+@mixin -kbs-bg-icon-plus-dark-red-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-plus-dark-red;
+  }
+}
+
+/* ------------------------------
+    ### Plus (white)
+    @param // TODO
+   ------------------------------ */
+@mixin -kbs-bg-icon-plus-white($indent: false) {
+  @include -kbs-add-after-image($-nsg-image-Budicon---plus-add---25px---white-height, $indent, true, true) {
+    @include -nsg-image-Budicon---sprite($-nsg-image-Budicon---plus-add---25px---white);
+  }
+}
+
+/* ------------------------------
+    ### Plus on Action (white)
+   ------------------------------ */
+@mixin -kbs-bg-icon-plus-white-on-action() {
+  @include -kbs-on-user-action() {
+    @include -kbs-bg-icon-plus-white;
+  }
+}
+
+
+/* ==============================
+    # HTML Link Klassen Mixins
+   ============================== */
+/* ==============================
+    ## Arrows
+   ============================== */
+/* ==============================
+    ### Arrows Right
+   ============================== */
+/* ------------------------------
+    #### Arrow Right (dark-gray)
+   ------------------------------ */
+@mixin kbs-arrow-right-dark-gray() {
+  .kbs-arrow-right-dark-gray {
+    @include -kbs-bg-icon-arrow-right-dark-gray();
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right (dark-gray) on Action
+   ------------------------------ */
+@mixin kbs-arrow-right-dark-gray-on-action() {
+  .kbs-arrow-right-dark-gray-on-action {
+    @include -kbs-bg-icon-arrow-right-dark-gray-on-action();
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right (dark-red)
+   ------------------------------ */
+@mixin kbs-arrow-right-dark-red() {
+  .kbs-arrow-right-dark-red {
+    @include -kbs-bg-icon-arrow-right-dark-red();
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right (dark-red) on Action
+   ------------------------------ */
+@mixin kbs-arrow-right-dark-red-on-action() {
+  .kbs-arrow-right-dark-red-on-action {
+    @include -kbs-bg-icon-arrow-right-dark-red-on-action();
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right (white)
+   ------------------------------- */
+@mixin kbs-arrow-right-white() {
+  .kbs-arrow-right-white {
+    @include -kbs-bg-icon-arrow-right-white();
+  }
+}
+
+/* ------------------------------
+    #### Arrow Right (white) on Action
+   ------------------------------ */
+@mixin kbs-arrow-right-white-on-action() {
+  .kbs-arrow-right-white-on-action {
+    @include -kbs-bg-icon-arrow-right-white-on-action();
+  }
+}
+
+
+/* ==============================
+    ### Centered Arrows
+   ============================== */
+/* ------------------------------
+    #### Centered Arrow Right
+    on dark-gray background
+   ------------------------------ */
+@mixin kbs-centered-arrow-right-dark-gray() {
+  .kbs-centered-arrow-right-dark-gray {
+    @include -kbs-bg-icon-centered-arrow-right-dark-gray()
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right on Action
+    on dark-gray background
+   ------------------------------ */
+@mixin kbs-centered-arrow-right-dark-gray-on-action() {
+  .kbs-centered-arrow-right-dark-gray-on-action {
+    @include -kbs-bg-icon-centered-arrow-right-dark-gray-on-action()
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right (dark red)
+    on dark-red background
+   ------------------------------ */
+@mixin kbs-centered-arrow-right-dark-red() {
+  .kbs-centered-arrow-right-dark-red {
+    @include -kbs-bg-icon-centered-arrow-right-dark-red()
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right on Action
+    on dark-red background
+   ------------------------------ */
+@mixin kbs-centered-arrow-right-dark-red-on-action() {
+  .kbs-centered-arrow-right-dark-red-on-action {
+    @include -kbs-bg-icon-centered-arrow-right-dark-red-on-action()
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right
+    on white background
+   ------------------------------ */
+@mixin kbs-centered-arrow-right-white() {
+  .kbs-centered-arrow-right-white {
+    @include -kbs-bg-icon-centered-arrow-right-white()
+  }
+}
+
+/* ------------------------------
+    #### Centered Arrow Right on Action
+    on white background
+   ------------------------------ */
+@mixin kbs-centered-arrow-right-white-on-action() {
+  .kbs-centered-arrow-right-white-on-action {
+    @include -kbs-bg-icon-centered-arrow-right-white-on-action()
+  }
+}
+
+
+/* ==============================
+    ### Plus
+   ============================== */
+/* ------------------------------
+    #### Plus (dark-gray)
+   ------------------------------ */
+@mixin kbs-plus-dark-gray() {
+  .kbs-plus-dark-gray {
+    @include -kbs-bg-icon-plus-dark-gray();
+  }
+}
+
+/* ------------------------------
+    #### Plus on Action (dark-gray)
+   ------------------------------ */
+@mixin kbs-plus-dark-gray-on-action() {
+  .kbs-plus-dark-gray-on-action {
+    @include -kbs-bg-icon-plus-dark-gray-on-action();
+  }
+}
+
+/* ------------------------------
+    #### Plus (dark-red)
+   ------------------------------ */
+@mixin kbs-plus-dark-red() {
+  .kbs-plus-dark-red {
+    @include -kbs-bg-icon-plus-dark-red();
+  }
+}
+
+/* ------------------------------
+    #### Plus on Action (dark red)
+   ------------------------------ */
+@mixin kbs-plus-dark-red-on-action() {
+  .kbs-plus-dark-red-on-action {
+    @include -kbs-bg-icon-plus-dark-red-on-action();
+  }
+}
+
+/* ------------------------------
+    ### Plus (white)
+   ------------------------------ */
+@mixin kbs-plus-white() {
+  .kbs-plus-white {
+    @include -kbs-bg-icon-plus-white();
+  }
+}
+
+/* ------------------------------
+    ### Plus on Action (white)
+   ------------------------------ */
+@mixin kbs-plus-white-on-action() {
+  .kbs-plus-white-on-action {
+    @include -kbs-bg-icon-plus-white-on-action();
+  }
+}
+
+
+/* ==============================
+    # Mixin und Include aller HTML background-icon Mixins
+   ============================== */
+@mixin --background-icons-classes {
+  // Background-Icon Arrow Right
+  @include kbs-arrow-right-dark-gray;
+  @include kbs-arrow-right-dark-gray-on-action;
+  @include kbs-arrow-right-dark-red;
+  @include kbs-arrow-right-dark-red-on-action;
+  @include kbs-arrow-right-white;
+  @include kbs-arrow-right-white-on-action;
+
+  // Background-Icon Arrow Centered
+  @include kbs-centered-arrow-right-dark-gray;
+  @include kbs-centered-arrow-right-dark-gray-on-action;
+  @include kbs-centered-arrow-right-dark-red;
+  @include kbs-centered-arrow-right-dark-red-on-action;
+  @include kbs-centered-arrow-right-white;
+  @include kbs-centered-arrow-right-white-on-action;
+
+  // Background-Icon Plus
+  @include kbs-plus-dark-gray;
+  @include kbs-plus-dark-gray-on-action;
+  @include kbs-plus-dark-red;
+  @include kbs-plus-dark-red-on-action;
+  @include kbs-plus-white;
+  @include kbs-plus-white-on-action;
+}
+
+@include --background-icons-classes;

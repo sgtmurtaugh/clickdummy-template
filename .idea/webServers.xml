@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="ab3a2240-2f77-4390-9e3e-05c37bc33764" name="GSB 6.0 - hv1lxmap1114 (project level)" url="http://10.1.32.114">
+        <fileTransfer host="10.1.32.114" port="22" accessType="SFTP" password="dfc7dfcbdfdedfcfdfd8dfc4dfcb" username="cmadmin">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="76b2f789-c4b2-493d-aad6-9f29473e551c" name="GSB 6.0 - hv1lxmap1115 (project level)" url="http://10.1.32.115">
+        <fileTransfer host="10.1.32.115" port="22" accessType="SFTP" password="dfc7dfcbdfdedfcfdfd8dfc4dfcb" username="cmadmin">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="bb725ca7-1d13-42b0-9d59-59014db9b7b2" name="GSB 6.0 - hv1lxmap1112 - DevQS (project level)" url="http://10.1.32.112">
+        <fileTransfer host="10.1.32.112" port="22" accessType="SFTP" password="dfc7dfcbdfdedfcfdfd8dfc4dfcb" username="cmadmin">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="811fa334-7f8b-4fa8-9310-5ac9940dfe94" name="GSB 6.0 - hv1lxmap1111 - Contentserver (project level)" url="http://10.1.32.111">
+        <fileTransfer host="10.1.32.111" port="22" accessType="SFTP" password="dfc7dfcbdfdedfcfdfd8dfc4dfcb" username="cmadmin">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="9b01e375-1f9e-4940-9a6c-82ebfe5ded4f" name="GSB 6.0 - hv1lxmap1117 (project level)" url="http://10.1.32.117">
+        <fileTransfer host="10.1.32.117" port="22" accessType="SFTP" password="dfc7dfcbdfdedfcfdfd8dfc4dfcb" username="cmadmin">
+          <advancedOptions>
+            <advancedOptions controlEncoding="UTF-8" dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
