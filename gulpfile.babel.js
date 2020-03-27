@@ -1,5 +1,9 @@
 'use strict';
 
+// load all project script files from this project
+import utils    from './script';
+
+// npm modules
 import gulp     from 'gulp';
 import plugins  from 'gulp-load-plugins';
 import fs       from 'fs';
@@ -14,7 +18,6 @@ import rimraf   from 'rimraf';
 import panini   from 'panini';
 import sherpa   from 'style-sherpa';
 import glob     from 'glob';
-import typechecks from './script/type-checks';
 
 const resizeImage   = require('resize-img');
 
@@ -176,7 +179,7 @@ function generateScaledImages(done) {
     );
 
     for (let file of files) {
-        if (typechecks.isNotEmpty(file)) {
+        if (utils.typechecks.isNotEmpty(file)) {
             let indexRelativPath = file.indexOf(config.resizer.path);
 
             if (indexRelativPath > -1) {
@@ -195,11 +198,11 @@ function generateScaledImages(done) {
                             if (config.resizer.sizes.hasOwnProperty(dimensionKey)) {
                                 let dimension = config.resizer.sizes[dimensionKey];
 
-                                if (typechecks.isNotEmpty(dimension)) {
+                                if (utils.typechecks.isNotEmpty(dimension)) {
                                     // Pruefen, ob height und width gesetzt sind
                                     let resizerOptions = {};
-                                    let bHasWidth = typechecks.isNumeric(dimension.width);
-                                    let bHasHeight = typechecks.isNumeric(dimension.height);
+                                    let bHasWidth = utils.typechecks.isNumeric(dimension.width);
+                                    let bHasHeight = utils.typechecks.isNumeric(dimension.height);
 
                                     // Fehlen beide Dimensionsangaben, dann diese Groese ueberspringen
                                     if (!bHasWidth && !bHasHeight) {
@@ -229,7 +232,7 @@ function generateScaledImages(done) {
                                         subFolder = filename.substring(0, subFoldersEndIndex);
                                     }
 
-                                    if (typechecks.isTrue(config.resizer.options.createFolders)) {
+                                    if (utils.typechecks.isTrue(config.resizer.options.createFolders)) {
                                         targetPath += '/' + dimensionKey;
                                     }
 
@@ -240,16 +243,16 @@ function generateScaledImages(done) {
                                         targetFilename = filename.substring(0, indexExtension);
                                     }
 
-                                    if (typechecks.isFalse(config.resizer.options.createFolders)) {
+                                    if (utils.typechecks.isFalse(config.resizer.options.createFolders)) {
                                         targetFilename += '_';
                                         targetFilename += dimensionKey;
                                         targetFilename += filename.substring(indexExtension);
                                     }
 
-                                    if (typechecks.isNumeric(dimension.width)) {
+                                    if (utils.typechecks.isNumeric(dimension.width)) {
                                         resizerOptions['width'] = dimension.width;
                                     }
-                                    if (typechecks.isNumeric(dimension.height)) {
+                                    if (utils.typechecks.isNumeric(dimension.height)) {
                                         resizerOptions['height'] = dimension.height;
                                     }
 
@@ -391,7 +394,7 @@ function generateSingleSprite() {
  */
 function generateSprite(folder) {
     let currentSprite = folder;
-    if (typechecks.isEmpty(folder)) {
+    if (utils.typechecks.isEmpty(folder)) {
         folder = '';
         currentSprite = 'all-sprites';
     }
