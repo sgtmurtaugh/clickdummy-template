@@ -11,7 +11,8 @@ import path     from 'path';
 import yargs    from 'yargs';
 // TODO: YAML wieder aktivieren, da die YAML config self references und nested values verwenden kann
 // import yaml     from 'js-yaml';
-import nsg      from 'node-sprite-generator';
+// import nsg      from 'node-sprite-generator';
+import gsg      from 'gulp-sprite-generator';
 import promise  from 'es6-promise';
 import browser  from 'browser-sync';
 import rimraf   from 'rimraf';

@@ -47,13 +47,15 @@
     "gulp-load-plugins": "^2.0.2",
     "node-sprite-generator": "^0.10.2",
     "jquery": "^3.4.1",
-    "canvas": "^2.6.1"
+    "browser-sync": "^2.26.7"
   },
   "_todo": {
+    "gulp-sprite-generator3": "^0.1.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-svg-sprite-plus": "^1.1.2",
     "js-yaml": "^3.13.1",
     "babel-preset-env": "^1.7.0",
     "babel-register": "^6.26.0",
-    "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
     "gulp-babel": "^8.0.0",
@@ -70,7 +72,6 @@
     "rimraf": "^3.0.2",
     "style-sherpa": "^1.0.2",
     "yargs": "^15.3.1",
-    "gulp-svg-sprite": "^1.5.0",
     "svg-sprite": "^1.5.0",
     "modernizr": "^3.9.1",
     "motion-ui": "^2.0.3",
