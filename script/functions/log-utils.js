@@ -1,6 +1,6 @@
 'use strict';
 
-let fs = require('fs');
+// let fs = require('fs');
 
 let gulp;
 let plugins;

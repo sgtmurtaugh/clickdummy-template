@@ -1,4 +1,4 @@
-let requireDir = require('require-dir');
+'use strict';
 
 let gulp;
 let plugins;
@@ -20,7 +20,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * TODO
          */
         'loadTaskConfigs': function () {
-            return requireDir('../tasks', {recurse: true, duplicates: false});
+            return app.modules.requireDir(app.const.root + '/' + app.config.paths.path.gulpTasks, {recurse: true, duplicates: false});
         },
 
 
@@ -340,7 +340,7 @@ console.log(tasknames);
          * TODO
          */
         'task': function (task) {
-            return requireDir('../tasks/' + task)(gulp, plugins, config, tasks);
+            return requireDir(app.const.root + '/tasks/' + task)(gulp, plugins, config, tasks);
         },
 
 
@@ -351,8 +351,8 @@ console.log(tasknames);
          * TODO
          */
         'taskname': function (filename) {
-            return app.fn.path.basename(filename,
-                app.fn.path.extname(filename)
+            return app.modules.path.basename(filename,
+                app.modules.path.extname(filename)
             );
         },
 

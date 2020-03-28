@@ -1,0 +1,15 @@
+{
+  "path": {
+    "configurations": "conf",
+    "functions": "script/functions",
+    "gulpTasks": "script/gulp-tasks",
+    "dist": "dist",
+    "src": "src",
+    "test": "test",
+    "test-css": "test/js",
+    "test-js": "test/css"
+  },
+  "file": {
+    "packageJson": "package.json"
+  }
+}
