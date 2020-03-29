@@ -137,6 +137,7 @@
     "modernizr": "^3.9.1"
   },
   "os": [
+    "darwin",
     "linux",
     "win32"
   ],
