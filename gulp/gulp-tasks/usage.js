@@ -15,7 +15,13 @@ module.exports = function ( _gulp, _plugins, _app ) {
     let self_tasks = app.fn.tasks.registerDependingTasks(self, app.tasks);
 
     // define Task
-    app.fn.tasks.defineTask(self, self_tasks, usage);
+    // app.fn.tasks.defineTask(self, self_tasks, usage);
+    if ( self_tasks !== null ) {
+        module.exports[self] = gulp.series(self_tasks, usage);
+    }
+    else {
+        module.exports[self] = usage;
+    }
 };
 
 /**

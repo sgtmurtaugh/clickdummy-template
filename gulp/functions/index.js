@@ -24,6 +24,7 @@ module.exports = function (_gulp, _plugins, _app) {
         'npm' : require('./npm-utils')(gulp, plugins, app),
         'json' : require('./json-utils')(gulp, plugins, app),
         'log' : require('./log-utils')(gulp, plugins, app),
-        'tasks' : require('./task-utils')(gulp, plugins, app),
+        // 'tasks' : require('./task-utils')(gulp, plugins, app),
+        'tasks' : require('./new-task-utils')(gulp, plugins, app),
     };
 };

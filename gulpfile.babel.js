@@ -628,7 +628,7 @@ const app = {
 console.log( 'isProductive: ' + app.isProductive );
 console.log( 'application root: ' + app.const.root );
 
-let fn = require('./script/functions')(gulp, plugins, app);
+let fn = require('./gulp/functions')(gulp, plugins, app);
 console.log( 'successfully'.green + ' loaded script functions.' );
 
 app.fn = fn;
