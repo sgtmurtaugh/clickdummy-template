@@ -11,9 +11,6 @@ module.exports = function ( _gulp, _plugins, _app ) {
     plugins = _plugins;
     app = _app;
 
-    // Recursion breakOff object.
-    let _requestedTasknames = [];
-
     return {
 
         /*
@@ -40,16 +37,16 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * The boolean return value will also returned. If the initial empty check fails false is returned.
          */
         'hasOwnProperty' : function (json, key) {
-            if (!typeChecks.isEmpty(json)
-                && !typeChecks.isEmpty(key)) {
+            if (!app.functions.typeChecks.isEmpty(json)
+                && !app.functions.typeChecks.isEmpty(key)) {
 
                 return json.hasOwnProperty(key);
             }
             else {
-                if (typeChecks.isEmpty(json)) {
+                if (app.functions.typeChecks.isEmpty(json)) {
                     console.log('[warn] hasOwnProperty: json parameter is null/empty.');
                 }
-                if (typeChecks.isEmpty(key)) {
+                if (app.functions.typeChecks.isEmpty(key)) {
                     console.log('[warn] hasOwnProperty: key parameter is null/empty.');
                 }
             }
@@ -61,10 +58,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param json
          * @param key
          * <p>Delegate to <code>getOwnPropertyValue(json, key)</code> and determines the return type. This value is delegated
-         * to <code>typeChecks.isEmpty(obj)</code> analyse for emptyness. The inverted boolean is returned.
+         * to <code>app.functions.typeChecks.isEmpty(obj)</code> analyse for emptyness. The inverted boolean is returned.
          */
         'hasOwnPropertyValue' : function (json, key) {
-            return (! typeChecks.isEmpty( getOwnPropertyValue(json, key)));
+            return (! app.functions.typeChecks.isEmpty( getOwnPropertyValue(json, key)));
         }
     }
 };

@@ -1,14 +1,14 @@
 {
   "false": {
     "boolean": false,
-    "character": ["n", "N", "0"],
+    "character": [ "n", "N", "0" ],
     "numeric": 0,
-    "string": ["err", "error", "false", "failure", "falsch", "fault", "nein", "no"]
+    "string": [ "err", "error", "false", "failure", "fault", "no", "fault" ]
   },
   "true": {
     "boolean": true,
-    "character": ["j", "J", "y", "Y", "1"],
+    "character": [ "y", "Y", "1"],
     "numeric": 1,
-    "string": ["erfolg", "ja", "ok", "richtig", "success", "true", "wahr", "yes"]
+    "string": [ "true", "yes", "success", "ok" ]
   }
 }

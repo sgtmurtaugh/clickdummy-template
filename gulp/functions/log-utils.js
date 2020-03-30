@@ -21,7 +21,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          */
         'file': function (file, options = { encoding: 'utf-8', flag: 'rs' }) {
             if (app.fn.typeChecks.isNotEmpty(file)) {
-                fs.readFile(file, options, function(e, data) {
+                app.modules.fs.readFile(file, options, function(e, data) {
                     if (e) return console.log(e);
                     console.log(data);
                 });

@@ -8,9 +8,9 @@ module.exports = function ( _gulp, _plugins, _app ) {
     gulp = _gulp;
     plugins = _plugins;
     app = _app;
-
-    // Recursion breakOff object.
-    let _requestedTasknames = [];
+console.log('===============');
+console.log(app.config.paths);
+    const CONF_FOLDER = app.const.root + '/' + app.config.paths.path.gulpConfigurations;
 
     return {
 
@@ -20,9 +20,9 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * TODO
          */
         'getFolders': function (dir) {
-            return fs.readdirSync(dir)
+            return app.modules.fs.readdirSync(dir)
                 .filter(function (file) {
-                    return fs.statSync(path.join(dir, file)).isDirectory();
+                    return app.modules.fs.statSync(path.join(dir, file)).isDirectory();
                 });
         },
 
@@ -36,7 +36,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
         'loadConfig': function (file) {
             let json = null;
             if (null !== file) {
-                let configFile = fs.readFileSync(file, 'utf-8');
+                let configFile = app.modules.fs.readFileSync(file, 'utf-8');
 
                 if (null !== configFile) {
                     json = JSON.parse(configFile);
@@ -57,7 +57,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 recursive = true;
             }
 
-            return app.modules.requireDir(app.const.root + '/conf', {recurse: recursive});
+            return app.modules.requireDir(CONF_FOLDER, {recurse: recursive});
         }
     }
 };

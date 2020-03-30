@@ -21,7 +21,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @return {map}
          * TODO
          */
-        'loadTaskConfigs': function () {
+        '__loadTaskConfigs': function () {
             return app.modules.requireDir(GULP_TASKS_FOLDER, {recurse: true, duplicates: false});
         },
 
@@ -34,7 +34,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @return {Array}
          * TODO
          */
-        'lookupDependentTasknames': function (jsonTasks, taskname, currentTask) {
+        '__lookupDependentTasknames': function (jsonTasks, taskname, currentTask) {
             const TASK_FOLDER_PREFIX = '.';
             let tasknames = [];
 
@@ -99,7 +99,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @return {*}
          * TODO
          */
-        'lookupTaskFunction': function (jsonTasks, taskname) {
+        '__lookupTaskFunction': function (jsonTasks, taskname) {
             let taskvalue = null;
 
             // Wenn das uebergebene jsonTasks Objekt nicht null ist
@@ -138,7 +138,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @return {Array}
          * TODO
          */
-        'lookupTasknames' : function (jsonTasks) {
+        '__lookupTasknames' : function (jsonTasks) {
             let tasknames = [];
 
             // Wenn das uebergebene jsonTasks Objekt nicht null ist
@@ -172,7 +172,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param cb
          * TODO
          */
-        'registerDependingTasks': function (jsonTasks, tasknames, cb) {
+        '__registerDependingTasks': function (jsonTasks, tasknames, cb) {
             if ( app.fn.typeChecks.isArray( tasknames ) ) {
                 for ( let taskname of tasknames ) {
                     let flag = false;
@@ -201,7 +201,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param additionalTasknames
          * TODO
          */
-        'registerDependingTasksNeu': function ( jsonTasks, currentTask, additionalTasknames) {
+        '__registerDependingTasksNeu': function ( jsonTasks, currentTask, additionalTasknames) {
             let tasknames = app.fn.helper.getMergedArray(
                 this.lookupDependentTasknames(app.tasks, currentTask, currentTask),
                 additionalTasknames
@@ -248,7 +248,7 @@ console.log(tasknames);
          * @param cb
          * TODO
          */
-        'registerTask': function ( taskfunction, cb ) {
+        '__registerTask': function ( taskfunction, cb ) {
             if ( app.fn.typeChecks.isFunction( taskfunction ) ) {
                 taskfunction( gulp, plugins, app, cb );
             }
@@ -261,7 +261,7 @@ console.log(tasknames);
          * @param cb
          * TODO
          */
-        'registerTasks': function ( jsonTasks, cb ) {
+        '__registerTasks': function ( jsonTasks, cb ) {
             if ( jsonTasks !== null ) {
                 for (let key in jsonTasks) {
                     if ( key !== null
@@ -299,7 +299,7 @@ console.log(tasknames);
          * @return {*}
          * TODO
          */
-        'showTasknames' : function (jsonTasks) {
+        '__showTasknames' : function (jsonTasks) {
             let tasknames = this.lookupTasknames(jsonTasks);
 
             if (tasknames !== null) {
@@ -341,7 +341,7 @@ console.log(tasknames);
          * @return {*}
          * TODO
          */
-        'task': function (task) {
+        '__task': function (task) {
             return requireDir(app.const.root + '/tasks/' + task)(gulp, plugins, config, tasks);
         },
 
@@ -352,7 +352,7 @@ console.log(tasknames);
          * @return {*}
          * TODO
          */
-        'taskname': function (filename) {
+        '__taskname': function (filename) {
             return app.modules.path.basename(filename,
                 app.modules.path.extname(filename)
             );
@@ -367,7 +367,7 @@ console.log(tasknames);
          * @param bParallelTasks
          * @returns {*}
          */
-        'defineTask': function (taskname, dependingTasks, taskFunction, bParallelTasks = false) {
+        '__defineTask': function (taskname, dependingTasks, taskFunction, bParallelTasks = false) {
             if (app.fn.typeChecks.isNotEmptyString(taskname)) {
 
                 if (app.fn.typeChecks.isNotEmpty(dependingTasks)) {
@@ -424,7 +424,7 @@ console.log(taskname + ': ' + taskFunction);
          * @returns {boolean}
          * checks gulp tree for the given taskname. undefined or null will result in true.
          */
-        'isTaskDefined' : function (taskname) {
+        '__isTaskDefined' : function (taskname) {
             let bIsTaskDefined = true;
 
             if (app.fn.typeChecks.isNotEmptyString(taskname)) {
@@ -443,7 +443,7 @@ console.log(taskname + ': ' + taskFunction);
          * @returns {boolean}
          * each value is checked by isTaskDefined method. undefined or null will result in true.
          */
-        'isEachTaskDefined' : function (tasknames) {
+        '__isEachTaskDefined' : function (tasknames) {
             let bIsEachTaskDefined = true;
 
             if (app.fn.typeChecks.isNotEmpty(tasknames)) {
@@ -478,7 +478,7 @@ console.log(taskname + ': ' + taskFunction);
          * @param taskname
          * @private
          */
-        '_endlessRecursionBreakOff' : function (taskname) {
+        '___endlessRecursionBreakOff' : function (taskname) {
             // remove already registered tasknames
             for (let requestedTaskname of _requestedTasknames) {
                 if (this.isTaskDefined(requestedTaskname)) {
