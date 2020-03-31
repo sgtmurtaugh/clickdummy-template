@@ -1,8 +1,8 @@
 {
   "path": {
-    "configurations": "conf",
-    "functions": "script/functions",
-    "gulpTasks": "script/gulp-tasks",
+    "gulpConfigurations": "gulp/conf",
+    "gulpFunctions": "gulp/functions",
+    "gulpTasks": "gulp/tasks",
     "dist": "dist",
     "src": "src",
     "test": "test",

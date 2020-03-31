@@ -12,6 +12,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
     // Recursion breakOff object.
     let _requestedTasknames = [];
 
+    const GULP_TASKS_FOLDER = app.const.root + '/' + app.config.paths.path.gulpTasks;
+
     return {
 
         /**
@@ -33,7 +35,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @return {map}
          */
         'loadTaskConfigs': function () {
-            return app.modules.requireDir(app.const.root + '/' + app.config.paths.path.gulpTasks, {
+            return app.modules.requireDir(GULP_TASKS_FOLDER, {
                 recurse: true,
                 duplicates: false
             });

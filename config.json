@@ -1,0 +1,53 @@
+{
+  "PORT": 8000,
+  "COMPATIBILITY": [
+    "last 2 versions",
+    "ie >= 9"
+  ],
+  "UNCSS_OPTIONS": {
+    "html": [
+      "src/**/*.html"
+    ],
+    "ignore": [
+      "!!js/regexp .foundation-mq",
+      "!!js/regexp ^\.is-.*"
+    ]
+  },
+  "PATHS": {
+    "dist": "dist",
+    "assets": [
+      "src/assets/**/*",
+      "!src/assets/{img,js,scss}/**/*"
+    ],
+    "sass": [
+      "node_modules/foundation-sites/scss",
+      "node_modules/motion-ui/src"
+    ],
+    "javascript": [
+      "src/assets/js/**/app.js",
+      "src/assets/js/**/!(app).js"
+    ]
+  },
+  "PROJECT": {
+    "name": "clickdummy-template",
+    "version": "0.0.1",
+    "paths": {
+      "dist": "dist",
+      "src": "src",
+      "sass": [
+        "node_modules/foundation-sites/scss",
+        "node_modules/motion-ui/src"
+      ],
+      "javascript": [
+        "node_modules/jquery/dist/jquery.js",
+        "node_modules/what-input/what-input.js",
+        "node_modules/foundation-sites/js/foundation.core.js",
+        "node_modules/foundation-sites/js/foundation.util.*.js",
+        "node_modules/foundation-sites/js/foundation.accordion.js",
+        "node_modules/foundation-sites/js/foundation.sticky.js",
+        "node_modules/foundation-sites/js/foundation.tabs.js",
+        "node_modules/foundation-sites/js/foundation.tooltip.js"
+      ]
+    }
+  }
+}

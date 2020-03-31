@@ -1,7 +1,5 @@
 'use strict';
 
-// let typeChecks = require('./type-checks');
-
 let gulp;
 let plugins;
 let app;
@@ -10,9 +8,6 @@ module.exports = function ( _gulp, _plugins, _app ) {
     gulp = _gulp;
     plugins = _plugins;
     app = _app;
-
-    // Recursion breakOff object.
-    let _requestedTasknames = [];
 
     return {
 
@@ -26,8 +21,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
         'getMergedArray': function (obj1, obj2) {
             let mergedArray = [];
 
-            if (typeChecks.isNotEmpty(obj1)) {
-                if (typeChecks.isArray(obj1)) {
+            if (isNotEmpty(obj1)) {
+                if (app.functions.typeChecks.isArray(obj1)) {
                     mergedArray = mergedArray.concat(obj1);
                 }
                 else {
@@ -35,8 +30,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 }
             }
 
-            if (typeChecks.isNotEmpty(obj2)) {
-                if (typeChecks.isArray(obj2)) {
+            if (app.functions.typeChecks.isNotEmpty(obj2)) {
+                if (app.functions.typeChecks.isArray(obj2)) {
                     mergedArray = mergedArray.concat(obj2);
                 }
                 else {

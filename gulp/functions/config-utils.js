@@ -24,9 +24,9 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * TODO
          */
         'getFolders': function (dir) {
-            return fs.readdirSync(dir)
+            return app.modules.fs.readdirSync(dir)
                 .filter(function (file) {
-                    return fs.statSync(path.join(dir, file)).isDirectory();
+                    return app.modules.fs.statSync(path.join(dir, file)).isDirectory();
                 });
         },
 
@@ -40,7 +40,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
         'loadConfig': function (file) {
             let json = null;
             if (null !== file) {
-                let configFile = fs.readFileSync(file, 'utf-8');
+                let configFile = app.modules.fs.readFileSync(file, 'utf-8');
 
                 if (null !== configFile) {
                     json = JSON.parse(configFile);

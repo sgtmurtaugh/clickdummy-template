@@ -2,12 +2,7 @@
   "author": {
     "name": "Carsten Kraus",
     "email": "sgtmurtaugh@gmx.de",
-    "url": ""
-  },
-  "_babel": {
-    "presets": [
-      "es2015"
-    ]
+    "url": "https://sgtmurtaugh.github.io/clickdummy-template"
   },
   "bin": {
     "clickdummy-template": "./dist/clickdummy-template.js"
