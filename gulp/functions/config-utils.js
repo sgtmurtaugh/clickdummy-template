@@ -9,6 +9,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
     plugins = _plugins;
     app = _app;
 
+    const MAIN_CONFIG_FILE = 'config.yml'
+    // TODO get path from main config file!
+    const CONF_FOLDER = app.const.root + '/gulp/conf';
+
     // Recursion breakOff object.
     let _requestedTasknames = [];
 
@@ -57,7 +61,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 recursive = true;
             }
 
-            return app.modules.requireDir(app.const.root + '/conf', {recurse: recursive});
+            return app.modules.requireDir(CONF_FOLDER, {recurse: recursive});
         }
     }
 };

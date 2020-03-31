@@ -606,14 +606,14 @@
 
 let gulp = require('gulp');
 let gulpPlugins = require('gulp-load-plugins');
-let yargs = require('yargs');
+// let yargs = require('yargs');
 let path = require('path');
 
 // Load all Gulp plugins into one variable
 const plugins = gulpPlugins();
 
+// 'isProductive': !!(yargs.argv.production),
 const app = {
-    'isProductive': !!(yargs.argv.production),
     'const' : {
         'root': path.resolve(__dirname)
     },
@@ -624,6 +624,8 @@ const app = {
     'config': {},
     'tasks': {}
 };
+
+process.env.NODE_ENV =
 
 console.log( 'isProductive: ' + app.isProductive );
 console.log( 'application root: ' + app.const.root );
