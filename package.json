@@ -29,23 +29,25 @@
     "foundation-sites": "^6.6.1",
     "jquery-ui": "^1.12.1",
     "what-input": "^5.2.7",
-    "foundation-sites-extensions": "^0.3.1",
-    "underscore": "^1.9.2"
+    "foundation-sites-extensions": "^0.3.1"
   },
   "description": "clickdummy-template based on the official ZURB Template for Foundation for Sites.",
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/register": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
-    "config": "^3.3.1",
     "yargs": "^15.3.1",
+    "config": "^3.3.1",
+    "js-yaml": "^3.13.1",
     "gulp": "^4.0.2",
     "gulp-load-plugins": "^2.0.2",
     "require-dir": "^1.2.0",
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "jquery": "^3.4.1",
+    "underscore": "^1.9.2",
+    "console-logging": "^2019.1.0"
   },
   "_todo": {
-    "jquery": "^3.4.1",
     "browser-sync": "^2.26.7",
     "es6-promise": "^4.2.8",
     "rimraf": "^3.0.2",
@@ -53,7 +55,6 @@
     "style-sherpa": "^1.0.2",
     "resize-img": "^2.0.0",
     "config-yaml": "^1.1.4",
-    "js-yaml": "^3.13.1",
     "node-sprite-generator": "^0.10.2",
     "gulp-sprite-generator3": "^0.1.0",
     "gulp-svg-sprite": "^1.5.0",

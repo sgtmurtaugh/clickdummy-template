@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO Make this part of a global package for other projects
+
 let gulp;
 let plugins;
 let app;
@@ -11,8 +13,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
     // Recursion breakOff object.
     let _requestedTasknames = [];
-
-    const GULP_TASKS_FOLDER = app.const.root + '/' + app.config.paths.path.gulpTasks;
+// TODO
+    const GULP_TASKS_FOLDER = app.const.root + '/gulp/tasks';// + app.config.paths.path.gulpTasks;
 
     return {
 

@@ -1,6 +1,6 @@
 'use strict';
 
-// let fs = require('fs');
+// TODO Make this part of a global package for other projects
 
 let gulp;
 let plugins;

@@ -61,14 +61,14 @@
 //         return yaml.load(configFile);
 //     }
 //     else {
-//         configFile = fs.readFileSync('config.json', 'utf-8');
+//         configFile = fs.readFileSync('config.json_x', 'utf-8');
 //
 //         if (utils.typechecks.isNotEmpty(configFile)) {
-//             // return loaded config.json
+//             // return loaded config.json_x
 //             return JSON.parse(configFile);
 //         }
 //         else {
-//             console.log("nether an config.yml nor an config.json configuration file can be found!");
+//             console.log("nether an config.yml nor an config.json_x configuration file can be found!");
 //             return null;
 //         }
 //     }
@@ -615,35 +615,35 @@ const plugins = gulpPlugins();
 // 'isProductive': !!(yargs.argv.production),
 const app = {
     'const' : {
-        'root': path.resolve(__dirname)
+        'root': path.resolve(__dirname),
+        'fileEncoding': "utf-8"
     },
     'modules' : {
         'path': path
     },
     'fn' : {},
     'config': {},
-    'tasks': {}
+    'tasks': {},
+    "logger": null
 };
 
-process.env.NODE_ENV =
-
-console.log( 'isProductive: ' + app.isProductive );
-console.log( 'application root: ' + app.const.root );
+// Environment setzen, wenn dies nicht automatisch passiert
+// process.env.NODE_ENV =
 
 let fn = require('./gulp/functions')(gulp, plugins, app);
 console.log( 'successfully'.green + ' loaded script functions.' );
 
 app.fn = fn;
-app.config = fn.config.loadConfigs();
+app.config = fn.config.loadAppConfigs();
 console.log( 'successfully'.green + ' loaded application configs.' );
 
 app.tasks = fn.tasks.loadTaskConfigs();
-console.log( 'successfully'.green + ' loaded gulp task configs.' );
+console.log( 'successfully'.green + ' loaded configs.' );
 
 /*
  * load dynamically all tasks
  */
-fn.tasks.registerTasks( app.tasks );
+//fn.tasks.registerTasks( app.tasks );
 console.log( 'successfully'.green + ' registered gulp tasks.' );
 
 /* ==============================
@@ -655,3 +655,7 @@ console.log( 'successfully'.green + ' registered gulp tasks.' );
  *  # fix Tasks
  * ============================== */
 // nothing todo
+
+if (null !== app.logger ) {
+    app.logger.info( 'current environment: '.cyan + process.env.NODE_ENV);
+}

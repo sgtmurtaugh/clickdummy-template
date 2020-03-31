@@ -1,6 +1,6 @@
 'use strict';
 
-// let path = require('path');
+// TODO Make this part of a global package for other projects
 
 let gulp;
 let plugins;
@@ -32,14 +32,14 @@ module.exports = function ( _gulp, _plugins, _app ) {
     
                 // add each keyList entry definition to devDependencies (multiple values possible)
                 for ( let key of keyList ) {
-                    if ( app.fn.npm.hasOwnProperty( json, key ) ) {
-                        if ( app.fn.npm.hasOwnProperty( json[key], 'npm')) {
+                    if ( this.hasOwnProperty( json, key ) ) {
+                        if ( this.hasOwnProperty( json[key], 'npm')) {
                             // for each key npm dependency
                             for ( let npmConfigKey in json[key].npm ) {
                                 if ( npmConfigKey !== null
                                         && json.hasOwnProperty(npmConfigKey) ) {
 
-                                    if ( app.fn.npm.hasOwnProperty( json[key].npm, npmConfigKey ) ) {
+                                    if ( this.hasOwnProperty( json[key].npm, npmConfigKey ) ) {
                                         packageJson.devDependencies[npmConfigKey] = json[key].npm[npmConfigKey];
                                     }
                                 }
@@ -80,7 +80,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     devDependencies: {}
                 };
 
-                if (app.fn.npm.hasOwnProperty(json, 'npm')) {
+                if (this.hasOwnProperty(json, 'npm')) {
                     // add entry in devDependencies
                     packageJson.devDependencies = json.npm;
     
@@ -118,7 +118,58 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     .pipe( gulp.dest( app.wizard.projectFolder ) );
             }
             cb();
-        }
+        },
 
+
+        /*
+         * getOwnPropertyValue
+         * @param json
+         * @param key
+         * <p>Delegates to <code>hasOwnProperty(json, key) and if the check is true the key used as json access key and the
+         * return value will be returned.</code>
+         */
+        'getOwnPropertyValue' : function (json, key) {
+            if (this.hasOwnProperty(json, key)) {
+                return json[key];
+            }
+            return null;
+        },
+
+
+        /*
+         * hasOwnProperty
+         * @param json
+         * @param key
+         * <p>When both parameters are not null/empty the <code>hasOwnProperty(key)</code> is called on the json parameter with
+         * the key as parameter.
+         * The boolean return value will also returned. If the initial empty check fails false is returned.
+         */
+        'hasOwnProperty' : function (json, key) {
+            if (!app.functions.typeChecks.isEmpty(json)
+                && !app.functions.typeChecks.isEmpty(key)) {
+
+                return json.hasOwnProperty(key);
+            }
+            else {
+                if (app.functions.typeChecks.isEmpty(json)) {
+                    console.log('[warn] hasOwnProperty: json parameter is null/empty.');
+                }
+                if (app.functions.typeChecks.isEmpty(key)) {
+                    console.log('[warn] hasOwnProperty: key parameter is null/empty.');
+                }
+            }
+            return false;
+        },
+
+        /*
+         * hasOwnPropertyValue
+         * @param json
+         * @param key
+         * <p>Delegate to <code>getOwnPropertyValue(json, key)</code> and determines the return type. This value is delegated
+         * to <code>app.functions.typeChecks.isEmpty(obj)</code> analyse for emptyness. The inverted boolean is returned.
+         */
+        'hasOwnPropertyValue' : function (json, key) {
+            return (! app.functions.typeChecks.isEmpty( getOwnPropertyValue(json, key)));
+        }
     };
 };
