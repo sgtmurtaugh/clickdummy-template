@@ -615,47 +615,173 @@ const plugins = gulpPlugins();
 // 'isProductive': !!(yargs.argv.production),
 const app = {
     'const' : {
-        'root': path.resolve(__dirname),
-        'fileEncoding': "utf-8"
+        'env': {
+            'name': 'development'
+        },
+        'fileEncoding': "utf-8",
+        'paths': {
+            'root': path.resolve(__dirname),
+            'config': '/conf/',
+            'gulpConfig': '/gulp/conf/',
+            'gulpTasks': '/gulp/tasks/',
+            'gulpFunctions': '/gulp/fn/',
+        }
     },
     'modules' : {
         'path': path
     },
     'fn' : {},
-    'config': {},
+    'config': null,
     'tasks': {},
-    "logger": null
+    "logger": console
 };
 
-// Environment setzen, wenn dies nicht automatisch passiert
-// process.env.NODE_ENV =
-
-let fn = require('./gulp/functions')(gulp, plugins, app);
-console.log( 'successfully'.green + ' loaded script functions.' );
-
-app.fn = fn;
-app.config = fn.config.loadAppConfigs();
-console.log( 'successfully'.green + ' loaded application configs.' );
-
-app.tasks = fn.tasks.loadTaskConfigs();
-console.log( 'successfully'.green + ' loaded configs.' );
-
-/*
- * load dynamically all tasks
+/**
+ *
+ * @private
  */
-//fn.tasks.registerTasks( app.tasks );
-console.log( 'successfully'.green + ' registered gulp tasks.' );
+function _init() {
+    // preset evironment variables
+    _preInitConfigEnvironmentVariables();
 
-/* ==============================
- *  # fix Functions
- * ============================== */
-// nothing todo
+    // initialize and add required modules
+    _initModules();
 
-/* ==============================
- *  # fix Tasks
- * ============================== */
-// nothing todo
+    // init additional objects
+    _initAdditionalObjects();
 
-if (null !== app.logger ) {
-    app.logger.info( 'current environment: '.cyan + process.env.NODE_ENV);
+    // load dynamically all tasks
+    //fn.tasks.registerTasks( app.tasks );
+    app.logger.info("successful".green + " registered gulp tasks." );
+    app.logger.debug( "### > start app.tasks" );
+    app.logger.debug( app.tasks );
+    app.logger.debug( "### < end app.tasks" );
+
+    // load all gulpFunctions
+    app.fn = require( app.const.paths.root + app.const.paths.gulpFunctions )(gulp, plugins, app);
+    app.logger.info("successful".green + " loaded gulp functions." );
+    app.logger.debug( "### > start app.fn" );
+    app.logger.debug( app.fn );
+    app.logger.debug( "### < end app.fn" );
+
+    // postset environment variables
+    _postInitConfigEnvironmentVariables();
 }
+
+/**
+ *
+ * @private
+ */
+function _preInitConfigEnvironmentVariables() {
+    // set NODE_CONFIG_DIR for module config to ./config/:./gulp/conf
+    process.env["NODE_CONFIG_DIR"] = app.const.root + app.const.configPath
+        + app.modules.path.delimiter
+        + app.const.root + app.const.gulpConfigPath;
+
+    app.logger.info("successful".green + " set pre initialization environment variables" );
+    app.logger.debug( "### > start process.env" );
+    app.logger.debug( process.env );
+    app.logger.debug( "### < end process.env" );
+}
+
+function _postInitConfigEnvironmentVariables() {
+    if ( app.fn.typechecks.isEmpty( process.env.NODE_ENV ) ) {
+        // TODO Helper schreiben
+        if ( app.config.has( "environment" ) ) {
+            process.env.NODE_ENV = app.config.get( "environment" );
+            app.logger.info( "set default environment: ".cyan + process.env.NODE_ENV );
+        }
+        else {
+            process.env.NODE_ENV = app.const.defaultEnvironment;
+            app.logger.info( "set default environment to app default: ".cyan + process.env.NODE_ENV );
+        }
+    }
+
+    app.logger.info("successful".green + " set post initialization environment variables" );
+    app.logger.debug( "### > start process.env" );
+    app.logger.debug( process.env );
+    app.logger.debug( "### < end process.env" );
+}
+
+/**
+ *
+ * @private
+ */
+function _initModules() {
+    app.modules['fs'] = require('fs');
+    app.modules['requireDir'] = require('require-dir');
+    app.modules['config'] = _initModuleConfig();
+    app.modules['jsyaml'] = require('js-yaml');
+    app.modules['underscore'] = require('underscore');
+    // Additional alias for underscore
+    app.modules['_'] = app.modules['underscore'];
+    app.modules['logging'] = require('console-logging');
+
+    app.logger.info("successful".green + " app modules loaded.");
+    app.logger.debug( "### > start app.modules" );
+    app.logger.debug( app.modules );
+    app.logger.debug( "### < end app.modules" );
+}
+
+/**
+ *
+ * @returns {CONFIG}
+ * @private
+ */
+function _initModuleConfig() {
+    // link loaded config module to additional alias 'app.config'
+    app.config = require('config');
+    app.logger.info("successful".green + " loaded module config." );
+    app.logger.debug( "### > start app.config" );
+    app.logger.debug( app.config );
+    app.logger.debug( "### < end app.config" );
+
+    // now the config module can be loaded and returned
+    return app.config;
+}
+
+/**
+ *
+ * @returns {*}
+ * @private
+ */
+function _initAdditionalObjects() {
+    // initalize logger;
+    app.logger = _initLogger();
+}
+
+/**
+ *
+ * @returns {{}}
+ * @private
+ */
+function _initLogger() {
+    var logger = app.modules.logging.logger;
+
+    const PROP_LOGLEVEL = 'logger.logLevel';
+    if ( null !== logger ) {
+        if ( app.config.has( PROP_LOGLEVEL ) ) {
+            let logLevel = app.config.get( PROP_LOGLEVEL );
+            logger.setLevel( logLevel );
+            app.logger.info("successful".green + " set logger logLevel: " + logLevel);
+        }
+
+        app.logger.info("successful".green + " logger initialized.");
+        app.logger.debug( "### > start app.logger" );
+        app.logger.debug( app.logger );
+        app.logger.debug( "### < end app.logger" );
+    }
+    return logger;
+}
+
+/**
+ *
+ */
+function run() {
+    // start initialization
+    _init();
+}
+
+
+// run application
+run();

@@ -39,7 +39,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
             let tasknames = [];
 
             // Wenn das uebergebene jsonTasks Objekt nicht null ist
-            if ( app.fn.typeChecks.isObject( jsonTasks ) ) {
+            if ( app.fn.typechecks.isObject( jsonTasks ) ) {
                 if ( taskname !== null ) {
                     let taskvalue = null;
 
@@ -52,17 +52,17 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     }
 
 
-                    if ( app.fn.typeChecks.isFunction(taskvalue) ) {
+                    if ( app.fn.typechecks.isFunction(taskvalue) ) {
 
                         // Only add Task, when it's not the current task! (-> recursion)
-                        if (app.fn.typeChecks.isEmpty(currentTask)
+                        if (app.fn.typechecks.isEmpty(currentTask)
                                 || currentTask !== taskname) {
 
                             tasknames.push(taskname);
                         }
                     }
                     else
-                    if ( app.fn.typeChecks.isObject(taskvalue) ) {
+                    if ( app.fn.typechecks.isObject(taskvalue) ) {
                         tasknames = tasknames.concat(
                             this.lookupDependentTasknames(taskvalue, null, currentTask)
                         );
@@ -75,11 +75,11 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                             let taskvalue = jsonTasks[jsonKey];
 
-                            if ( app.fn.typeChecks.isFunction(taskvalue) ) {
+                            if ( app.fn.typechecks.isFunction(taskvalue) ) {
                                 tasknames.push(jsonKey);
                             }
                             else
-                            if ( app.fn.typeChecks.isObject(taskvalue) ) {
+                            if ( app.fn.typechecks.isObject(taskvalue) ) {
                                 tasknames = tasknames.concat(
                                     this.lookupDependentTasknames(taskvalue, null, currentTask)
                                 );
@@ -103,7 +103,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
             let taskvalue = null;
 
             // Wenn das uebergebene jsonTasks Objekt nicht null ist
-            if ( app.fn.typeChecks.isObject( jsonTasks ) ) {
+            if ( app.fn.typechecks.isObject( jsonTasks ) ) {
                 // Wenn ein taskname uebergeben wurde, in dem JSON direkt nach einem Key taskname suchen
                 if ( taskname !== null ) {
                     if ( jsonTasks.hasOwnProperty(taskname) ) {
@@ -112,7 +112,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                     // Wenn der ermittelte Wert eine Task-Function ist, dann diese zurueckgeben, andernfalls den JSON
                     // Baumrekursiv durchsuchen.
-                    if ( ! app.fn.typeChecks.isFunction( taskvalue ) ) {
+                    if ( ! app.fn.typechecks.isFunction( taskvalue ) ) {
                         for ( let key in jsonTasks ) {
                             if ( key !== null
                                     && jsonTasks.hasOwnProperty(key) ) {
@@ -142,7 +142,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
             let tasknames = [];
 
             // Wenn das uebergebene jsonTasks Objekt nicht null ist
-            if ( app.fn.typeChecks.isObject( jsonTasks ) ) {
+            if ( app.fn.typechecks.isObject( jsonTasks ) ) {
 
                 for ( let taskname in jsonTasks ) {
                     if ( taskname !== null
@@ -150,7 +150,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                         let taskvalue = jsonTasks[taskname];
 
-                        if ( app.fn.typeChecks.isFunction(taskvalue) ) {
+                        if ( app.fn.typechecks.isFunction(taskvalue) ) {
                             tasknames.push(taskname);
                         }
                         else {
@@ -173,7 +173,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * TODO
          */
         'registerDependingTasks': function (jsonTasks, tasknames, cb) {
-            if ( app.fn.typeChecks.isArray( tasknames ) ) {
+            if ( app.fn.typechecks.isArray( tasknames ) ) {
                 for ( let taskname of tasknames ) {
                     let flag = false;
 
@@ -208,11 +208,11 @@ module.exports = function ( _gulp, _plugins, _app ) {
             );
 console.log('currentTask:' + currentTask);
 console.log(tasknames);
-            if ( app.fn.typeChecks.isNotEmpty( tasknames ) ) {
+            if ( app.fn.typechecks.isNotEmpty( tasknames ) ) {
                 for ( let taskname of tasknames ) {
                     let flag = false;
 
-                    if ( app.fn.typeChecks.isNotEmptyString( taskname ) ) {
+                    if ( app.fn.typechecks.isNotEmptyString( taskname ) ) {
                         if (!this.isTaskDefined(taskname)) {
                             this._endlessRecursionBreakOff(taskname);
 
@@ -232,7 +232,7 @@ console.log(tasknames);
                         }
                     }
                     else
-                    if ( app.fn.typeChecks.isNotEmpty( taskname ) ) {
+                    if ( app.fn.typechecks.isNotEmpty( taskname ) ) {
                         console.log('[WARN] Detected a Non-String Object in the task definitions! type : ' + (typeof taskname));
                         console.log(taskname);
                     }
@@ -249,7 +249,7 @@ console.log(tasknames);
          * TODO
          */
         'registerTask': function ( taskfunction, cb ) {
-            if ( app.fn.typeChecks.isFunction( taskfunction ) ) {
+            if ( app.fn.typechecks.isFunction( taskfunction ) ) {
                 taskfunction( gulp, plugins, app, cb );
             }
         },
@@ -271,12 +271,12 @@ console.log(tasknames);
 
                         if (!this.isTaskDefined(key)) {
                             // value is an Object. It might contain JSON SubTask definitions
-                            if ( app.fn.typeChecks.isObject( value ) ) {
+                            if ( app.fn.typechecks.isObject( value ) ) {
                                 this.registerTasks( value, cb );
                             }
                             // The value is a Task Function and can be registered
                             else
-                            if ( app.fn.typeChecks.isFunction( value ) ) {
+                            if ( app.fn.typechecks.isFunction( value ) ) {
                                 this.registerTask( value, cb );
                             }
                             // The value might be null or undefined
@@ -312,7 +312,7 @@ console.log(tasknames);
             }
 
             // Wenn das uebergebene jsonTasks Objekt nicht null ist
-            if ( app.fn.typeChecks.isObject( jsonTasks ) ) {
+            if ( app.fn.typechecks.isObject( jsonTasks ) ) {
 
                 for ( let taskname in jsonTasks ) {
                     if ( taskname !== null
@@ -320,7 +320,7 @@ console.log(tasknames);
 
                         let taskvalue = jsonTasks[taskname];
 
-                        if ( app.fn.typeChecks.isFunction(taskvalue) ) {
+                        if ( app.fn.typechecks.isFunction(taskvalue) ) {
                             tasknames.push(taskname);
                         }
                         else {
@@ -368,12 +368,12 @@ console.log(tasknames);
          * @returns {*}
          */
         'defineTask': function (taskname, dependingTasks, taskFunction, bParallelTasks = false) {
-            if (app.fn.typeChecks.isNotEmptyString(taskname)) {
+            if (app.fn.typechecks.isNotEmptyString(taskname)) {
 
-                if (app.fn.typeChecks.isNotEmpty(dependingTasks)) {
+                if (app.fn.typechecks.isNotEmpty(dependingTasks)) {
                     if (app.fn.tasks.isEachTaskDefined(dependingTasks)) {
-                        if (app.fn.typeChecks.isNotEmpty(taskFunction)
-                                && app.fn.typeChecks.isFunction(taskFunction)) {
+                        if (app.fn.typechecks.isNotEmpty(taskFunction)
+                                && app.fn.typechecks.isFunction(taskFunction)) {
 
                             if (!bParallelTasks) {
                                 gulp.task(taskname,
@@ -404,8 +404,8 @@ console.log(tasknames);
                 }
                 else {
 console.log(taskname + ': ' + taskFunction);
-                    if (app.fn.typeChecks.isNotEmpty(taskFunction)
-                            && app.fn.typeChecks.isFunction(taskFunction)) {
+                    if (app.fn.typechecks.isNotEmpty(taskFunction)
+                            && app.fn.typechecks.isFunction(taskFunction)) {
 
                         gulp.task(taskname,
                             taskFunction
@@ -427,7 +427,7 @@ console.log(taskname + ': ' + taskFunction);
         'isTaskDefined' : function (taskname) {
             let bIsTaskDefined = true;
 
-            if (app.fn.typeChecks.isNotEmptyString(taskname)) {
+            if (app.fn.typechecks.isNotEmptyString(taskname)) {
                 bIsTaskDefined = gulp.tree().nodes.includes(taskname);
             }
             else {
@@ -446,8 +446,8 @@ console.log(taskname + ': ' + taskFunction);
         'isEachTaskDefined' : function (tasknames) {
             let bIsEachTaskDefined = true;
 
-            if (app.fn.typeChecks.isNotEmpty(tasknames)) {
-                if (app.fn.typeChecks.isArray(tasknames)) {
+            if (app.fn.typechecks.isNotEmpty(tasknames)) {
+                if (app.fn.typechecks.isArray(tasknames)) {
                     for (let taskname of tasknames) {
                         bIsEachTaskDefined = this.isTaskDefined(taskname);
 
@@ -456,7 +456,7 @@ console.log(taskname + ': ' + taskFunction);
                     }
                 }
                 else
-                if (app.fn.typeChecks.isString(tasknames)) {
+                if (app.fn.typechecks.isString(tasknames)) {
                     bIsEachTaskDefined = this.isTaskDefined(tasknames);
                 }
                 else {

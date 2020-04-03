@@ -53,7 +53,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
         'isTaskDefined' : function (taskname) {
             let bIsTaskDefined = true;
 
-            if (app.fn.typeChecks.isNotEmptyString(taskname)) {
+            if (app.fn.typechecks.isNotEmptyString(taskname)) {
                 bIsTaskDefined = gulp.tree().nodes.includes(taskname);
             }
             else {
@@ -79,12 +79,12 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                         if (!this.isTaskDefined(key)) {
                             // value is an Object. It might contain JSON SubTask definitions
-                            if ( app.fn.typeChecks.isObject( value ) ) {
+                            if ( app.fn.typechecks.isObject( value ) ) {
                                 this.registerTasks( value, cb );
                             }
                             // The value is a Task Function and can be registered
                             else
-                            if ( app.fn.typeChecks.isFunction( value ) ) {
+                            if ( app.fn.typechecks.isFunction( value ) ) {
                                 this.registerTask( value, cb );
                             }
                             // The value might be null or undefined
@@ -108,7 +108,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param cb
          */
         'registerTask': function ( taskfunction, cb ) {
-            if ( app.fn.typeChecks.isFunction( taskfunction ) ) {
+            if ( app.fn.typechecks.isFunction( taskfunction ) ) {
                 taskfunction( gulp, plugins, app, cb );
             }
         },
@@ -121,7 +121,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * TODO
          */
         'registerDependingTasks': function (jsonTasks, tasknames, cb) {
-            if ( app.fn.typeChecks.isArray( tasknames ) ) {
+            if ( app.fn.typechecks.isArray( tasknames ) ) {
                 for ( let taskname of tasknames ) {
                     let flag = false;
 
@@ -151,11 +151,11 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @returns {*}
          */
         'defineTask': function (taskname, dependingTasks, taskFunction, bParallelTasks = false) {
-            if (app.fn.typeChecks.isNotEmptyString(taskname)) {
+            if (app.fn.typechecks.isNotEmptyString(taskname)) {
 
-                if (app.fn.typeChecks.isNotEmpty(dependingTasks)) {
+                if (app.fn.typechecks.isNotEmpty(dependingTasks)) {
                     if (this.isEachTaskDefined(dependingTasks)) {
-                        if (app.fn.typeChecks.isNotEmpty(taskFunction) && app.fn.typeChecks.isFunction(taskFunction)) {
+                        if (app.fn.typechecks.isNotEmpty(taskFunction) && app.fn.typechecks.isFunction(taskFunction)) {
                             if (!bParallelTasks) {
                                 // gulp.task(taskname,
                                 //     gulp.series(dependingTasks),
@@ -188,7 +188,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     }
                 }
                 else {
-                    if (app.fn.typeChecks.isNotEmpty(taskFunction) && app.fn.typeChecks.isFunction(taskFunction)) {
+                    if (app.fn.typechecks.isNotEmpty(taskFunction) && app.fn.typechecks.isFunction(taskFunction)) {
 
                         // gulp.task(taskname,
                         //     taskFunction
@@ -213,8 +213,8 @@ console.log(module.exports);
         'isEachTaskDefined' : function (tasknames) {
             let bIsEachTaskDefined = true;
 
-            if (app.fn.typeChecks.isNotEmpty(tasknames)) {
-                if (app.fn.typeChecks.isArray(tasknames)) {
+            if (app.fn.typechecks.isNotEmpty(tasknames)) {
+                if (app.fn.typechecks.isArray(tasknames)) {
                     for (let taskname of tasknames) {
                         bIsEachTaskDefined = this.isTaskDefined(taskname);
 
@@ -223,7 +223,7 @@ console.log(module.exports);
                     }
                 }
                 else
-                if (app.fn.typeChecks.isString(tasknames)) {
+                if (app.fn.typechecks.isString(tasknames)) {
                     bIsEachTaskDefined = this.isTaskDefined(tasknames);
                 }
                 else {

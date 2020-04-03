@@ -1,0 +1,6 @@
+{
+  "config": "production",
+  "logger": {
+    "logLevel": "CRITICAL"
+  }
+}

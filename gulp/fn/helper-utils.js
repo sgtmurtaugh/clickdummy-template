@@ -22,7 +22,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
             let mergedArray = [];
 
             if (isNotEmpty(obj1)) {
-                if (app.functions.typeChecks.isArray(obj1)) {
+                if (app.functions.typechecks.isArray(obj1)) {
                     mergedArray = mergedArray.concat(obj1);
                 }
                 else {
@@ -30,8 +30,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 }
             }
 
-            if (app.functions.typeChecks.isNotEmpty(obj2)) {
-                if (app.functions.typeChecks.isArray(obj2)) {
+            if (app.functions.typechecks.isNotEmpty(obj2)) {
+                if (app.functions.typechecks.isArray(obj2)) {
                     mergedArray = mergedArray.concat(obj2);
                 }
                 else {

@@ -1,0 +1,6 @@
+{
+  "config": "staging",
+  "logger": {
+    "logLevel": "CRITICAL"
+  }
+}

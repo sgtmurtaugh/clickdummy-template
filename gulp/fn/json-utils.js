@@ -23,8 +23,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
          */
         'addMultipleNPMEntriesToPackageConfiguration' : function (json, keyList, cb) {
             // when the json param and the keyList param are not empty
-            if (!app.fn.typeChecks.isEmpty(json)
-                && !app.fn.typeChecks.isEmpty(keyList)) {
+            if (!app.fn.typechecks.isEmpty(json)
+                && !app.fn.typechecks.isEmpty(keyList)) {
     
                 let packageJson = {
                     devDependencies: {}
@@ -145,16 +145,16 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * The boolean return value will also returned. If the initial empty check fails false is returned.
          */
         'hasOwnProperty' : function (json, key) {
-            if (!app.functions.typeChecks.isEmpty(json)
-                && !app.functions.typeChecks.isEmpty(key)) {
+            if (!app.functions.typechecks.isEmpty(json)
+                && !app.functions.typechecks.isEmpty(key)) {
 
                 return json.hasOwnProperty(key);
             }
             else {
-                if (app.functions.typeChecks.isEmpty(json)) {
+                if (app.functions.typechecks.isEmpty(json)) {
                     console.log('[warn] hasOwnProperty: json parameter is null/empty.');
                 }
-                if (app.functions.typeChecks.isEmpty(key)) {
+                if (app.functions.typechecks.isEmpty(key)) {
                     console.log('[warn] hasOwnProperty: key parameter is null/empty.');
                 }
             }
@@ -166,10 +166,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param json
          * @param key
          * <p>Delegate to <code>getOwnPropertyValue(json, key)</code> and determines the return type. This value is delegated
-         * to <code>app.functions.typeChecks.isEmpty(obj)</code> analyse for emptyness. The inverted boolean is returned.
+         * to <code>app.functions.typechecks.isEmpty(obj)</code> analyse for emptyness. The inverted boolean is returned.
          */
         'hasOwnPropertyValue' : function (json, key) {
-            return (! app.functions.typeChecks.isEmpty( getOwnPropertyValue(json, key)));
+            return (! app.functions.typechecks.isEmpty( getOwnPropertyValue(json, key)));
         }
     };
 };

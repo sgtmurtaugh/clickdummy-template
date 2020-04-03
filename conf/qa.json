@@ -1,0 +1,6 @@
+{
+  "config": "qa",
+  "logger": {
+    "logLevel": "CRITICAL"
+  }
+}

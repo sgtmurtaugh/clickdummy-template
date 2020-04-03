@@ -19,8 +19,15 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param options
          * <p>Logs file content to console
          */
-        'file': function (file, options = { encoding: 'utf-8', flag: 'rs' }) {
-            if (app.fn.typeChecks.isNotEmpty(file)) {
+        'initLogger': function (file, options = { encoding: 'utf-8', flag: 'rs' }) {
+            app.logger = app.logging.logger;
+
+
+
+            app.logger.setLevel( l )
+
+
+            if (app.fn.typechecks.isNotEmpty(file)) {
                 app.modules.fs.readFile(file, options, function(e, data) {
                     if (e) return console.log(e);
                     console.log(data);
