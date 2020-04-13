@@ -11,12 +11,11 @@ module.exports = function (_gulp, _plugins, _app) {
 
     return {
         '___config' : require('./config-utils')(gulp, plugins, app),
-        '___tasks' : require('./task-utils')(gulp, plugins, app),
         'typechecks' : require('./typechecks')(gulp, plugins, app),
         'messages' : require('./messages')(gulp, plugins, app),
         'helper' : require('./helper-utils')(gulp, plugins, app),
         'json' : require('./json-utils')(gulp, plugins, app),
         'log' : require('./log-utils')(gulp, plugins, app),
-        'tasks' : require('./new-task-utils')(gulp, plugins, app),
+        'tasks' : require('./task-utils_v3')(gulp, plugins, app),
     };
 };

@@ -616,15 +616,18 @@ const plugins = gulpPlugins();
 const app = {
     'const' : {
         'env': {
-            'name': 'development'
+            'default': 'development'
         },
-        'fileEncoding': "utf-8",
+        'fileEncoding': 'utf-8',
         'paths': {
             'root': path.resolve(__dirname),
             'config': '/conf/',
             'gulpConfig': '/gulp/conf/',
             'gulpTasks': '/gulp/tasks/',
             'gulpFunctions': '/gulp/fn/',
+        },
+        'regex': {
+            'stringSeparator': ',; '
         }
     },
     'modules' : {
@@ -633,7 +636,7 @@ const app = {
     'fn' : {},
     'config': null,
     'tasks': {},
-    "logger": console
+    'logger': console
 };
 
 /**
@@ -650,22 +653,21 @@ function _init() {
     // init additional objects
     _initAdditionalObjects();
 
-    // load dynamically all tasks
-    //fn.tasks.registerTasks( app.tasks );
-    app.logger.info("successful".green + " registered gulp tasks." );
-    app.logger.debug( "### > start app.tasks" );
-    app.logger.debug( app.tasks );
-    app.logger.debug( "### < end app.tasks" );
+    /* ### logger is now avaible ### */
 
     // load all gulpFunctions
-    app.fn = require( app.const.paths.root + app.const.paths.gulpFunctions )(gulp, plugins, app);
-    app.logger.info("successful".green + " loaded gulp functions." );
-    app.logger.debug( "### > start app.fn" );
-    app.logger.debug( app.fn );
-    app.logger.debug( "### < end app.fn" );
+    _loadGulpFunctions();
+
+    // load dynamically all tasks
+    _initGulpTasks();
 
     // postset environment variables
     _postInitConfigEnvironmentVariables();
+
+    // optional log output for 'must have' objects
+//    app.fn.log.traceObject( 'app.config', app.config );
+//    app.fn.log.traceObject( 'app.fn', app.fn );
+//    app.fn.log.traceObject( 'app.tasks', app.tasks );
 }
 
 /**
@@ -674,33 +676,31 @@ function _init() {
  */
 function _preInitConfigEnvironmentVariables() {
     // set NODE_CONFIG_DIR for module config to ./config/:./gulp/conf
-    process.env["NODE_CONFIG_DIR"] = app.const.root + app.const.configPath
+    process.env['NODE_CONFIG_DIR'] = app.const.root + app.const.configPath
         + app.modules.path.delimiter
         + app.const.root + app.const.gulpConfigPath;
 
-    app.logger.info("successful".green + " set pre initialization environment variables" );
-    app.logger.debug( "### > start process.env" );
-    app.logger.debug( process.env );
-    app.logger.debug( "### < end process.env" );
+    app.logger.info('successful'.green + ' set pre initialization environment variables' );
 }
 
+/**
+ *
+ * @private
+ */
 function _postInitConfigEnvironmentVariables() {
     if ( app.fn.typechecks.isEmpty( process.env.NODE_ENV ) ) {
         // TODO Helper schreiben
-        if ( app.config.has( "environment" ) ) {
-            process.env.NODE_ENV = app.config.get( "environment" );
-            app.logger.info( "set default environment: ".cyan + process.env.NODE_ENV );
+        if ( app.config.has( 'environment' ) ) {
+            process.env.NODE_ENV = app.config.get( 'environment' );
+            app.logger.info( 'set default environment: '.cyan + process.env.NODE_ENV );
         }
         else {
-            process.env.NODE_ENV = app.const.defaultEnvironment;
-            app.logger.info( "set default environment to app default: ".cyan + process.env.NODE_ENV );
+            process.env.NODE_ENV = app.const.env.default;
+            app.logger.info( 'set default environment to app default: '.cyan + process.env.NODE_ENV );
         }
     }
 
-    app.logger.info("successful".green + " set post initialization environment variables" );
-    app.logger.debug( "### > start process.env" );
-    app.logger.debug( process.env );
-    app.logger.debug( "### < end process.env" );
+    app.logger.info('successful'.green + ' set post initialization environment variables' );
 }
 
 /**
@@ -717,10 +717,7 @@ function _initModules() {
     app.modules['_'] = app.modules['underscore'];
     app.modules['logging'] = require('console-logging');
 
-    app.logger.info("successful".green + " app modules loaded.");
-    app.logger.debug( "### > start app.modules" );
-    app.logger.debug( app.modules );
-    app.logger.debug( "### < end app.modules" );
+    app.logger.info('successful app modules loaded.' );
 }
 
 /**
@@ -731,10 +728,7 @@ function _initModules() {
 function _initModuleConfig() {
     // link loaded config module to additional alias 'app.config'
     app.config = require('config');
-    app.logger.info("successful".green + " loaded module config." );
-    app.logger.debug( "### > start app.config" );
-    app.logger.debug( app.config );
-    app.logger.debug( "### < end app.config" );
+    app.logger.info('successful loaded module config.' );
 
     // now the config module can be loaded and returned
     return app.config;
@@ -763,15 +757,35 @@ function _initLogger() {
         if ( app.config.has( PROP_LOGLEVEL ) ) {
             let logLevel = app.config.get( PROP_LOGLEVEL );
             logger.setLevel( logLevel );
-            app.logger.info("successful".green + " set logger logLevel: " + logLevel);
+            app.logger.info('successful'.green + ' set logger logLevel: ' + logLevel );
         }
 
-        app.logger.info("successful".green + " logger initialized.");
-        app.logger.debug( "### > start app.logger" );
-        app.logger.debug( app.logger );
-        app.logger.debug( "### < end app.logger" );
+        app.logger.info('successful logger initialized.' );
     }
     return logger;
+}
+
+/**
+ *
+ * @private
+ */
+function _loadGulpFunctions() {
+    app.fn = require( app.const.paths.root + app.const.paths.gulpFunctions )(gulp, plugins, app);
+    app.logger.info('successful'.green + ' loaded gulp functions.' );
+}
+
+/**
+ *
+ * @private
+ */
+function _initGulpTasks() {
+    // load task files
+    app.tasks = app.fn.tasks.loadTaskConfigs();
+    // app.fn.log.traceObject( 'app.tasks', app.tasks );
+
+    // register gulp tasks
+    app.fn.tasks.registerTasks( app.tasks );
+    // app.logger.info('successful'.green + ' registered gulp tasks.' );
 }
 
 /**

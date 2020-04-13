@@ -13,26 +13,24 @@ module.exports = function ( _gulp, _plugins, _app ) {
     app = _app;
 
     return {
+
         /**
-         * file
-         * @param file
-         * @param options
-         * <p>Logs file content to console
+         *
+         * @param msg
+         * @param obj
          */
-        'initLogger': function (file, options = { encoding: 'utf-8', flag: 'rs' }) {
-            app.logger = app.logging.logger;
-
-
-
-            app.logger.setLevel( l )
-
-
-            if (app.fn.typechecks.isNotEmpty(file)) {
-                app.modules.fs.readFile(file, options, function(e, data) {
-                    if (e) return console.log(e);
-                    console.log(data);
-                });
+        'traceObject': function (msg, obj) {
+            if ( app.fn.typechecks.isEmptyString( msg ) ) {
+                msg = ''; // TODO
             }
+
+            app.logger.debug( "#################### > start " + msg + " ####################" );
+            app.logger.debug( "" );
+            app.logger.debug( obj );
+            app.logger.debug( "" );
+            app.logger.debug( "#################### < end " + msg + " ####################" );
+            app.logger.debug( "" );
         }
+
     };
 };

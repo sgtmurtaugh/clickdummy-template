@@ -12,16 +12,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
     self = app.fn.tasks.taskname(__filename);
 
     // if necessary - register depending tasks
-    let self_tasks = app.fn.tasks.registerDependingTasks(self, app.tasks);
+    let self_tasks = app.fn.tasks.registerDependingTasks(app.tasks);
 
-    // define Task
-    // app.fn.tasks.defineTask(self, self_tasks, doBoo);
-    if ( self_tasks !== null ) {
-        module.exports[self] = gulp.series(self_tasks, doBoo);
-    }
-    else {
-        module.exports[self] = doBoo;
-    }
+    // define Task function
+    app.fn.tasks.defineTask(self, self_tasks, doBoo);
 };
 
 function doBoo(cb) {
