@@ -619,6 +619,11 @@ const app = {
             'default': 'development'
         },
         'fileEncoding': 'utf-8',
+        'modules': {
+            'flat': {
+                'delimiter': '.'
+            }
+        },
         'paths': {
             'root': path.resolve(__dirname),
             'config': '/conf/',
@@ -713,9 +718,9 @@ function _initModules() {
     app.modules['config'] = _initModuleConfig();
     app.modules['jsyaml'] = require('js-yaml');
     app.modules['underscore'] = require('underscore');
-    // Additional alias for underscore
-    app.modules['_'] = app.modules['underscore'];
+    app.modules['lodash'] = require('lodash');
     app.modules['logging'] = require('console-logging');
+    app.modules['flat'] = require('flat');
 
     app.logger.info('successful app modules loaded.' );
 }
@@ -782,9 +787,12 @@ function _initGulpTasks() {
     // load task files
     app.tasks = app.fn.tasks.loadTaskConfigs();
     // app.fn.log.traceObject( 'app.tasks', app.tasks );
+console.log('tasks:');
+console.log(app.tasks);
 
+    let unfinishedTasks = app.modules.flat.flatten(Object.assign({}, app.tasks));
     // register gulp tasks
-    app.fn.tasks.registerTasks( app.tasks );
+    app.fn.tasks.registerTasks( unfinishedTasks );
     // app.logger.info('successful'.green + ' registered gulp tasks.' );
 }
 

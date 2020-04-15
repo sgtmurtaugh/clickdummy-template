@@ -18,6 +18,10 @@ module.exports = function (_gulp, _plugins, _app) {
     app.fn.tasks.defineTask(self, self_tasks, 'usage');
 };
 
+/**
+ * usage
+ * @param cb
+ */
 function usage(cb) {
     console.log('\r\n');
     console.log('List of all registered tasks:'.bold);

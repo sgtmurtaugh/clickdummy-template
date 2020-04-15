@@ -11,10 +11,24 @@ module.exports = function ( _gulp, _plugins, _app ) {
     plugins = _plugins;
     app = _app;
 
-    // Recursion breakOff object.
-    let _requestedTasknames = [];
-// TODO
-    const GULP_TASKS_FOLDER = app.const.paths.root + '/gulp/tasks';// + app.config.paths.path.gulpTasks;
+    /**
+     * TODO
+     * @type {{filter: (function(*): boolean), extensions: [string, string], ignores: [string, string, string]}}
+     */
+    const DEFAULT_FOLDER_OPTIONS = {
+        'extensions': [ '.js', '.json' ],
+        'filter': function ( absolutePath ) {
+            return true;
+        },
+        'ignores': [ '.ignore', '.exclude', 'node_modules' ]
+    };
+    module.exports.DEFAULT_FOLDER_OPTIONS = DEFAULT_FOLDER_OPTIONS;
+
+    /**
+     * TODO
+     * @type {string}
+     */
+    const GULP_TASKS_FOLDER = app.modules.path.join(app.const.paths.root, 'gulp', 'tasks');
 
     return {
 
@@ -22,11 +36,41 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * taskname
          * @param filename
          * @return {*}
-         * TODO
+         * Returns the basename for the given file without any path information - this basename is used as gulp taskname.
          */
         'taskname': function (filename) {
-            return app.modules.path.basename(filename,
-                app.modules.path.extname(filename)
+            let taskname = null;
+
+            if (app.fn.typechecks.isNotEmpty(filename)) {
+                let dirname = app.modules.path.dirname(filename);
+                let basename = app.modules.path.basename(filename,
+                    app.modules.path.extname(filename)
+                );
+
+                let regex = new RegExp(app.modules.path.sep, 'g');
+                let relativePath = app.modules.path.join(dirname, basename).replace(GULP_TASKS_FOLDER, '');
+
+                if (relativePath.startsWith(app.modules.path.sep)) {
+                    relativePath = relativePath.substr(1);
+                }
+                taskname = relativePath.replace(regex, app.const.modules.flat.delimiter);
+            }
+            return taskname;
+        },
+
+
+        /**
+         * subtasksFolder
+         * @param filename
+         * @param useFolderExtension - default is true
+         * @param folderExtension - default is '.d'
+         * @return {*}
+         * TODO
+         */
+        'subtasksFolder': function (filename, useFolderExtension = true, folderExtension =  '.d') {
+            return app.modules.path.join(
+                app.modules.path.dirname(filename),
+                this.taskname(filename) + ( useFolderExtension ? folderExtension : '' )
             );
         },
 
@@ -34,13 +78,93 @@ module.exports = function ( _gulp, _plugins, _app ) {
         /**
          * loadTaskConfigs
          * TODO
-         * @return {map}
+         * @param path
+         * @param options
+         * @returns {{}}
          */
-        'loadTaskConfigs': function () {
-            return app.modules.requireDir(GULP_TASKS_FOLDER, {
-                recurse: true,
-                duplicates: false
-            });
+        'loadTaskConfigs': function (path = GULP_TASKS_FOLDER, options = DEFAULT_FOLDER_OPTIONS) {
+            let tasks = {};
+
+            try {
+                if (app.modules.fs.existsSync(path)) {
+                    let files = app.modules.fs.readdirSync(path, {withFileTypes: true});
+
+                    for (let file of files) {
+                        let absoluteFile = app.modules.path.join(path, file);
+
+                        // handle ignores
+                        if ( options.ignores ) {
+                            let bIgnore = false;
+
+                            // split absolute file into its tokens
+                            let pathTokens = absoluteFile.split( app.modules.path.sep );
+                            for ( let ignore of options.ignores ) {
+
+                                // check each path token
+                                for ( let pathToken of pathTokens ) {
+                                    if ( pathToken.startsWith( ignore ) || pathToken.endsWith( ignore ) ) {
+                                        bIgnore = true;
+                                        break;
+                                    }
+                                }
+
+                                // ignore current file -> break ignore check
+                                if ( bIgnore ) {
+                                    break;
+                                }
+                            }
+
+                            // ignore current file -> skip file
+                            if ( bIgnore ) {
+                                continue;
+                            }
+                        }
+
+                        // eval filter -> skip file
+                        if (options.filter && !options.filter(absoluteFile)) {
+                            app.logger.info('file filtered!');
+                            continue;
+                        }
+
+                        let taskname = this.taskname(absoluteFile);
+console.log(taskname);
+
+                        if (app.modules.fs.statSync(absoluteFile).isDirectory()) {
+                            tasks[taskname] = this.loadTaskConfigs(absoluteFile);
+                            app.logger.debug('task folder added: ' + tasks[taskname]);
+                        }
+                        else {
+                            // file extensions
+                            let extension = app.modules.path.extname( file );
+                            if ( options.extensions ) {
+                                if ( app.fn.typechecks.isEmpty(extension) || !options.extensions.includes(extension) ) {
+                                    app.logger.debug('ignored by extension: ' + file);
+                                    continue;
+                                }
+                            }
+
+                            tasks[taskname] = require(absoluteFile);
+                            app.logger.debug('task added: ' + (typeof tasks[taskname]));
+                        }
+                    }
+console.log(tasks);
+
+/*
+                    tasks = app.modules.requireDir(path, {
+                        recurse: true,
+                        duplicates: false,
+                        filter: function (path) {
+                            return true;
+                        },
+                        extensions: ['.js']
+                    });
+*/
+                }
+            } catch(err) {
+                app.logger.info(err);
+            }
+
+            return tasks;
         },
 
 
@@ -160,7 +284,14 @@ module.exports = function ( _gulp, _plugins, _app ) {
                             // The value is a Task Function and can be registered
                             else
                             if ( app.fn.typechecks.isFunction( value ) ) {
-                                this.registerTask( value, cb );
+                                let bSuccess = this.registerTask( value, cb );
+
+                                if (!bSuccess) {
+                                    app.unfinished.push( key );
+                                }
+                                else {
+                                    delete jsonTasks[key];
+                                }
                             }
                             // The value might be null or undefined
                             else {

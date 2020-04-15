@@ -23,18 +23,21 @@ module.exports = function (_gulp, _plugins, _app) {
  * @param cb
  */
 function usage(cb) {
-    console.log('\r\nList of all registred tasks:\r\n');
+    console.log('\r\n');
+    console.log('List of all registered tasks:'.bold);
 
     let tasks = app.fn.tasks.lookupTasknames(app.tasks);
 
     if (null !== tasks) {
         for (let task of tasks) {
-            console.log(' - ' + task);
+            console.log(' - ' + task.yellow);
         }
     }
+
     console.log('');
-    console.log('npm start {taskname}\r\n');
-    console.log('or');
-    console.log('gulp {taskname}\r\n');
+    console.log('usage:'.bold);
+    console.log('  npm start '.green + '{taskname}'.italic.yellow);
+    console.log('or'.italic);
+    console.log('  gulp '.green + '{taskname}'.italic.yellow + '\r\n');
     cb();
 }

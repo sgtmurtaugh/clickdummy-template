@@ -45,7 +45,9 @@
     "colors": "^1.4.0",
     "jquery": "^3.4.1",
     "underscore": "^1.9.2",
-    "console-logging": "^2019.1.0"
+    "lodash": "^4.17.15",
+    "console-logging": "^2019.1.0",
+    "flat": "^5.0.0"
   },
   "_todo": {
     "browser-sync": "^2.26.7",

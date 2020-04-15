@@ -15,25 +15,26 @@ module.exports = function (_gulp, _plugins, _app) {
     let self_tasks = app.fn.tasks.registerDependingTasks(app.tasks);
 
     // define Task function
-    app.fn.tasks.defineTask(self, self_tasks, 'usage');
+    app.fn.tasks.defineTask(self, self_tasks, usage);
 };
 
+/**
+ * usage
+ * @param cb
+ */
 function usage(cb) {
-    console.log('\r\n');
-    console.log('List of all registered tasks:'.bold);
+    console.log('\r\nList of all registred tasks:\r\n');
 
     let tasks = app.fn.tasks.lookupTasknames(app.tasks);
 
     if (null !== tasks) {
         for (let task of tasks) {
-            console.log(' - ' + task.yellow);
+            console.log(' - ' + task);
         }
     }
-
     console.log('');
-    console.log('usage:'.bold);
-    console.log('  npm start '.green + '{taskname}'.italic.yellow);
-    console.log('or'.italic);
-    console.log('  gulp '.green + '{taskname}'.italic.yellow + '\r\n');
+    console.log('npm start {taskname}\r\n');
+    console.log('or');
+    console.log('gulp {taskname}\r\n');
     cb();
 }
