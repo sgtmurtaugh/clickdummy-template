@@ -5,7 +5,7 @@ let plugins;
 let app;
 let self;
 
-module.exports = function (_gulp, _plugins, _app) {
+module.exports = function ( _gulp, _plugins, _app ) {
     gulp = _gulp;
     plugins = _plugins;
     app = _app;
@@ -13,8 +13,12 @@ module.exports = function (_gulp, _plugins, _app) {
 
     // if necessary - register depending tasks
     let self_tasks = app.fn.tasks.registerDependingTasks(app.tasks);
-//    let self_tasks = ['usage'];
 
     // define Task function
-    app.fn.tasks.defineTask(self, self_tasks, 'usage');
+    app.fn.tasks.defineTask(self, self_tasks, doBoo2);
 };
+
+function doBoo2(cb) {
+    console.log('Boooooooo-yaaaaaaaah');
+    cb();
+}

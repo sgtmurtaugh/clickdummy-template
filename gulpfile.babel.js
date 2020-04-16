@@ -16,7 +16,7 @@ const app = {
     'const' : {
         'delimiters': {
             'tasks': {
-                'subtasks': '@'
+                'subtasks': ' :: '
             }
         },
         'env': {
@@ -120,6 +120,7 @@ function _initModules() {
     app.modules['lodash'] = require('lodash');
     app.modules['logging'] = require('console-logging');
     app.modules['flat'] = require('flat');
+    app.modules['arraySort'] = require('array-sort');
 
     app.logger.info('successful app modules loaded.' );
 }
@@ -195,7 +196,6 @@ function _initGulpTasks() {
 console.log('maxPasses: ' + maxPasses);
         while ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
             app.fn.tasks.registerTasks( unregisteredTasks );
-
             pass++;
 console.log('pass: ' + pass);
 

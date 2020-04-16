@@ -11,7 +11,7 @@ let app;
  * @param _gulp
  * @param _plugins
  * @param {{}} _app
- * @returns {{registerDependingTasks: registerDependingTasks, defineTask: defineTask, taskname: (function(string): null), isEachTaskDefined: (function((string|string[])): boolean), lookupTaskFunction: (function({}, string): null), registerTask: (function(fn): boolean), registerDependingTask: registerDependingTask, loadTaskConfigs: (function(string=, {}=): {}), lookupTasknames: (function({}): []), subtasksFolder: (function(string, boolean=, string=): string), isTaskDefined: (function(string): boolean), registerTasks: registerTasks}}
+ * @returns
  */
 module.exports = function ( _gulp, _plugins, _app ) {
     gulp = _gulp;
@@ -156,6 +156,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @return {*}
          * TODO
          */
+/*
         'lookupTaskFunction': function (jsonTasks, taskname) {
             let taskvalue = null;
 
@@ -186,38 +187,15 @@ module.exports = function ( _gulp, _plugins, _app ) {
             }
             return taskvalue;
         },
-
+*/
 
         /**
-         * lookupTasknames
-         * @param {{}} jsonTasks
-         * @return {string[]}
+         * getRegisteredGulpTasks
+         * @return {ProfileNode[]}
          * TODO
          */
-        'lookupTasknames' : function (jsonTasks) {
-            let tasknames = [];
-
-            // Wenn das uebergebene jsonTasks Objekt nicht null ist
-            if ( app.fn.typechecks.isObject( jsonTasks ) ) {
-
-                for ( let taskname in jsonTasks ) {
-                    if ( taskname !== null
-                            && jsonTasks.hasOwnProperty(taskname) ) {
-
-                        let taskvalue = jsonTasks[taskname];
-
-                        if ( app.fn.typechecks.isFunction(taskvalue) ) {
-                            tasknames.push(taskname);
-                        }
-                        else {
-                            tasknames = tasknames.concat(
-                                this.lookupTasknames(taskvalue)
-                            );
-                        }
-                    }
-                }
-            }
-            return tasknames;
+        'getRegisteredGulpTasks' : function () {
+            return gulp.tree().nodes;
         },
 
 
@@ -231,7 +209,11 @@ module.exports = function ( _gulp, _plugins, _app ) {
             let bIsTaskDefined = false;
 
             if (app.fn.typechecks.isNotEmptyString(taskname)) {
-                bIsTaskDefined = gulp.tree().nodes.includes( taskname );
+                let gulpTasks = this.getRegisteredGulpTasks();
+
+                if (app.fn.typechecks.isNotEmpty(gulpTasks)) {
+                    bIsTaskDefined = gulpTasks.includes( taskname );
+                }
             }
             return bIsTaskDefined;
         },
@@ -242,7 +224,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param unregisteredTasks {{}}
          * @param callback {function}
          */
-        // TODO dummy function muss unregisteredTasks aktualisieren im Fehler/nicht-Erfolgreich fall
+// TODO dummy function muss unregisteredTasks aktualisieren im Fehler/nicht-Erfolgreich fall
         'registerTasks': function ( unregisteredTasks, callback = function () {} ) {
             if ( app.fn.typechecks.isEmpty( unregisteredTasks ) ) {
                 app.logger.warn( 'no json tasks defined!' );
@@ -338,11 +320,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
             }
         },
 
-
         /**
          * TODO
          * @param {{}} jsonTasks
-         * @param {string} tasknames
+         * @param {string|string[]} tasknames
          * @param {fn} callback
          */
         'registerDependingTasks': function (jsonTasks, tasknames, callback) {
@@ -364,7 +345,6 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 }
             }
         },
-
 
         /**
          * defineTask
@@ -455,9 +435,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
             }
 
             return bIsEachTaskDefined;
-        },
+        }
     }
-
 }
 
 /**
