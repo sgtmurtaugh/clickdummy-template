@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="10.1.32.114" id="7e90cc1a-4011-41a2-8182-efe65220bfa2" port="22" customName="GSB 6.0 - hv1lxmap1114 (project level)" nameFormat="CUSTOM" username="cmadmin" />
+      <sshConfig authType="PASSWORD" host="10.1.32.115" id="04ab92f7-f6ca-4c4d-9568-19f9cc9cb95a" port="22" customName="GSB 6.0 - hv1lxmap1115 (project level)" nameFormat="CUSTOM" username="cmadmin" />
+      <sshConfig authType="PASSWORD" host="10.1.32.112" id="45289ac3-7ca6-41c2-b822-7ddfc6109b22" port="22" customName="GSB 6.0 - hv1lxmap1112 - DevQS (project level)" nameFormat="CUSTOM" username="cmadmin" />
+      <sshConfig authType="PASSWORD" host="10.1.32.111" id="43a5f8f4-f956-49a2-b132-6155edbeb968" port="22" customName="GSB 6.0 - hv1lxmap1111 - Contentserver (project level)" nameFormat="CUSTOM" username="cmadmin" />
+      <sshConfig authType="PASSWORD" host="10.1.32.117" id="61474f70-f7dd-4831-b9a0-82c7a4c56e7c" port="22" customName="GSB 6.0 - hv1lxmap1117 (project level)" nameFormat="CUSTOM" username="cmadmin" />
+      <sshConfig authType="PASSWORD" host="10.1.32.117" id="07663d6a-5f59-452d-804f-05c7b16c571a" port="22" customName="GSB 6.0 - hv1lxmap1117 (project level)" nameFormat="CUSTOM" username="cmadmin" />
+    </configs>
+  </component>
+</project>
