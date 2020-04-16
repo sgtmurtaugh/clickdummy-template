@@ -80,7 +80,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * loadTaskConfigs
          * TODO
          * @param {string} path
-         * @param {{}} options
+         * @param {{}} options [@see DEFAULT_FOLDER_OPTIONS]
          * @returns {{}}
          */
         'loadTaskConfigs': function (path = app.const.paths.gulpTasks, options = DEFAULT_FOLDER_OPTIONS) {
@@ -88,21 +88,24 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
             if ( _isPathExisting(path) ) {
                 let files = app.modules.fs.readdirSync(path, {withFileTypes: true});
+                let ignores = options.ignores || [];
+                let fnFilter = options.filter;
+                let bRecursive = options.recursive || false;
 
                 for (let file of files) {
                     let absoluteFile = app.modules.path.join(path, file);
 
                     // handle ignores
-                    if ( _handleTaskIgnores( absoluteFile, options.ignores ) ) {
+                    if ( _handleTaskIgnores( absoluteFile, ignores ) ) {
                         continue;
                     }
 
                     // eval filter -> skip file
-                    if ( _evalTaskFilter(absoluteFile, options.filter ) ) {
+                    if ( _evalTaskFilter(absoluteFile, fnFilter ) ) {
                         continue;
                     }
 
-                    // check taskname for illegal characters
+                    // check filename for illegal characters -> the taskname is constructed with gulp task structure and file name
                     if ( _illegalTaskname(file) ) {
                         continue;
                     }
@@ -115,119 +118,36 @@ module.exports = function ( _gulp, _plugins, _app ) {
                         continue;
                     }
 
-                    // recursive method call for directories.
+                    // when recusive flag true: recursive method call for directories.
                     if (app.modules.fs.statSync(absoluteFile).isDirectory()) {
+                        if (!bRecursive) {
+                            app.logger.debug(`recursive configuration is disabled and subfolder will be ignored: ${taskname}`);
+                            continue;
+                        }
+
                         // determine subtasks and add them to task json with current task name
                         tasks[taskname] = this.loadTaskConfigs(absoluteFile);
-                        app.logger.debug('task folder added: ' + taskname);
+                        app.logger.debug(`task folder added: ${taskname}`);
                     }
                     else {
                         // check file extensions
                         let extension = app.modules.path.extname( file );
                         if ( options.extensions ) {
                             if ( app.fn.typechecks.isEmpty(extension) || !options.extensions.includes(extension) ) {
-                                app.logger.debug('ignored by extension: ' + file);
+                                app.logger.debug(`ignored by extension: ${file}`);
                                 continue;
                             }
                         }
 
                         // add loaded file to task json
                         tasks[taskname] = require(absoluteFile);
-                        app.logger.debug('task added: ' + taskname + ' : ' + (typeof tasks[taskname]));
+                        app.logger.debug(`task added: ${taskname} : ${typeof tasks[taskname]}`);
                     }
                 }
             }
             return tasks;
         },
-/*
-        'backup_loadTaskConfigs': function (path = app.const.paths.gulpTasks, options = DEFAULT_FOLDER_OPTIONS) {
-            let tasks = {};
 
-            try {
-                if (app.modules.fs.existsSync(path)) {
-                    let files = app.modules.fs.readdirSync(path, {withFileTypes: true});
-
-                    for (let file of files) {
-                        let absoluteFile = app.modules.path.join(path, file);
-
-                        // handle ignores
-                        if ( options.ignores ) {
-                            let bIgnore = false;
-
-                            // split absolute file into its tokens
-                            let pathTokens = absoluteFile.split( app.modules.path.sep );
-                            for ( let ignore of options.ignores ) {
-
-                                // check each path token
-                                for ( let pathToken of pathTokens ) {
-                                    if ( pathToken.startsWith( ignore ) || pathToken.endsWith( ignore ) ) {
-                                        bIgnore = true;
-                                        break;
-                                    }
-                                }
-
-                                // ignore current file -> break ignore check
-                                if ( bIgnore ) {
-                                    break;
-                                }
-                            }
-
-                            // ignore current file -> skip file
-                            if ( bIgnore ) {
-                                continue;
-                            }
-                        }
-
-                        // eval filter -> skip file
-                        if (options.filter && !options.filter(absoluteFile)) {
-                            app.logger.info('file filtered!');
-                            continue;
-                        }
-
-                        let taskname = this.taskname(absoluteFile);
-
-                        // check taskname for illegal characters
-                        if ( file.indexOf( app.const.delimiters.tasks.subtasks ) > 0 ) {
-                            app.logger.warning('tasknames must not contain following character(s) : ' + app.const.delimiters.tasks.subtasks);
-                            app.logger.warning('task will be ignored! task: ' + taskname);
-                            continue;
-                        }
-
-                        // skip duplicate tasks
-                        if ( app.fn.typechecks.isNotEmpty( tasks[taskname] ) ) {
-                            app.logger.warning('task already defined! task: ' + taskname);
-                            continue;
-                        }
-
-                        // recursive method call for directories.
-                        if (app.modules.fs.statSync(absoluteFile).isDirectory()) {
-                            // determine subtasks and add them to task json with current task name
-                            tasks[taskname] = this.loadTaskConfigs(absoluteFile);
-                            app.logger.debug('task folder added: ' + taskname);
-                        }
-                        else {
-                            // check file extensions
-                            let extension = app.modules.path.extname( file );
-                            if ( options.extensions ) {
-                                if ( app.fn.typechecks.isEmpty(extension) || !options.extensions.includes(extension) ) {
-                                    app.logger.debug('ignored by extension: ' + file);
-                                    continue;
-                                }
-                            }
-
-                            // add loaded file to task json
-                            tasks[taskname] = require(absoluteFile);
-                            app.logger.debug('task added: ' + taskname + ' : ' + (typeof tasks[taskname]));
-                        }
-                    }
-                }
-            } catch(err) {
-                app.logger.error('Error while loading task definitions. please check definition files. ' + err);
-            }
-
-            return tasks;
-        },
-*/
 
         /**
          * lookupTaskFunction
@@ -249,10 +169,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                     // Wenn der ermittelte Wert eine Task-Function ist, dann diese zurueckgeben, andernfalls den JSON
                     // Baumrekursiv durchsuchen.
-                    if ( ! app.fn.typechecks.isFunction( taskvalue ) ) {
+                    if ( !app.fn.typechecks.isFunction( taskvalue ) ) {
                         for ( let key in jsonTasks ) {
                             if ( key !== null
-                                && jsonTasks.hasOwnProperty(key) ) {
+                                    && jsonTasks.hasOwnProperty(key) ) {
 
                                 taskvalue = this.lookupTaskFunction(jsonTasks[key], taskname);
 
@@ -282,7 +202,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                 for ( let taskname in jsonTasks ) {
                     if ( taskname !== null
-                        && jsonTasks.hasOwnProperty(taskname) ) {
+                            && jsonTasks.hasOwnProperty(taskname) ) {
 
                         let taskvalue = jsonTasks[taskname];
 
@@ -319,19 +239,20 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
         /**
          * registerTasks
-         * @param jsonTasks {{}}
+         * @param unregisteredTasks {{}}
          * @param callback {function}
          */
-        'registerTasks': function ( jsonTasks, callback ) {
-            if ( app.fn.typechecks.isEmpty( jsonTasks ) ) {
+        // TODO dummy function muss unregisteredTasks aktualisieren im Fehler/nicht-Erfolgreich fall
+        'registerTasks': function ( unregisteredTasks, callback = function () {} ) {
+            if ( app.fn.typechecks.isEmpty( unregisteredTasks ) ) {
                 app.logger.warn( 'no json tasks defined!' );
             }
             else {
-                for (let key in jsonTasks) {
+                for (let key in unregisteredTasks) {
                     if ( app.fn.typechecks.isNotEmpty( key )
-                            && jsonTasks.hasOwnProperty(key) ) {
+                            && unregisteredTasks.hasOwnProperty(key) ) {
 
-                        let value = jsonTasks[key];
+                        let value = unregisteredTasks[key];
 
                         if ( !this.isTaskDefined(key) ) {
                             // value is an Object. It might contain JSON SubTask definitions
@@ -344,19 +265,19 @@ module.exports = function ( _gulp, _plugins, _app ) {
                                 let bSuccess = this.registerTask( value, callback );
 
                                 if (!bSuccess) {
-                                    app.unfinished.push( key );
+// TODO                                    app.unfinished.push( key );
                                 }
                                 else {
-                                    delete jsonTasks[key];
+                                    delete unregisteredTasks[key];
                                 }
                             }
                             // The value might be null or undefined
                             else {
-                                app.logger.debug('The determined value Object will not be further processed! value : ' + value);
+                                app.logger.debug(`The determined value Object will not be further processed! value : ${value}`);
                             }
                         }
                         else {
-                            app.logger.debug('task already registred: ' + key);
+                            app.logger.debug(`task already registred: ${key}`);
                         }
                     }
                 }
@@ -367,13 +288,24 @@ module.exports = function ( _gulp, _plugins, _app ) {
         /**
          * TODO
          * @param {fn} taskfunction
+         * @param {fn} callback
          */
-        'registerTask': function ( taskfunction ) {
+        'registerTask': function ( taskfunction, callback ) {
             let bRegistered = false;
 
             if ( app.fn.typechecks.isFunction( taskfunction ) ) {
-                taskfunction( gulp, plugins, app );
-                bRegistered = true;
+                try {
+                    taskfunction( gulp, plugins, app );
+                    bRegistered = true;
+                }
+                catch (e) {
+// TODO
+//                    app.logger.error( e );
+                }
+            }
+
+            if ( !bRegistered ) {
+                callback();
             }
             return bRegistered;
         },
@@ -400,7 +332,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
                 // log error an call callback, if registration failed
                 if ( !bIsRegistered ) {
-                    app.logger.error('Task "' + taskname + '" not defined!');
+                    app.logger.error(`Task '${taskname}' not defined!`);
                     callback();
                 }
             }
@@ -420,7 +352,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
             else {
                 // handle strings if neccessary and split them into an array
                 if ( app.fn.typechecks.isString( tasknames ) ) {
-                    app.logger.debug( 'var tasknames is of type string. try to split values by "' + app.const.regex.stringSeparator + '".' );
+                    app.logger.debug(`var tasknames is of type string. try splitting into values by '${app.const.regex.stringSeparator}'.`);
                     tasknames = tasknames.split( app.const.regex.stringSeparator );
 // TODO: Was ist hier mit der split Zuweisung???
                 }
@@ -482,7 +414,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
                         gulp.task( taskname, taskFunction );
                     }
                     else {
-                        app.logger.debug('[warn] neither there is a task function nor subtasks defined for task "' + taskname + '"');
+                        app.logger.warning(`neither there is a task function nor subtasks defined for task. task: ${taskname}`);
                     }
                 }
 
@@ -541,7 +473,7 @@ function _isPathExisting(path) {
         try {
             bIsExisting = app.modules.fs.existsSync(path);
         } catch (err) {
-            app.logger.error('Error while loading task definitions. please check definition files. ' + err);
+            app.logger.error(`Error while loading task definitions. please check definition files. ${err}`);
         }
     }
     return bIsExisting;
@@ -598,8 +530,8 @@ function _evalTaskFilter(absfile, filter = function() {
 }) {
     let bFiltered = false;
 
-    if (filter && !filter(absfile)) {
-        app.logger.info('file filtered by special filter conditions. file:' + absfile );
+    if (app.fn.typechecks.isFunction(filter) && !filter(absfile)) {
+        app.logger.info(`file filtered by special filter conditions. file: ${absfile}`);
         bFiltered = true;
     }
     return bFiltered;
@@ -617,7 +549,7 @@ function _illegalTaskname(taskname, illegalChars = [ app.const.delimiters.tasks.
     let bIllegal = false;
 
     if ( app.fn.typechecks.isNotEmpty( taskname )
-                && app.fn.typechecks.isNotEmpty( illegalChars ) ) {
+            && app.fn.typechecks.isNotEmpty( illegalChars ) ) {
 
         // iter over all possible chars
         for ( let illegalChar of illegalChars ) {
@@ -625,8 +557,8 @@ function _illegalTaskname(taskname, illegalChars = [ app.const.delimiters.tasks.
             if ( app.fn.typechecks.isNotEmpty( illegalChar )
                     && taskname.indexOf( illegalChar ) > 0 ) {
 
-                app.logger.warning('tasknames must not contain following character(s) : ' + illegalChar);
-                app.logger.warning('  \'-> task will be ignored! task: ' + taskname);
+                app.logger.warning(`tasknames must not contain following character(s) : >>${illegalChar}<<`);
+                app.logger.warning(`  \'-> task will be ignored! task: ${taskname}`);
                 bIllegal = true;
                 break;
             }
@@ -655,6 +587,5 @@ function _isTaskDuplicate(tasks, taskname) {
             bDuplicate = true;
         }
     }
-
     return bDuplicate;
 }

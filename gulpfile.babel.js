@@ -186,9 +186,24 @@ function _initGulpTasks() {
     app.tasks = app.fn.tasks.loadTaskConfigs();
     // app.fn.log.traceObject( 'app.tasks', app.tasks );
 
-    let unfinishedTasks = app.modules.flat.flatten(Object.assign({}, app.tasks));
+    let unregisteredTasks = Object.assign({}, app.tasks);
+
     // register gulp tasks
-    app.fn.tasks.registerTasks( unfinishedTasks );
+    if ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
+        let pass = 0;
+        const maxPasses = app.fn.json.countKeys( unregisteredTasks, true );
+console.log('maxPasses: ' + maxPasses);
+        while ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
+            app.fn.tasks.registerTasks( unregisteredTasks );
+
+            pass++;
+console.log('pass: ' + pass);
+
+            if ( pass > maxPasses ) {
+                break;
+            }
+        }
+    }
     // app.logger.info('successful'.green + ' registered gulp tasks.' );
 }
 

@@ -14,7 +14,38 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
     return {
 
-        /*
+        /**
+         *
+         * @param {{}} json
+         * @param {boolean} recursive [false]
+         */
+        'countKeys' : function(json, recursive = false) {
+            let count = 0;
+
+            if ( app.fn.typechecks.isObject( json ) ) {
+                // count current keys
+                count = Object.keys( json ).length;
+
+                // if recursive is true and current count > 0 -> call countKeys recursively
+                if ( recursive && count > 0 ) {
+                    for (let key in json) {
+                        if ( app.fn.typechecks.isNotEmpty( key )
+                                && json.hasOwnProperty(key) ) {
+
+                            let value = json[key];
+
+                            if ( app.fn.typechecks.isObject( value ) ) {
+                                count += this.countKeys( value );
+                            }
+                        }
+                    }
+                }
+
+            }
+            return count;
+        },
+
+        /**
          * addMultipleNPMEntriesToPackageConfiguration
          * @param json
          * @param keyList
