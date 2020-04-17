@@ -16,7 +16,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
     let subtasks = app.fn.tasks.loadTaskConfigs(selfFolder);
 
     // if necessary - register depending tasks
-    let self_tasks = app.fn.tasks.registerDependingTasks(app.tasks);
+//    let self_tasks = app.fn.tasks.registerDependingTasks(app.tasks);
+    let self_tasks = [];
 
     // define Task function
     app.fn.tasks.defineTask(self, self_tasks);

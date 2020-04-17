@@ -13,6 +13,7 @@ const plugins = gulpPlugins();
 
 // TODO : extract app json to config file. location ./ or ./conf/default etc...
 const app = {
+    'config': {},
     'const' : {
         'delimiters': {
             'tasks': {
@@ -23,6 +24,11 @@ const app = {
             'default': 'development'
         },
         'fileEncoding': 'utf-8',
+        'options': {
+            'flatten': {
+                'delimiter': '.'
+            }
+        },
         'paths': {
             'root': path.resolve(__dirname),
             'config': path.join(path.resolve(__dirname), 'conf'),
@@ -34,13 +40,12 @@ const app = {
             'stringSeparator': ',; '
         }
     },
+    'fn' : {},
+    'logger': console,
     'modules' : {
         'path': path
     },
-    'fn' : {},
-    'config': null,
-    'tasks': {},
-    'logger': console
+    'tasks': {}
 };
 
 /**
@@ -84,7 +89,7 @@ function _preInitConfigEnvironmentVariables() {
         + app.modules.path.delimiter
         + app.const.paths.gulpConfig;
 
-    app.logger.info('successful'.green + ' set pre initialization environment variables' );
+    // app.logger.debug('successful set pre-initialization environment variables' );
 }
 
 /**
@@ -104,7 +109,7 @@ function _postInitConfigEnvironmentVariables() {
         }
     }
 
-    app.logger.info('successful'.green + ' set post initialization environment variables' );
+    // app.logger.debug('successful '.green + 'set post initialization environment variables' );
 }
 
 /**
@@ -112,17 +117,32 @@ function _postInitConfigEnvironmentVariables() {
  * @private
  */
 function _initModules() {
+    app.modules['arraySort'] = require('array-sort');
+    app.modules['colors'] = require('colors');
+    app.modules['config'] = require('config');
+    app.modules['flat'] = require('flat');
     app.modules['fs'] = require('fs');
-    app.modules['requireDir'] = require('require-dir');
-    app.modules['config'] = _initModuleConfig();
     app.modules['jsyaml'] = require('js-yaml');
-    app.modules['underscore'] = require('underscore');
     app.modules['lodash'] = require('lodash');
     app.modules['logging'] = require('console-logging');
-    app.modules['flat'] = require('flat');
-    app.modules['arraySort'] = require('array-sort');
+    app.modules['requireDir'] = require('require-dir');
+    app.modules['underscore'] = require('underscore');
 
-    app.logger.info('successful app modules loaded.' );
+    app.logger.info('successful '.green + 'modules loaded and linked.' );
+}
+
+/**
+ * TODO
+ * @private
+ */
+function _initAdditionalObjects() {
+    // initialize app config
+    _initAppConfig();
+
+    // initalize app logger;
+    _initLogger();
+
+    app.logger.debug('successful '.green + 'initialized additional objects.' );
 }
 
 /**
@@ -130,10 +150,10 @@ function _initModules() {
  * @returns {{}}
  * @private
  */
-function _initModuleConfig() {
+function _initAppConfig() {
     // link loaded config module to additional alias 'app.config'
-    app.config = require('config');
-    app.logger.info('successful loaded module config.' );
+    app.config = app.modules.config;
+    app.logger.info('successful '.green + 'additional config alias added.' );
 
     // now the config module can be loaded and returned
     return app.config;
@@ -143,30 +163,23 @@ function _initModuleConfig() {
  * TODO
  * @private
  */
-function _initAdditionalObjects() {
-    // initalize logger;
-    app.logger = _initLogger();
-}
-
-/**
- * TODO
- * @returns {{}}
- * @private
- */
 function _initLogger() {
-    var logger = app.modules.logging.logger;
+    let logger = app.modules.logging.logger;
 
-    const PROP_LOGLEVEL = 'logger.logLevel';
     if ( null !== logger ) {
+        const PROP_LOGLEVEL = 'logger.logLevel';
+
         if ( app.config.has( PROP_LOGLEVEL ) ) {
             let logLevel = app.config.get( PROP_LOGLEVEL );
             logger.setLevel( logLevel );
-            app.logger.info('successful'.green + ' set logger logLevel: ' + logLevel );
+            logger.debug('successful '.green + 'set logger logLevel: ' + logLevel );
         }
 
-        app.logger.info('successful logger initialized.' );
+        logger.debug('successful '.green + 'logger initialized.' );
+
+        // reset logger from init console to new logger
+        app.logger = logger;
     }
-    return logger;
 }
 
 /**
@@ -175,7 +188,7 @@ function _initLogger() {
  */
 function _loadGulpFunctions() {
     app.fn = require( app.const.paths.gulpFunctions )(gulp, plugins, app);
-    app.logger.info('successful'.green + ' loaded gulp functions.' );
+    app.logger.debug('successful '.green + 'loaded gulp functions.' );
 }
 
 /**
@@ -193,18 +206,35 @@ function _initGulpTasks() {
     if ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
         let pass = 0;
         const maxPasses = app.fn.json.countKeys( unregisteredTasks, true );
-console.log('maxPasses: ' + maxPasses);
+
         while ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
             app.fn.tasks.registerTasks( unregisteredTasks );
             pass++;
-console.log('pass: ' + pass);
 
             if ( pass > maxPasses ) {
                 break;
             }
         }
+
+        // if unregisteredTasks is still not empty, remove all remaining entries from initially loaded app.tasks!
+        if ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
+            let flattenedUnregisteredAppTask = app.modules.flat.flatten(unregisteredTasks, app.const.options.flatten);
+
+            // iter over unregisteredTasks
+            app.modules.underscore.each(flattenedUnregisteredAppTask, function (value, key, list) {
+                // remove task from app.tasks
+                if ( app.tasks.hasOwnProperty(key) ) {
+                    app.logger.debug(`remove unregistered task from initialized task list. task: '${key}'`);
+                    delete app.tasks[key];
+                }
+
+                // format flattened key to path
+                let folderKey = key.replace(app.const.options.flatten.delimiter, app.modules.path.sep);
+                app.logger.warning('failed'.red + ' to register gulp tasks >>' + `${folderKey}`.red + '<<');
+            });
+        }
     }
-    // app.logger.info('successful'.green + ' registered gulp tasks.' );
+    app.logger.info('finished'.green + ' registered gulp tasks.' + ` ${Object.keys(unregisteredTasks).length} tasks failed.`.yellow );
 }
 
 /**

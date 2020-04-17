@@ -5,7 +5,7 @@ let plugins;
 let app;
 let self;
 
-module.exports = function ( _gulp, _plugins, _app ) {
+module.exports = function (_gulp, _plugins, _app) {
     gulp = _gulp;
     plugins = _plugins;
     app = _app;
@@ -16,10 +16,6 @@ module.exports = function ( _gulp, _plugins, _app ) {
     let self_tasks = [];
 
     // define Task function
-    app.fn.tasks.defineTask(self, self_tasks, doBoo2);
+    app.fn.tasks.defineTask(self, self_tasks, 'nonExistingTask');
 };
 
-function doBoo2(cb) {
-    console.log('Boooooooo-yaaaaaaaah');
-    cb();
-}
