@@ -1,6 +1,6 @@
 - fehlende Tasks nicht in Schleife mit maxPasses laden, sondern vllt einzeln Nachregistrieren? Was ist mit nicht referenzierten?
 - funktionieren Parent Tasks ohne eigene Funktionen?
-- gulp Configurations auslagern
+- gulp Configurations auslagern, env files funktionieren nicht!
 - Logging: ggf '' durch `` ersetzen
 - unnötige Methoden entfernen
 - unnötige Module wieder entfernen (flatten)

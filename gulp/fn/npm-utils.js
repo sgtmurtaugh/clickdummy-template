@@ -102,11 +102,11 @@ module.exports = function ( _gulp, _plugins, _app ) {
          'writeJSONConfigToPackageConfiguration' : function (packageJson, cb) {
             if (null !== packageJson) {
 // console.dir(packageJson);
-// console.log(path.join(app.wizard.projectFolder, app.config.paths.packageJson));
+// console.log(path.join(app.wizard.projectFolder, app.config.get('paths.packageJson')));
                 return gulp.src(
                         path.join(
                             app.wizard.projectFolder,
-                            app.config.paths.packageJson
+                            app.config.get('paths.packageJson')
                         )
                     )
 // .pipe(plugins.debug())

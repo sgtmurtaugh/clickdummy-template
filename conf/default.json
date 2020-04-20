@@ -1,7 +1,8 @@
 {
+  "no": 1,
   "config": "default",
   "logger": {
-    "logLevel": "INFO"
+    "logLevel": "DEBUG"
   },
   "DEFAULT_VALUE": "JoJoDat"
 }

@@ -34,10 +34,12 @@ module.exports = function ( _gulp, _plugins, _app ) {
     // export default folder options
     module.exports.DEFAULT_FOLDER_OPTIONS = DEFAULT_FOLDER_OPTIONS;
 
+/*
     // additionally add folder options to app consts.
-    app.const.options.task = {
+    app.config.options.task = {
         'folderOptions': DEFAULT_FOLDER_OPTIONS
     };
+*/
 
     return {
 
@@ -56,12 +58,12 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 );
 
                 let regex = new RegExp(app.modules.path.sep, 'g');
-                let relativePath = app.modules.path.join(dirname, basename).replace(app.const.paths.gulpTasks, '');
+                let relativePath = app.modules.path.join(dirname, basename).replace(app.core.paths.gulpTasks, '');
 
                 if (relativePath.startsWith(app.modules.path.sep)) {
                     relativePath = relativePath.substr(1);
                 }
-                taskname = relativePath.replace(regex, app.const.delimiters.tasks.subtasks);
+                taskname = relativePath.replace(regex, app.config.get('delimiters.tasks.subtasks'));
             }
             return taskname;
         },
@@ -74,14 +76,12 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param {string} folderExtension - default is '.d'
          * @return {*}
          */
-/*
         'subtasksFolder': function (filename, useFolderExtension = true, folderExtension =  '.d') {
             return app.modules.path.join(
                 app.modules.path.dirname(filename),
                 this.taskname(filename) + ( useFolderExtension ? folderExtension : '' )
             );
         },
-*/
 
         /**
          * loadTaskConfigs
@@ -90,7 +90,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @param {{}} options [@see DEFAULT_FOLDER_OPTIONS]
          * @returns {{}}
          */
-        'loadTaskConfigs': function (path = app.const.paths.gulpTasks, options = DEFAULT_FOLDER_OPTIONS) {
+        'loadTaskConfigs': function (path = app.core.paths.gulpTasks, options = DEFAULT_FOLDER_OPTIONS) {
             let tasks = {};
 
             if ( _isPathExisting(path) ) {
@@ -241,12 +241,17 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     if ( app.fn.typechecks.isNotEmpty( key )
                             && unregisteredTasks.hasOwnProperty(key) ) {
 
+                        let bRemoveTask = false;
                         let value = unregisteredTasks[key];
 
                         if ( !this.isTaskDefined(key) ) {
+
                             // value is an Object. It might contain JSON SubTask definitions
                             if ( app.fn.typechecks.isObject( value ) ) {
-                                this.registerTasks( value, callback );
+                                if ( Object.keys( value ).length ) {
+                                    this.registerTasks( value, callback );
+                                }
+                                else bRemoveTask = true;
                             }
                             // The value is a Task Function and can be registered
                             else
@@ -257,16 +262,23 @@ module.exports = function ( _gulp, _plugins, _app ) {
 // TODO                                    app.unfinished.push( key );
                                 }
                                 else {
-                                    delete unregisteredTasks[key];
+                                    bRemoveTask = true;
                                 }
                             }
                             // The value might be null or undefined
                             else {
                                 app.logger.debug(`The determined value Object will not be further processed! value : ${value}`);
+                                bRemoveTask = true;
                             }
                         }
                         else {
                             app.logger.debug(`task already registred: ${key}`);
+                            bRemoveTask = true;
+                        }
+
+                        // remove task from list when condition for removal is true
+                        if (bRemoveTask) {
+                            delete unregisteredTasks[key];
                         }
                     }
                 }
@@ -288,8 +300,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     bRegistered = true;
                 }
                 catch (e) {
-// TODO
-//                    app.logger.error( e );
+                    if ( app.confi )
+                    app.logger.error( e );
                 }
             }
 
@@ -340,8 +352,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
             else {
                 // handle strings if neccessary and split them into an array
                 if ( app.fn.typechecks.isString( tasknames ) ) {
-                    app.logger.debug(`var tasknames is of type string. try splitting into values by '${app.const.regex.stringSeparator}'.`);
-                    tasknames = tasknames.split( app.const.regex.stringSeparator );
+                    app.logger.debug(`var tasknames is of type string. try splitting into values by '${app.config.get('regex.stringSeparator')}'.`);
+                    tasknames = tasknames.split( app.config.get('regex.stringSeparator') );
 // TODO: Was ist hier mit der split Zuweisung???
                 }
 
@@ -519,11 +531,11 @@ function _evalTaskFilter(absfile, filter = function() {
 /**
  * check taskname for illegal characters
  * @param {string} taskname
- * @param {char[]} [@link app.const.delimiters.tasks.subtasks] illegalChars
+ * @param {char[]} [@link app.core.delimiters.tasks.subtasks] illegalChars
  * @returns {boolean}
  * @private
  */
-function _illegalTaskname(taskname, illegalChars = [ app.const.delimiters.tasks.subtasks ]) {
+function _illegalTaskname(taskname, illegalChars = [ app.config.get('delimiters.tasks.subtasks') ]) {
     let bIllegal = false;
 
     if ( app.fn.typechecks.isNotEmpty( taskname )

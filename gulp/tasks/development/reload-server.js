@@ -6,7 +6,7 @@ let app;
 let self;
 let selfFolder;
 
-module.exports = function (_gulp, _plugins, _app) {
+module.exports = function ( _gulp, _plugins, _app ) {
     gulp = _gulp;
     plugins = _plugins;
     app = _app;
@@ -14,5 +14,15 @@ module.exports = function (_gulp, _plugins, _app) {
     selfFolder = app.fn.tasks.subtasksFolder(__filename);
 
     // define Task function
-    app.fn.tasks.defineTask(self, [], 'development :: start');
+    app.fn.tasks.defineTask(self, [], reloadServer);
 };
+
+/**
+ * Reload the browser with BrowserSync
+ * @param {fn} callback
+ */
+function reloadServer(callback) {
+    browser.reload();
+    callback();
+}
+

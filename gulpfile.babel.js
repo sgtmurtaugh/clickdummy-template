@@ -13,36 +13,20 @@ const plugins = gulpPlugins();
 
 // TODO : extract app json to config file. location ./ or ./conf/default etc...
 const app = {
-    'config': {},
-    'const' : {
-        'delimiters': {
-            'tasks': {
-                'subtasks': ' :: '
-            }
-        },
-        'env': {
-            'default': 'development'
-        },
-        'fileEncoding': 'utf-8',
-        'options': {
-            'flatten': {
-                'delimiter': '.'
-            }
-        },
+    'config': null,
+    'core': {
         'paths': {
             'root': path.resolve(__dirname),
             'config': path.join(path.resolve(__dirname), 'conf'),
+            'dist': path.join(path.resolve(__dirname), 'dist'),
             'gulpConfig': path.join(path.resolve(__dirname), 'gulp', 'conf'),
             'gulpTasks': path.join(path.resolve(__dirname), 'gulp', 'tasks'),
             'gulpFunctions': path.join(path.resolve(__dirname), 'gulp', 'fn'),
         },
-        'regex': {
-            'stringSeparator': ',; '
-        }
     },
-    'fn' : {},
+    'fn': {},
     'logger': console,
-    'modules' : {
+    'modules': {
         'path': path
     },
     'tasks': {}
@@ -85,9 +69,9 @@ function _init() {
  */
 function _preInitConfigEnvironmentVariables() {
     // set NODE_CONFIG_DIR for module config to ./config/:./gulp/conf
-    process.env.NODE_CONFIG_DIR = app.const.paths.config
+    process.env.NODE_CONFIG_DIR = app.core.paths.gulpConfig
         + app.modules.path.delimiter
-        + app.const.paths.gulpConfig;
+        + app.core.paths.config;
 
     // app.logger.debug('successful set pre-initialization environment variables' );
 }
@@ -104,7 +88,8 @@ function _postInitConfigEnvironmentVariables() {
             app.logger.info( 'set default environment: '.cyan + process.env.NODE_ENV );
         }
         else {
-            process.env.NODE_ENV = app.const.env.default;
+            process.env.NODE_ENV = app.config.get('env.default');
+            process.env.NODE_ENV = app.config.get('env.default');
             app.logger.info( 'set default environment to app default: '.cyan + process.env.NODE_ENV );
         }
     }
@@ -170,7 +155,7 @@ function _initLogger() {
         const PROP_LOGLEVEL = 'logger.logLevel';
 
         if ( app.config.has( PROP_LOGLEVEL ) ) {
-            let logLevel = app.config.get( PROP_LOGLEVEL );
+            let logLevel = app.config.get( PROP_LOGLEVEL ).toUpperCase();
             logger.setLevel( logLevel );
             logger.debug('successful '.green + 'set logger logLevel: ' + logLevel );
         }
@@ -187,7 +172,7 @@ function _initLogger() {
  * @private
  */
 function _loadGulpFunctions() {
-    app.fn = require( app.const.paths.gulpFunctions )(gulp, plugins, app);
+    app.fn = require( app.core.paths.gulpFunctions )(gulp, plugins, app);
     app.logger.debug('successful '.green + 'loaded gulp functions.' );
 }
 
@@ -207,6 +192,7 @@ function _initGulpTasks() {
         let pass = 0;
         const maxPasses = app.fn.json.countKeys( unregisteredTasks, true );
 
+        // register defined gulp tasks
         while ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
             app.fn.tasks.registerTasks( unregisteredTasks );
             pass++;
@@ -218,7 +204,7 @@ function _initGulpTasks() {
 
         // if unregisteredTasks is still not empty, remove all remaining entries from initially loaded app.tasks!
         if ( app.fn.typechecks.isNotEmpty( unregisteredTasks ) ) {
-            let flattenedUnregisteredAppTask = app.modules.flat.flatten(unregisteredTasks, app.const.options.flatten);
+            let flattenedUnregisteredAppTask = app.modules.flat.flatten(unregisteredTasks, app.config.get('options.flatten'));
 
             // iter over unregisteredTasks
             app.modules.underscore.each(flattenedUnregisteredAppTask, function (value, key, list) {
@@ -229,7 +215,7 @@ function _initGulpTasks() {
                 }
 
                 // format flattened key to path
-                let folderKey = key.replace(app.const.options.flatten.delimiter, app.modules.path.sep);
+                let folderKey = key.replace(app.config.get('options.flatten.delimiter'), app.modules.path.sep);
                 app.logger.warning('failed'.red + ' to register gulp tasks >>' + `${folderKey}`.red + '<<');
             });
         }

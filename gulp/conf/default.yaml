@@ -1,0 +1,28 @@
+"no": 2
+
+# delimiters
+delimiters:
+  tasks:
+    subtasks: ' :: '
+
+# environment definitions
+env:
+  default: 'development'
+
+# file encodings
+fileEncoding: 'utf-8'
+
+# predefined json options
+options:
+  flatten:
+    'delimiter': '.'
+
+# relative path definitions
+paths:
+
+# regex
+regex:
+  stringSeparator: ',; '
+
+logger:
+  logLevel: info

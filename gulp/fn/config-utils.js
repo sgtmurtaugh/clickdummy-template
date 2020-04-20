@@ -9,19 +9,29 @@ module.exports = function ( _gulp, _plugins, _app ) {
     plugins = _plugins;
     app = _app;
 
-    const MAIN_APP_CONFIG_YAML = app.const.root + '/config.yml';
-    const MAIN_APP_CONFIG_JSON = app.const.root + '/config.json';
-
-    // TODO get path from main config file!
-    const APP_CONF_FOLDER = app.const.root + '/config';
-    const GULP_CONF_FOLDER = app.const.root + '/gulp/conf';
+    const MAIN_APP_CONFIG_YAML = 'config.yml';
+    const MAIN_APP_CONFIG_JSON = 'config.json';
 
     return {
 
         /**
-         * getFolders
-         * @param dir
+         * getAbsolutePath
          * TODO
+         * @param {string[]} paths
+         */
+        'getAbsolutePath': function (...paths) {
+            let absPath = null;
+
+            if ( app.fn.typechecks.isNotEmpty(paths) ) {
+               absPath = app.modules.path.join(app.core.paths.root, ...paths);
+            }
+            return absPath;
+        },
+
+        /**
+         * getFolders
+         * TODO
+         * @param dir
          */
         'getFolders': function (dir) {
             return app.modules.fs.readdirSync(dir)
@@ -33,9 +43,9 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
         /**
          * loadAppConfigs
+         * TODO
          * @param recursive
          * @return {map}
-         * TODO
          */
         'loadAppConfigs': function (recursive) {
             if (recursive === undefined || recursive === null) {
@@ -44,7 +54,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
             // core yaml config lookup
             let confs = {};
-            let configYAML = this.loadYAMLConfig( MAIN_APP_CONFIG_YAML );
+            let configYAML = this.loadYAMLConfig( this.getAbsolutePath(MAIN_APP_CONFIG_YAML) );
             if ( configYAML !== null ) {
                 confs = app.modules._.extend(
                     confs,
@@ -53,7 +63,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
             }
 
             // core json config lookuo
-            let configJSON = this.loadJSONConfig( MAIN_APP_CONFIG_JSON );
+            let configJSON = this.loadJSONConfig( this.getAbsolutePath(MAIN_APP_CONFIG_JSON) );
             if ( configJSON !== null ) {
                 confs = app.modules._.extend(
                     confs,
@@ -85,10 +95,10 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
         /**
          * loadConfigs
+         * TODO
          * @param folder
          * @param recursive
          * @return {map}
-         * TODO
          */
         'loadConfigs': function (folder, recursive) {
             let conf = {};
@@ -115,9 +125,9 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
         /**
          * loadJSONConfig
+         * TODO
          * @param file
          * @return {*}
-         * TODO
          */
         'loadJSONConfig': function (file) {
             let json = null;
@@ -132,6 +142,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
         /**
          * loadYAMLConfig
+         * TODO
          * @param file
          * @returns {null}
          */
@@ -148,6 +159,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
         /**
          * readFile
+         * TODO
          * @param file
          * @returns {null}
          */
