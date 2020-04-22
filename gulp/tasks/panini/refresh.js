@@ -22,6 +22,17 @@ module.exports = function ( _gulp, _plugins, _app ) {
  * @param {fn} callback
  */
 function refresh(callback) {
-    panini.refresh();
+    if (null === app.instances.panini) {
+        app.logger.log('panini instance not found. perhaps the build task was not called. try to start it.')
+        gulp.start( 'panini :: build' );
+    }
+
+    if (null === app.instances.panini) {
+        app.logger.warning('panini instance still not found.');
+    }
+    else {
+        app.logger.warning('initiate panini refresh.');
+        app.instances.panini.refresh();
+    }
     callback();
 }

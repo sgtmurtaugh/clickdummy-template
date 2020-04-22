@@ -300,7 +300,6 @@ module.exports = function ( _gulp, _plugins, _app ) {
                     bRegistered = true;
                 }
                 catch (e) {
-                    if ( app.confi )
                     app.logger.error( e );
                 }
             }

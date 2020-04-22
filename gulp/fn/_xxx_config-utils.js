@@ -180,8 +180,35 @@ module.exports = function ( _gulp, _plugins, _app ) {
                 }
             }
             return configFile;
+        },
+
+
+        /**
+         * TODO
+         * @param {string} moduleName
+         */
+        'requireModule': function (...moduleName) {
+            if (app.fn.typechecks.isNotEmpty(moduleName)) {
+                app.modules.underscore.each(moduleName, function () {
+                    let moduleKey = moduleName;
+
+                    if ( app.modules.camelcase ) {
+                        moduleKey = app.modules.camelcase(moduleName);
+console.log(`moduleName: ${moduleName} -> ${moduleKey}`.cyan);
+                    }
+
+                    if (!app.modules[moduleKey]) {
+                        try {
+                            app.modules[moduleKey] = require(moduleName);
+                        }
+                        catch (e) {
+console.log('require fehlgeschlagen!');
+console.log(e);
+                        }
+                    }
+                });
+            }
         }
+
     }
-
-
 };

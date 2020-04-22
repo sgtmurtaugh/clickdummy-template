@@ -22,10 +22,13 @@ const app = {
             'gulpConfig': path.join(path.resolve(__dirname), 'gulp', 'conf'),
             'gulpTasks': path.join(path.resolve(__dirname), 'gulp', 'tasks'),
             'gulpFunctions': path.join(path.resolve(__dirname), 'gulp', 'fn'),
+            'src': path.join(path.resolve(__dirname), 'src'),
         },
     },
     'fn': {},
-    'logger': console,
+    'instances': {
+        'logger': console
+    },
     'modules': {
         'path': path
     },
@@ -72,8 +75,6 @@ function _preInitConfigEnvironmentVariables() {
     process.env.NODE_CONFIG_DIR = app.core.paths.gulpConfig
         + app.modules.path.delimiter
         + app.core.paths.config;
-
-    // app.logger.debug('successful set pre-initialization environment variables' );
 }
 
 /**
@@ -93,8 +94,6 @@ function _postInitConfigEnvironmentVariables() {
             app.logger.info( 'set default environment to app default: '.cyan + process.env.NODE_ENV );
         }
     }
-
-    // app.logger.debug('successful '.green + 'set post initialization environment variables' );
 }
 
 /**
@@ -103,17 +102,16 @@ function _postInitConfigEnvironmentVariables() {
  */
 function _initModules() {
     app.modules['arraySort'] = require('array-sort');
+    app.modules['camelCase'] = require('camel-case');
     app.modules['colors'] = require('colors');
     app.modules['config'] = require('config');
     app.modules['flat'] = require('flat');
     app.modules['fs'] = require('fs');
-    app.modules['jsyaml'] = require('js-yaml');
+    app.modules['jsYaml'] = require('js-yaml');
     app.modules['lodash'] = require('lodash');
     app.modules['logging'] = require('console-logging');
     app.modules['requireDir'] = require('require-dir');
     app.modules['underscore'] = require('underscore');
-
-    app.logger.info('successful '.green + 'modules loaded and linked.' );
 }
 
 /**
@@ -138,7 +136,6 @@ function _initAdditionalObjects() {
 function _initAppConfig() {
     // link loaded config module to additional alias 'app.config'
     app.config = app.modules.config;
-    app.logger.info('successful '.green + 'additional config alias added.' );
 
     // now the config module can be loaded and returned
     return app.config;
@@ -162,7 +159,7 @@ function _initLogger() {
 
         logger.debug('successful '.green + 'logger initialized.' );
 
-        // reset logger from init console to new logger
+        // add logger shortcut in app. this is an exception! all other objects are stored under app.instances... but the method definitions are loaded
         app.logger = logger;
     }
 }

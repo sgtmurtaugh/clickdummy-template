@@ -22,10 +22,14 @@ module.exports = function ( _gulp, _plugins, _app ) {
  * @param callback
  */
 function runServer(callback) {
-    browser.init({
-        server: config.paths.dist.path,
-        port: config.development.server.port
+    // load and register additional module
+    let browserSync = app.fn.app.requireModule('browser-sync');
+    browserSync.init({
+        server: app.core.paths.dist,
+        port: app.config.env.port
     });
+    app.fn.app.addInstance('browserSync', browserSync);
+
     callback();
 }
 

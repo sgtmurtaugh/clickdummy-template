@@ -25,11 +25,16 @@ module.exports = function ( _gulp, _plugins, _app ) {
  */
 function copyAssets(callback) {
     return gulp.src([
-        "src/assets/**/*",
-        "!src/assets/img{,/**}",
-        "!src/assets/js{,/**}",
-        "!src/assets/scss{,/**}"
+        app.fn.app.srcAssetsFolder('**', '*'),
+        `!${app.fn.app.srcAssetsFolder(app.config.paths.font)}{,${app.modules.path.sep}**}`,
+        `!${app.fn.app.srcAssetsFolder(app.config.paths.images)}{,${app.modules.path.sep}**}`,
+        `!${app.fn.app.srcAssetsFolder(app.config.paths.javascript)}{,${app.modules.path.sep}**}`,
+        `!${app.fn.app.srcAssetsFolder(app.config.paths.scss)}{,${app.modules.path.sep}**}`
+        // "src/assets/**/*",
+        // "!src/assets/img{,/**}",
+        // "!src/assets/js{,/**}",
+        // "!src/assets/scss{,/**}"
     ]).pipe(gulp.dest(
-        app.const.paths.dist + '/' + config.paths.dist.assets
+        app.fn.app.distAssetsFolder()
     ));
 }

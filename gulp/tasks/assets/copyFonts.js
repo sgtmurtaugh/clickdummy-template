@@ -24,8 +24,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
  */
 function copyFonts(callback) {
     var assets = [
-        PROJECT.paths.src + '/assets/fonts/**/*'
+        app.fn.app.absolutePath(app.core.paths.src, app.config.paths.assets, app.config.paths.fonts, '**', '*')
     ];
     return gulp.src(assets)
-        .pipe(gulp.dest(PATHS.dist + '/assets/fonts'));
+        .pipe(gulp.dest(app.fn.app.absolutePath(app.core.paths.dist, app.config.paths.assets, app.config.paths.fonts)));
 }

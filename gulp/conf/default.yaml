@@ -1,5 +1,3 @@
-"no": 2
-
 # delimiters
 delimiters:
   tasks:
@@ -8,6 +6,7 @@ delimiters:
 # environment definitions
 env:
   default: 'development'
+  port: 8080
 
 # file encodings
 fileEncoding: 'utf-8'
@@ -19,10 +18,24 @@ options:
 
 # relative path definitions
 paths:
+  assets: assets
+  data: data
+  fonts: fonts
+  helpers: helpers
+  images: img
+  layouts: layouts
+  pages: pages
+  partials: partials
+  javascript: js
 
 # regex
 regex:
   stringSeparator: ',; '
 
+# logger
 logger:
-  logLevel: info
+  logLevel: debug
+
+# panini
+panini:
+  defaultPageLayout: default

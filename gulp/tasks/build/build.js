@@ -15,15 +15,11 @@ module.exports = function ( _gulp, _plugins, _app ) {
 
     // define Task function
     app.fn.tasks.defineTask(self, [
-        'html :: build',
-        'sass :: generateCSS',
-        'javascript :: generate',
-        'images :: copy',
+        'panini :: build',
+        // 'sass :: generateCSS',
+        // 'javascript :: generate',
+        // 'images :: copy',
         'assets :: copyFonts',
         'assets :: copy'
-    ], f, true);
+    ], function() {});
 };
-
-function f(callback) {
-    callback();
-}

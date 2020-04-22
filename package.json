@@ -48,10 +48,12 @@
     "lodash": "^4.17.15",
     "console-logging": "^2019.1.0",
     "flat": "^5.0.0",
-    "array-sort": "^1.0.0"
+    "array-sort": "^1.0.0",
+    "panini": "^1.6.3",
+    "camel-case": "^4.1.1",
+    "browser-sync": "^2.26.7"
   },
   "_todo": {
-    "browser-sync": "^2.26.7",
     "es6-promise": "^4.2.8",
     "rimraf": "^3.0.2",
     "panini": "^1.6.3",
