@@ -23,24 +23,24 @@ module.exports = function ( _gulp, _plugins, _app ) {
  */
 function watch(callback) {
     // assets
-    gulp.watch(config.paths.assets, copyAssets);
+    gulp.watch(app.fn.path.srcAssetsFolder(), copyAssets);
 
     // html pages
-    gulp.watch('src/pages/**/*.html').on('change', gulp.series(generatePages, browser.reload));
+    gulp.watch('src/pages/**/*.html').on('change', gulp.series(generatePages, app.instances.browserSync.reload));
     // html layouts and partials
-    gulp.watch('src/{layouts,partials}/**/*.html').on('change', gulp.series(resetPages, generatePages, browser.reload));
+    gulp.watch('src/{layouts,partials}/**/*.html').on('change', gulp.series(resetPages, generatePages, app.instances.browserSync.reload));
 
     // sass
     gulp.watch('src/assets/scss/**/*.scss', generateSASS);
 
     // javascript
-    gulp.watch('src/assets/js/**/*.js').on('change', gulp.series(generateJS, browser.reload));
+    gulp.watch('src/assets/js/**/*.js').on('change', gulp.series(generateJS, app.instances.browserSync.reload));
 
     // images
-    gulp.watch('src/assets/img/**/*').on('change', gulp.series(copyImages, browser.reload));
+    gulp.watch('src/assets/img/**/*').on('change', gulp.series(copyImages, app.instances.browserSync.reload));
 
     // styleguide
-    gulp.watch('src/styleguide/**').on('change', gulp.series(generateStyleGuide, browser.reload));
+    gulp.watch('src/styleguide/**').on('change', gulp.series(generateStyleGuide, app.instances.browserSync.reload));
 
     callback();
 }
