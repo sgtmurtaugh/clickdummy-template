@@ -58,19 +58,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @returns {string}
          */
         'distFolder': function (...paths) {
-            let distPath = this._absolutePathForParent(app.core.paths.dist, ...paths);
-/*
-            if ( app.fn.typechecks.isNotEmpty(...paths) ) {
-                let newPaths = paths.slice();
-                newPaths.unshift(app.core.paths.dist);
-
-                distPath = app.modules.path.join(app.core.paths.root, ...newPaths);
-            }
-            else {
-                distPath = app.modules.path.join(app.core.paths.root, app.core.paths.dist);
-            }
-*/
-            return distPath;
+            return this._absolutePathForParent(app.core.paths.dist, ...paths);
         },
 
         /**
@@ -80,7 +68,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @returns {string}
          */
         'distAssetsFolder': function (...paths) {
-            return this.distFolder(paths, app.config.paths.assets);
+            return this.distFolder(app.config.paths.assets, ...paths);
         },
 
         /**
@@ -90,21 +78,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @returns {string}
          */
         'srcFolder': function (...paths) {
-            let srcPath = this._absolutePathForParent(app.core.paths.src, ...paths);
-/*
-            let srcPath = '';
-
-            if ( app.fn.typechecks.isNotEmpty(...paths) ) {
-                let newPaths = paths.slice();
-                newPaths.unshift(app.core.paths.src);
-
-                srcPath = app.modules.path.join(app.core.paths.root, ...newPaths);
-            }
-            else {
-                srcPath = app.modules.path.join(app.core.paths.root, app.core.paths.src);
-            }
-*/
-            return srcPath;
+            return this._absolutePathForParent(app.core.paths.src, ...paths);
         },
 
         /**
@@ -114,7 +88,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
          * @returns {string}
          */
         'srcAssetsFolder': function (...paths) {
-            return this.srcFolder(paths, app.config.paths.assets);
+            return this.srcFolder(app.config.paths.assets, ...paths);
         },
     }
 };

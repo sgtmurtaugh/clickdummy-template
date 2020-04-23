@@ -22,13 +22,8 @@ module.exports = function ( _gulp, _plugins, _app ) {
  * @param {fn} callback
  */
 function reloadServer(callback) {
-    if (null === app.instances.browserSync) {
-        app.logger.log('browserSync instance not found. perhaps the server run task was not called. try to start it.')
-        gulp.start( 'development :: run-server' );
-    }
-
-    if (null === app.instances.browserSync) {
-        app.logger.warning('browserSync instance still not found.');
+    if (app.fn.typechecks.isEmpty( app.instances.browserSync )) {
+        app.logger.warning('browserSync instance not found. is the server running?');
     }
     else {
         app.logger.warning('initiate browserSync reload.');

@@ -13,6 +13,9 @@ module.exports = function ( _gulp, _plugins, _app ) {
     self = app.fn.tasks.taskname(__filename);
     selfFolder = app.fn.tasks.subtasksFolder(__filename);
 
+    // Delare const Variable for the panini Initializer Task
+    module.exports.PANINI_INSTANCE_INITIALIZER_TASK = `panini${app.config.delimiters.tasks.subtasks}build`;
+
     // define Task function
     app.fn.tasks.defineTask(self, [], refresh);
 };
@@ -22,17 +25,19 @@ module.exports = function ( _gulp, _plugins, _app ) {
  * @param {fn} callback
  */
 function refresh(callback) {
-    if (null === app.instances.panini) {
-        app.logger.log('panini instance not found. perhaps the build task was not called. try to start it.')
-        gulp.start( 'panini :: build' );
+    // panini instance check
+    if (app.fn.typechecks.isEmpty(app.instances.panini)) {
+        app.logger.debug(`${self.red}: no ${'panini instance'.red} can be found! perhaps the >>${build.cyan}<< task was not called. try to start it.`);
+        gulp.start( this.PANINI_INSTANCE_INITIALIZER_TASK );
     }
 
-    if (null === app.instances.panini) {
-        app.logger.warning('panini instance still not found.');
+    // second panini instance check
+    if (app.fn.typechecks.isEmpty(app.instances.panini)) {
+        app.logger.warn(`${self.red}: ${'panini instance'.red} still not found!`);
     }
     else {
         app.logger.warning('initiate panini refresh.');
-        app.instances.panini.refresh();
+        app.modules.panini.refresh();
     }
     callback();
 }

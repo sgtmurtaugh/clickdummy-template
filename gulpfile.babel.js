@@ -17,12 +17,13 @@ const app = {
     'core': {
         'paths': {
             'root': path.resolve(__dirname),
-            'config': path.join(path.resolve(__dirname), 'conf'),
-            'dist': path.join(path.resolve(__dirname), 'dist'),
             'gulpConfig': path.join(path.resolve(__dirname), 'gulp', 'conf'),
             'gulpTasks': path.join(path.resolve(__dirname), 'gulp', 'tasks'),
             'gulpFunctions': path.join(path.resolve(__dirname), 'gulp', 'fn'),
-            'src': path.join(path.resolve(__dirname), 'src'),
+
+            'config': 'conf',
+            'dist': 'dist',
+            'src': 'src',
         },
     },
     'fn': {},
@@ -111,6 +112,7 @@ function _initModules() {
     app.modules['lodash'] = require('lodash');
     app.modules['logging'] = require('console-logging');
     app.modules['requireDir'] = require('require-dir');
+    app.modules['rimraf'] = require('rimraf');
     app.modules['underscore'] = require('underscore');
 }
 

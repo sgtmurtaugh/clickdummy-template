@@ -22,5 +22,5 @@ module.exports = function ( _gulp, _plugins, _app ) {
  * @param {fn} callback
  */
 function clean(callback) {
-    rimraf(PATHS.dist, callback);
+    app.modules.rimraf(app.core.paths.dist, callback);
 }
