@@ -8,9 +8,6 @@ let path = require('path');
 // Load all Gulp plugins into one variable
 const plugins = gulpPlugins();
 
-// TODO check yargs usage...
-// 'isProductive': !!(yargs.argv.production),
-
 // TODO : extract app json to config file. location ./ or ./conf/default etc...
 const app = {
     'config': null,
@@ -81,20 +78,32 @@ function _preInitConfigEnvironmentVariables() {
 /**
  * TODO
  * @private
+ // TODO implement environment helper
  */
 function _postInitConfigEnvironmentVariables() {
-    if ( app.fn.typechecks.isEmpty( process.env.NODE_ENV ) ) {
-        // TODO Helper schreiben
-        if ( app.config.has( 'environment' ) ) {
-            process.env.NODE_ENV = app.config.get( 'environment' );
-            app.logger.info( 'set default environment: '.cyan + process.env.NODE_ENV );
-        }
-        else {
-            process.env.NODE_ENV = app.config.get('env.default');
-            process.env.NODE_ENV = app.config.get('env.default');
-            app.logger.info( 'set default environment to app default: '.cyan + process.env.NODE_ENV );
-        }
-    }
+    // eval console param
+    console.log(app.modules.yargs.argv);
+    console.log(app.modules.yargs.argv._);
+    console.log(app.modules.yargs.argv.production);
+    console.log(app.modules.yargs.argv.wumpe);
+    app.fn.env.setEnvironment( app.modules.yargs.argv._ );
+    // TODO: cleanup
+    // if ( !!(app.modules.yargs.argv.production) ) {
+    //     process.env.NODE_ENV = 'production';
+    //     app.logger.info('set environment by console param: '.cyan + process.env.NODE_ENV);
+    // }
+    //
+    // // if environment var is not set, then check config or finally default fallback
+    // if ( app.fn.typechecks.isEmpty( process.env.NODE_ENV ) ) {
+    //     if ( app.config.has( 'environment' ) ) {
+    //         process.env.NODE_ENV = app.config.get( 'environment' );
+    //         app.logger.info( 'set default environment: '.cyan + process.env.NODE_ENV );
+    //     }
+    //     else {
+    //         process.env.NODE_ENV = app.config.get('env.default');
+    //         app.logger.info( 'set default environment to app default: '.cyan + process.env.NODE_ENV );
+    //     }
+    // }
 }
 
 /**
@@ -114,6 +123,7 @@ function _initModules() {
     app.modules['requireDir'] = require('require-dir');
     app.modules['rimraf'] = require('rimraf');
     app.modules['underscore'] = require('underscore');
+    app.modules['yargs'] = require('yargs');
 }
 
 /**

@@ -15,6 +15,7 @@ module.exports = function (_gulp, _plugins, _app) {
         'path' : require('./path-utils')(gulp, plugins, app),
         'app' : require('./app-utils')(gulp, plugins, app),
         'messages' : require('./messages')(gulp, plugins, app),
+        'env' : require('./environment-utils')(gulp, plugins, app),
         'json' : require('./json-utils')(gulp, plugins, app),
         'tasks' : require('./task-utils')(gulp, plugins, app),
     };

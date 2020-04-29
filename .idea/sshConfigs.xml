@@ -7,7 +7,7 @@
       <sshConfig authType="PASSWORD" host="10.1.32.112" id="45289ac3-7ca6-41c2-b822-7ddfc6109b22" port="22" customName="GSB 6.0 - hv1lxmap1112 - DevQS (project level)" nameFormat="CUSTOM" username="cmadmin" />
       <sshConfig authType="PASSWORD" host="10.1.32.111" id="43a5f8f4-f956-49a2-b132-6155edbeb968" port="22" customName="GSB 6.0 - hv1lxmap1111 - Contentserver (project level)" nameFormat="CUSTOM" username="cmadmin" />
       <sshConfig authType="PASSWORD" host="10.1.32.117" id="61474f70-f7dd-4831-b9a0-82c7a4c56e7c" port="22" customName="GSB 6.0 - hv1lxmap1117 (project level)" nameFormat="CUSTOM" username="cmadmin" />
-      <sshConfig authType="PASSWORD" host="10.1.32.117" id="228c5daa-8456-4797-8d21-2aeb8d5a5ba7" port="22" customName="GSB 6.0 - hv1lxmap1117 (project level)" nameFormat="CUSTOM" username="cmadmin" />
+      <sshConfig authType="PASSWORD" host="10.1.32.117" id="6371cdfc-33a2-4f95-a0f8-f54b252dfeab" port="22" customName="GSB 6.0 - hv1lxmap1117 (project level)" nameFormat="CUSTOM" username="cmadmin" />
     </configs>
   </component>
 </project>

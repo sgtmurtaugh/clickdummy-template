@@ -21,8 +21,19 @@ module.exports = function ( _gulp, _plugins, _app ) {
  * Watch for changes to assets
  */
 function watches(callback) {
-    // assets
-    // gulp.watches(app.fn.path.srcAssetsFolder(), copyAssets);
-    gulp.watch(app.fn.path.srcAssetsFolder(), `assets${app.core.delimiters.tasks.subtasks}copy`);
-    gulp.watch(app.fn.path.srcAssetsFolder('fonts'), `assets${app.core.delimiters.tasks.subtasks}copy`);
+    // Main Assets watch
+    const copyTask = require('./copy');
+
+    if ( app.fn.typechecks.isNotEmpty(copyTask.srcPaths) ) {
+        gulp.watch(copyTask.srcPaths, gulp.series(`assets${app.config.delimiters.tasks.subtasks}copy`));
+    }
+
+    // Fonts watch
+    const copyFontsTask = require('./copyFonts');
+
+    if ( app.fn.typechecks.isNotEmpty(copyFontsTask.srcPaths) ) {
+        gulp.watch(copyFontsTask.srcPaths, gulp.series(`assets${app.config.delimiters.tasks.subtasks}copyFonts`));
+    }
+
+    callback();
 }
