@@ -21,6 +21,7 @@ paths:
   assets: assets
   data: data
   fonts: fonts
+  graphics: gfx
   helpers: helpers
   images: img
   javascript: js

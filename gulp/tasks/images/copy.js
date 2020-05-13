@@ -28,7 +28,7 @@ module.exports = function ( _gulp, _plugins, _app ) {
  */
 function _initAndExportSrcPaths() {
     return module.exports.srcPaths = [
-        app.fn.path.srcAssetsFolder(app.config.paths.images, '**', '*')
+        app.fn.path.srcAssetsFolder(app.config.paths.graphics, app.config.paths.images, '**', '*')
     ];
 }
 
@@ -39,18 +39,12 @@ function _initAndExportSrcPaths() {
  * @returns {*}
  */
 function copyImages(callback) {
-    // return gulp.src([
-    //     'src/assets/img/**',
-    //     '!src/assets/img/*-src{,/**}'
-    // ]).pipe($.if(PRODUCTION, $.imagemin({
-    //     progressive: true
-    // }))).pipe(gulp.dest('dist/assets/img'));
     return gulp.src(module.exports.srcPaths)
         .pipe(plugins.if(PRODUCTION, plugins.imagemin({
             progressive: true
         })))
         .pipe(gulp.dest(
-            app.fn.path.distAssetsFolder(app.config.paths.fonts)
+            app.fn.path.distAssetsFolder(app.config.paths.images)
         )
     );
 // TODO: use fileSync instead!

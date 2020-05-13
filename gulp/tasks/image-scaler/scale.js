@@ -15,16 +15,31 @@ module.exports = function ( _gulp, _plugins, _app ) {
     self = app.fn.tasks.taskname(__filename);
     selfFolder = app.fn.tasks.subtasksFolder(__filename);
 
+    // Delare const variable for assets paths
+    _initAndExportSrcPaths();
+
     // define Task function
     app.fn.tasks.defineTask(self, [], scaleImages);
 };
+
+/**
+ * initializes an string array with all path in- and exludes for this copy task. the definition is exported for e.g.
+ * the watch-task
+ * @returns {(string)[]}
+ * @private
+ */
+function _initAndExportSrcPaths() {
+    return module.exports.srcPaths = [
+        app.fn.path.srcAssetsFolder(app.config.paths.graphics, app.config.resizer.paths.scaling, '**', '*')
+    ];
+}
 
 /**
  * scaleImages
  * @param callback
  */
 function scaleImages(callback) {
-    let files = glob.sync( config.resizer.src, {
+    let files = glob.sync( module.exports.srcPaths, {
         "absolute": true
     });
 
@@ -109,15 +124,22 @@ function scaleImages(callback) {
                                     targetPath += '/' + subFolder;
 
                                     if (!fs.existsSync(targetPath) ) {
-                                        fs.mkdirSync(targetPath);
+                                        // fs.mkdirp(targetPath);
+                                        (async () => {
+                                            const path = await mkdirp(targetPath);
+                                        })();
                                     }
-                                    console.log('targetPath: ' + targetPath );
-                                    target = targetPath + '/' + targetFilename;
-                                    console.log('target : ' + target);
 
-                                    resizeImage(fs.readFileSync(file), resizerOptions).then(buf => {
-                                        fs.writeFileSync(target, buf);
-                                    });
+                                    if (fs.existsSync(targetPath) ) {
+                                        target = targetPath + '/' + targetFilename;
+
+                                        resizeImage(fs.readFileSync(file), resizerOptions).then(buf => {
+                                            fs.writeFileSync(target, buf);
+                                        });
+                                    }
+                                    else {
+                                        console.log(`Verzeichnis '${targetPath}' konnte nicht erstellt werden!`)
+                                    }
                                 }
                             }
                         }

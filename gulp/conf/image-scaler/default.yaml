@@ -1,0 +1,47 @@
+path: 'src/assets/scaling/'
+src: 'src/assets/scaling/**/{*.bmp,*.jpg,*.jpeg,*.png}'
+target: 'src/assets/img/scaled'
+prefix: 'scaled-'
+suffix: '',
+options:
+  createFolders: true
+sizes:
+  - XS:
+    width: 150
+    height: 150
+
+  - S:
+    width: 250,
+    height: 250
+
+  - M:
+    width: 350,
+    height: 350
+
+  - L:
+    width: 450,
+    height: 450
+
+  - X:
+    width: 550,
+    height: 550
+
+  - XXL:
+    width: 650,
+    height: 650
+
+  - teaser:
+    _height: -1,
+    width: 500
+
+  - standard:
+    _height: -1,
+    width: 500
+
+  - poster:
+    height: 900,
+    _width: -1
+
+  - banner:
+    heigh: 1000,
+    _width: -1
