@@ -1,0 +1,25 @@
+{{!--
+    param id       - HTML id Attribute
+    param class    - HTML class Attribute
+    param name     - HTML name Attribute
+    param title    - HTML title Attribute
+
+    param hsize    - Headline-Size Indicator
+    param vsize    - Virtual-Size Indicator
+
+--}}{{!--
+                                --}}{{#if id}}{{!--
+--}} id={{id}}{{!--
+                                --}}{{/if}}{{#if class}}{{!--
+--}} class="{{class}}{{!--
+                                    --}}{{#if vsize}}{{!--
+                                        --}}{{#if (headlineSize vsize)}}{{!--
+            --}} h{{vsize}}{{!--
+                                        --}}{{/if}}{{!--
+                                    --}}{{/if}}{{!--
+--}}"{{!--
+                                --}}{{/if}}{{#if name}}{{!--
+--}} name={{name}}{{!--
+                                --}}{{/if}}{{#if title}}{{!--
+--}} title={{title}}{{!--
+                                --}}{{/if}}

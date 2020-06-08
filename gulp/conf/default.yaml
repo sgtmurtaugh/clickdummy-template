@@ -40,4 +40,4 @@ logger:
 
 # panini
 panini:
-  defaultPageLayout: default
+  defaultPageLayout: [pizza]

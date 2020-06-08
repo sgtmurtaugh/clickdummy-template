@@ -14,14 +14,14 @@ module.exports = function ( _gulp, _plugins, _app ) {
     selfFolder = app.fn.tasks.subtasksFolder(__filename);
 
     // define Task function
-    app.fn.tasks.defineTask(self, [], build);
+    app.fn.tasks.defineTask(self, [], generate);
 };
 
 /**
  * Generate a style guide from the Markdown content and HTML template in styleguide/
  * @param callback
  */
-function build(callback) {
+function generate(callback) {
     sherpa('src/styleguide/index.md', {
             output: config.paths.dist.path + '/doc/styleguide.html',
             template: 'src/styleguide/template.html'
