@@ -14,6 +14,7 @@
     param dropzone    copy|move|link
     param hidden  leer
     param id  ein nicht leerer String ohne Leerzeichen
+    param inputmode Provides a hint as to the type of data that might be entered by the user while editing the element or its contents. The attribute can be used with form controls (such as the value of textarea elements), or in elements in an editing host (e.g., using contenteditable attribute).
     param itemprop    Property des angegebenen Mikroformats
     param itemid  URL
     param itemref id des referenzierten Elements
@@ -34,7 +35,7 @@
 
                                 --}}{{#if id}}{{!--
 --}} id={{id}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if class}}{{!--
@@ -45,12 +46,12 @@
                                         --}}{{/if}}{{!--
                                     --}}{{/if}}{{!--
 --}}"{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if name}}{{!--
 --}} name={{name}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if title}}{{!--
@@ -60,88 +61,93 @@
 
                                 --}}{{#if accesskey}}{{!--
 --}} accesskey={{accesskey}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if contenteditable}}{{!--
 --}} contenteditable{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if contextmenu}}{{!--
 --}} contextmenu={{contextmenu}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if dir}}{{!--
 --}} dir={{dir}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if draggable}}{{!--
 --}} draggable={{draggable}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if dropzone}}{{!--
 --}} dropzone={{dropzone}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if hidden}}{{!--
 --}} hidden{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if inputmode}}{{!--
+--}} inputmode={{inputmode}}{{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if itemprop}}{{!--
 --}} itemprop={{itemprop}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if itemid}}{{!--
 --}} itemid={{itemid}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if itemref}}{{!--
 --}} itemref={{itemref}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if itemscope}}{{!--
 --}} itemscope{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if itemtype}}{{!--
 --}} itemtype={{itemtype}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if lang}}{{!--
 --}} lang={{lang}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if spellcheck}}{{!--
 --}} spellcheck={{spellcheck}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if style}}{{!--
 --}} style={{style}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if tabindex}}{{!--
 --}} tabindex={{tabindex}}{{!--
-                                --}}{{/if}}{!--
+                                --}}{{/if}}{{!--
 
 
                                 --}}{{#if data}}{{!--
                                     --}}{{#each data}}{{!--
 --}} data-{{@key}}={{this}}{{!--
-                                    --}}{{/if}}{!--
-                                --}}{{/if}}{!--
+                                    --}}{{/if}}{{!--
+                                --}}{{/if}}{{!--
 
                                 --}}

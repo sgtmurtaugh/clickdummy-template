@@ -1,25 +1,19 @@
 {{!--
     HTML other attributes
 
-accept - Hint for expected file type in file upload controls
+autocomplete - Hint for form autofill feature
 autofocus - Automatically focus the form control when the page is loaded
-capture - Media capture input method in file upload controls
+dirname - Name of form field to use for sending the element's directionality in form submission
 disabled - Whether the form control is disabled
 form - Associates the control with a form element
-multiple - Boolean. Whether to allow multiple values
+list - Value of the id attribute of the <datalist> of autocomplete options
+maxlength - Maximum length (number of characters) of value
+minlength - Minimum length (number of characters) of value
+pattern - Pattern the value must match to be valid
+placeholder - Text that appears in the form control when it has no value set
+readonly - Boolean. The value is not editable
 required - Boolean. A value is required or must be check for the form to be submittable
-reversed
-role
-rows
-rowspan
-
-sandbox
-scope
-scoped
-seamless
-selected
-shape
-size
+size - Size of the control
 sizes (img, picture)
 sizes (link)
 span
@@ -48,8 +42,8 @@ wrap
 
 --}}{{!--
 
-                                --}}{{#if accept}}{{!--
---}} accept={{accept}}{{!--
+                                --}}{{#if autocomplete}}{{!--
+--}} autocomplete={{autocomplete}}{{!--
                                 --}}{{/if}}{{!--
 
 
@@ -58,8 +52,8 @@ wrap
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if capture}}{{!--
---}} capture={{capture}}{{!--
+                                --}}{{#if dirname}}{{!--
+--}} dirname={{dirname}}{{!--
                                 --}}{{/if}}{{!--
 
 
@@ -73,76 +67,48 @@ wrap
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if multiple}}{{!--
---}} multiple={{multiple}}{{!--
+                                --}}{{#if list}}{{!--
+--}} list={{list}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if maxlength}}{{!--
+--}} maxlength={{maxlength}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if minlength}}{{!--
+--}} minlength={{minlength}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if pattern}}{{!--
+--}} pattern={{pattern}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if placeholder}}{{!--
+--}} placeholder={{placeholder}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if readonly}}{{!--
+--}} readonly{{!--
                                 --}}{{/if}}{{!--
 
 
                                 --}}{{#if required}}{{!--
---}} required={{required}}{{!--
-                                --}}{{/if}}{{!--
-
-
-
-
-
-
-
-
-
-                                --}}{{#if reversed}}{{!--
---}} reversed={{reversed}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if role}}{{!--
---}} role={{role}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rows}}{{!--
---}} rows={{rows}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rowspan}}{{!--
---}} rowspan={{rowspan}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sandbox}}{{!--
---}} sandbox={{sandbox}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scope}}{{!--
---}} scope={{scope}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scoped}}{{!--
---}} scoped={{scoped}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if seamless}}{{!--
---}} seamless={{seamless}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if selected}}{{!--
---}} selected={{selected}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if shape}}{{!--
---}} shape={{shape}}{{!--
+--}} required{{!--
                                 --}}{{/if}}{{!--
 
 
                                 --}}{{#if size}}{{!--
 --}} size={{size}}{{!--
                                 --}}{{/if}}{{!--
+
+
+
+
 
 
                                 --}}{{#if sizes}}{{!--

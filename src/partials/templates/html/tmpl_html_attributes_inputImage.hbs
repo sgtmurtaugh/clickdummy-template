@@ -1,29 +1,17 @@
 {{!--
     HTML other attributes
 
-accept - Hint for expected file type in file upload controls
+alt - Alternate string to display when the image can't be shown
 autofocus - Automatically focus the form control when the page is loaded
-capture - Media capture input method in file upload controls
 disabled - Whether the form control is disabled
 form - Associates the control with a form element
-multiple - Boolean. Whether to allow multiple values
-required - Boolean. A value is required or must be check for the form to be submittable
-reversed
-role
-rows
-rowspan
-
-sandbox
-scope
-scoped
-seamless
-selected
-shape
-size
-sizes (img, picture)
-sizes (link)
-span
-src
+formaction - URL to use for form submission
+formenctype - Form data set encoding type to use for form submission
+formmethod - HTTP method to use for form submission
+formnovalidate - Bypass form control validation for form submission
+formtarget - Browsing context for form submission
+height - Same as height attribute for <img>; vertical dimension
+src - Same as src attribute for <img>; address of image resource
 srcdoc
 srclang
 srcset
@@ -48,18 +36,13 @@ wrap
 
 --}}{{!--
 
-                                --}}{{#if accept}}{{!--
---}} accept={{accept}}{{!--
+                                --}}{{#if alt}}{{!--
+--}} alt={{alt}}{{!--
                                 --}}{{/if}}{{!--
 
 
                                 --}}{{#if autofocus}}{{!--
 --}} autofocus={{autofocus}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if capture}}{{!--
---}} capture={{capture}}{{!--
                                 --}}{{/if}}{{!--
 
 
@@ -73,101 +56,44 @@ wrap
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if multiple}}{{!--
---}} multiple={{multiple}}{{!--
+                                --}}{{#if formaction}}{{!--
+--}} formaction={{formaction}}{{!--
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if required}}{{!--
---}} required={{required}}{{!--
+                                --}}{{#if formenctype}}{{!--
+--}} formenctype={{formenctype}}{{!--
                                 --}}{{/if}}{{!--
 
 
-
-
-
-
-
-
-
-                                --}}{{#if reversed}}{{!--
---}} reversed={{reversed}}{{!--
+                                --}}{{#if formmethod}}{{!--
+--}} formmethod={{formmethod}}{{!--
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if role}}{{!--
---}} role={{role}}{{!--
+                                --}}{{#if formnovalidate}}{{!--
+--}} formnovalidate={{formnovalidate}}{{!--
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if rows}}{{!--
---}} rows={{rows}}{{!--
+                                --}}{{#if formtarget}}{{!--
+--}} formtarget={{formtarget}}{{!--
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if rowspan}}{{!--
---}} rowspan={{rowspan}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sandbox}}{{!--
---}} sandbox={{sandbox}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scope}}{{!--
---}} scope={{scope}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scoped}}{{!--
---}} scoped={{scoped}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if seamless}}{{!--
---}} seamless={{seamless}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if selected}}{{!--
---}} selected={{selected}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if shape}}{{!--
---}} shape={{shape}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if size}}{{!--
---}} size={{size}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if span}}{{!--
---}} span={{span}}{{!--
+                                --}}{{#if height}}{{!--
+--}} height={{height}}{{!--
                                 --}}{{/if}}{{!--
 
 
                                 --}}{{#if src}}{{!--
 --}} src={{src}}{{!--
                                 --}}{{/if}}{{!--
+
+
+
+
+
 
 
                                 --}}{{#if srcdoc}}{{!--
