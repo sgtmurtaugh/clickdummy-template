@@ -1,14 +1,15 @@
 {{!--
     HTML other attributes
 
-accept-charset
-action
-autocomplete
-enctype
-method
-name
-novalidate
-target
+    param accept-charset -
+    param action -
+    param autocomplete -
+    param enctype -
+    param method -
+    param name -
+    param novalidate -
+    param rel - Creates a hyperlink or annotation depending on the value, see the rel attribute for details.
+    param target -
 
 --}}{{!--
 
@@ -44,6 +45,11 @@ target
 
                                 --}}{{#if novalidate}}{{!--
 --}} novalidate={{novalidate}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if rel}}{{!--
+--}} rel={{rel}}{{!--
                                 --}}{{/if}}{{!--
 
 

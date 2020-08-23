@@ -1,13 +1,14 @@
 {{!--
     HTML other attributes
 
-autofocus - Automatically focus the form control when the page is loaded
-disabled - Whether the form control is disabled
-form - Associates the control with a form element
-type - Type of form control
-value -
+    param autofocus - Automatically focus the form control when the page is loaded
+    param disabled - Whether the form control is disabled
+    param form - Associates the control with a form element
+    param name - Name of the form control. Submitted with the form as part of a name/value pair.
+    param value - Current value of the form control. Submitted with the form as part of a name/value pair.
 
---}}{{!--
+--}} type=button{{!--
+
 
                                 --}}{{#if autofocus}}{{!--
 --}} autofocus={{autofocus}}{{!--
@@ -24,8 +25,8 @@ value -
                                 --}}{{/if}}{{!--
 
 
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
+                                --}}{{#if name}}{{!--
+--}} name={{name}}{{!--
                                 --}}{{/if}}{{!--
 
 

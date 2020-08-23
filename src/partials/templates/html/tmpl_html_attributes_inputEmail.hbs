@@ -1,45 +1,22 @@
 {{!--
     HTML other attributes
 
-autocomplete - Hint for form autofill feature
-autofocus - Automatically focus the form control when the page is loaded
-disabled - Whether the form control is disabled
-form - Associates the control with a form element
-list - Value of the id attribute of the <datalist> of autocomplete options
-maxlength - Maximum length (number of characters) of value
-minlength - Minimum length (number of characters) of value
-multiple - Boolean. Whether to allow multiple values
-pattern - Pattern the value must match to be valid
-readonly - Boolean. The value is not editable
-required - Boolean. A value is required or must be check for the form to be submittable
-size - Size of the control
-sizes (img, picture)
-sizes (link)
-span
-src
-srcdoc
-srclang
-srcset
-start
-step
-summary
+    param autocomplete - Hint for form autofill feature
+    param autofocus - Automatically focus the form control when the page is loaded
+    param disabled - Whether the form control is disabled
+    param form - Associates the control with a form element
+    param list - Value of the id attribute of the <datalist> of autocomplete options
+    param maxlength - Maximum length (number of characters) of value
+    param minlength - Minimum length (number of characters) of value
+    param multiple - Boolean. Whether to allow multiple values
+    param name - Name of the form control. Submitted with the form as part of a name/value pair.
+    param pattern - Pattern the value must match to be valid
+    param readonly - Boolean. The value is not editable
+    param required - Boolean. A value is required or must be check for the form to be submittable
+    param size - Size of the control
+    param value - Current value of the form control. Submitted with the form as part of a name/value pair.
 
-target
-type (button)
-type (input)
-type (embed, object, source)
-type (menu)
-type (script)
-type (style)
-
-usemap
-
-value
-
-width
-wrap
-
---}}{{!--
+--}} type=email{{!--
 
                                 --}}{{#if autocomplete}}{{!--
 --}} autocomplete={{autocomplete}}{{!--
@@ -76,7 +53,12 @@ wrap
 
 
                                 --}}{{#if multiple}}{{!--
---}} multiple={{multiple}}{{!--
+--}} multiple{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if name}}{{!--
+--}} name={{name}}{{!--
                                 --}}{{/if}}{{!--
 
 
@@ -100,132 +82,9 @@ wrap
                                 --}}{{/if}}{{!--
 
 
-
-
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if span}}{{!--
---}} span={{span}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if src}}{{!--
---}} src={{src}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc={{srcdoc}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc={{srcdoc}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srclang}}{{!--
---}} srclang={{srclang}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcset}}{{!--
---}} srcset={{srcset}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if start}}{{!--
---}} start={{start}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if step}}{{!--
---}} step={{step}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if summary}}{{!--
---}} summary={{summary}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if target}}{{!--
---}} target={{target}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if usemap}}{{!--
---}} usemap={{usemap}}{{!--
-                                --}}{{/if}}{{!--
-
-
                                 --}}{{#if value}}{{!--
 --}} value={{value}}{{!--
                                 --}}{{/if}}{{!--
 
-
-                                --}}{{#if width}}{{!--
---}} width={{width}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if wrap}}{{!--
---}} wrap={{wrap}}{{!--
-                                --}}{{/if}}{{!--
 
 --}}

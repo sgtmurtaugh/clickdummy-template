@@ -1,52 +1,17 @@
 {{!--
     HTML other attributes
 
-accept - Hint for expected file type in file upload controls
-autofocus - Automatically focus the form control when the page is loaded
-capture - Media capture input method in file upload controls
-disabled - Whether the form control is disabled
-form - Associates the control with a form element
-multiple - Boolean. Whether to allow multiple values
-required - Boolean. A value is required or must be check for the form to be submittable
-reversed
-role
-rows
-rowspan
+    param accept - Hint for expected file type in file upload controls
+    param autofocus - Automatically focus the form control when the page is loaded
+    param capture - Media capture input method in file upload controls
+    param disabled - Whether the form control is disabled
+    param form - Associates the control with a form element
+    param multiple - Boolean. Whether to allow multiple values
+    param name - Name of the form control. Submitted with the form as part of a name/value pair.
+    param required - Boolean. A value is required or must be check for the form to be submittable
+    param value - Current value of the form control. Submitted with the form as part of a name/value pair.
 
-sandbox
-scope
-scoped
-seamless
-selected
-shape
-size
-sizes (img, picture)
-sizes (link)
-span
-src
-srcdoc
-srclang
-srcset
-start
-step
-summary
-
-target
-type (button)
-type (input)
-type (embed, object, source)
-type (menu)
-type (script)
-type (style)
-
-usemap
-
-value
-
-width
-wrap
-
---}}{{!--
+--}} type=file{{!--
 
                                 --}}{{#if accept}}{{!--
 --}} accept={{accept}}{{!--
@@ -74,7 +39,12 @@ wrap
 
 
                                 --}}{{#if multiple}}{{!--
---}} multiple={{multiple}}{{!--
+--}} multiple{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if name}}{{!--
+--}} name={{name}}{{!--
                                 --}}{{/if}}{{!--
 
 
@@ -83,190 +53,9 @@ wrap
                                 --}}{{/if}}{{!--
 
 
-
-
-
-
-
-
-
-                                --}}{{#if reversed}}{{!--
---}} reversed={{reversed}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if role}}{{!--
---}} role={{role}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rows}}{{!--
---}} rows={{rows}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rowspan}}{{!--
---}} rowspan={{rowspan}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sandbox}}{{!--
---}} sandbox={{sandbox}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scope}}{{!--
---}} scope={{scope}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scoped}}{{!--
---}} scoped={{scoped}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if seamless}}{{!--
---}} seamless={{seamless}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if selected}}{{!--
---}} selected={{selected}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if shape}}{{!--
---}} shape={{shape}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if size}}{{!--
---}} size={{size}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes={{sizes}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if span}}{{!--
---}} span={{span}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if src}}{{!--
---}} src={{src}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc={{srcdoc}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc={{srcdoc}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srclang}}{{!--
---}} srclang={{srclang}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcset}}{{!--
---}} srcset={{srcset}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if start}}{{!--
---}} start={{start}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if step}}{{!--
---}} step={{step}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if summary}}{{!--
---}} summary={{summary}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if target}}{{!--
---}} target={{target}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if usemap}}{{!--
---}} usemap={{usemap}}{{!--
-                                --}}{{/if}}{{!--
-
-
                                 --}}{{#if value}}{{!--
 --}} value={{value}}{{!--
                                 --}}{{/if}}{{!--
 
-
-                                --}}{{#if width}}{{!--
---}} width={{width}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if wrap}}{{!--
---}} wrap={{wrap}}{{!--
-                                --}}{{/if}}{{!--
 
 --}}

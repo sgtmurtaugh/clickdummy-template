@@ -1,0 +1,22 @@
+{
+  "autocomplete" : {
+    "on": "on",
+    "off": "off"
+  },
+  "enctype" : {
+    "form_urlencoded": "application/x-www-form-urlencoded",
+    "form_multipart": "multipart/form-data",
+    "form_plain": "text/plain"
+  },
+  "method" : {
+    "get": "get",
+    "post": "post",
+    "dialog": "dialog"
+  },
+  "target" : {
+    "self": "_self",
+    "blank": "_blank",
+    "parent": "_parent",
+    "top": "_top"
+  }
+}

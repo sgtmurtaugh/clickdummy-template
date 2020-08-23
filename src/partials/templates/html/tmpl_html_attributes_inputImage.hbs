@@ -1,40 +1,22 @@
 {{!--
     HTML other attributes
 
-alt - Alternate string to display when the image can't be shown
-autofocus - Automatically focus the form control when the page is loaded
-disabled - Whether the form control is disabled
-form - Associates the control with a form element
-formaction - URL to use for form submission
-formenctype - Form data set encoding type to use for form submission
-formmethod - HTTP method to use for form submission
-formnovalidate - Bypass form control validation for form submission
-formtarget - Browsing context for form submission
-height - Same as height attribute for <img>; vertical dimension
-src - Same as src attribute for <img>; address of image resource
-srcdoc
-srclang
-srcset
-start
-step
-summary
+    param alt - Alternate string to display when the image can't be shown
+    param autofocus - Automatically focus the form control when the page is loaded
+    param disabled - Whether the form control is disabled
+    param form - Associates the control with a form element
+    param formaction - URL to use for form submission
+    param formenctype - Form data set encoding type to use for form submission
+    param formmethod - HTTP method to use for form submission
+    param formnovalidate - Bypass form control validation for form submission
+    param formtarget - Browsing context for form submission
+    param height - Same as height attribute for <img>; vertical dimension
+    param name - Name of the form control. Submitted with the form as part of a name/value pair.
+    param src - Same as src attribute for <img>; address of image resource
+    param value - Current value of the form control. Submitted with the form as part of a name/value pair.
+    param width - Same as width attribute for <img>
 
-target
-type (button)
-type (input)
-type (embed, object, source)
-type (menu)
-type (script)
-type (style)
-
-usemap
-
-value
-
-width
-wrap
-
---}}{{!--
+--}} type=image{{!--
 
                                 --}}{{#if alt}}{{!--
 --}} alt={{alt}}{{!--
@@ -86,98 +68,13 @@ wrap
                                 --}}{{/if}}{{!--
 
 
+                                --}}{{#if name}}{{!--
+--}} name={{name}}{{!--
+                                --}}{{/if}}{{!--
+
+
                                 --}}{{#if src}}{{!--
 --}} src={{src}}{{!--
-                                --}}{{/if}}{{!--
-
-
-
-
-
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc={{srcdoc}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc={{srcdoc}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srclang}}{{!--
---}} srclang={{srclang}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcset}}{{!--
---}} srcset={{srcset}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if start}}{{!--
---}} start={{start}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if step}}{{!--
---}} step={{step}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if summary}}{{!--
---}} summary={{summary}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if target}}{{!--
---}} target={{target}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type={{type}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if usemap}}{{!--
---}} usemap={{usemap}}{{!--
                                 --}}{{/if}}{{!--
 
 
@@ -185,14 +82,5 @@ wrap
 --}} value={{value}}{{!--
                                 --}}{{/if}}{{!--
 
-
-                                --}}{{#if width}}{{!--
---}} width={{width}}{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if wrap}}{{!--
---}} wrap={{wrap}}{{!--
-                                --}}{{/if}}{{!--
 
 --}}

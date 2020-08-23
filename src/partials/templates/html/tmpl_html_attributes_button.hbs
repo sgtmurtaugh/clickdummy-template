@@ -9,10 +9,11 @@
     param formmethod - HTTP method to use for form submission
     param formnovalidate - Bypass form control validation for form submission
     param formtarget - Browsing context for form submission
+    param type - Type of form control
     param name - Name of the form control. Submitted with the form as part of a name/value pair.
     param value - Current value of the form control. Submitted with the form as part of a name/value pair.
 
---}} type=submit{{!--
+--}}{{!--
 
                                 --}}{{#if autofocus}}{{!--
 --}} autofocus={{autofocus}}{{!--
@@ -56,6 +57,11 @@
 
                                 --}}{{#if name}}{{!--
 --}} name={{name}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if type}}{{!--
+--}} type={{type}}{{!--
                                 --}}{{/if}}{{!--
 
 
