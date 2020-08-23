@@ -1,17 +1,179 @@
 {
+  "as" : {
+    "audio": "audio",
+    "document": "document",
+    "embed": "embed",
+    "fetch": "fetch",
+    "font": "font",
+    "image": "image",
+    "object": "object",
+    "script": "script",
+    "style": "style",
+    "track": "track",
+    "video": "video",
+    "worker": "worker"
+  },
   "autocomplete" : {
+    "off": "off",
     "on": "on",
-    "off": "off"
+    "name": "name",
+    "honorific-prefix": "honorific-prefix",
+    "given-name": "given-name",
+    "additional-name": "additional-name",
+    "family-name": "family-name",
+    "honorific-suffix": "honorific-suffix",
+    "nickname": "nickname",
+    "email": "email",
+    "username": "username",
+    "new-password": "new-password",
+    "current-password": "current-password",
+    "one-time-code": "one-time-code",
+    "organization-title": "organization-title",
+    "organization": "organization",
+    "street-address": "street-address",
+    "address-line1": "address-line1",
+    "address-line2": "address-line3",
+    "address-line3": "address-line3",
+    "address-level1": "address-level1",
+    "address-level2": "address-level3",
+    "address-level3": "address-level3",
+    "address-level4": "address-level4",
+    "country": "country",
+    "country-name": "country-name",
+    "postal-code": "postal-code",
+    "cc-name": "cc-name",
+    "cc-given-name": "cc-given-name",
+    "cc-additional-name": "cc-additional-name",
+    "cc-family-name": "cc-family-name",
+    "cc-number": "cc-number",
+    "cc-exp": "cc-exp",
+    "cc-exp-month": "cc-exp-month",
+    "cc-exp-year": "cc-exp-year",
+    "cc-csc": "cc-csc",
+    "cc-type": "cc-type",
+    "transaction-currency": "transaction-currency",
+    "transaction-amount": "transaction-amount",
+    "language": "language",
+    "bday": "bday",
+    "bday-day": "bday-day",
+    "bday-month": "bday-month",
+    "bday-year": "bday-year",
+    "sex": "sex",
+    "tel": "tel",
+    "tel-country-code": "tel-country-code",
+    "tel-national": "tel-national",
+    "tel-area-code": "tel-area-code",
+    "tel-local": "tel-local",
+    "tel-extension": "tel-extension",
+    "impp": "impp",
+    "url": "url",
+    "photo": "photo"
+  },
+  "allow" : {
+    "fullscreen": "fullscreen",
+    "payment": "payment"
+  },
+  "crossorigin" : {
+    "anonymous": "anonymous",
+    "use-credentials": "use-credentials"
+  },
+  "decoding" : {
+    "auto": "auto",
+    "async": "async",
+    "sync": "sync"
   },
   "enctype" : {
-    "form_urlencoded": "application/x-www-form-urlencoded",
-    "form_multipart": "multipart/form-data",
-    "form_plain": "text/plain"
+    "multipart": "multipart/form-data",
+    "plain": "text/plain",
+    "urlencoded": "application/x-www-form-urlencoded"
+  },
+  "http-equiv" : {
+    "content-security-policy": "content-security-policy",
+    "content-type": "content-type",
+    "default-style": "default-style",
+    "refresh": "refresh",
+    "x-ua-compatible": "x-ua-compatible"
+  },
+  "kind" : {
+    "subtitles": "subtitles",
+    "captions": "captions",
+    "descriptions": "descriptions",
+    "chapters": "chapters",
+    "metadata": "metadata"
+  },
+  "loading" : {
+    "eager": "eager",
+    "lazy": "lazy"
+  },
+  "media" : {
+    "all": "all",
+    "print": "print",
+    "screen": "screen",
+    "speech": "speech"
   },
   "method" : {
+    "dialog": "dialog",
     "get": "get",
-    "post": "post",
-    "dialog": "dialog"
+    "post": "post"
+  },
+  "preload" : {
+    "auto": "auto",
+    "metadata": "metadata",
+    "none": "none"
+  },
+  "referrerpolicy" : {
+    "no": "no-referrer",
+    "no-when-downgrade": "no-referrer-when-downgrade",
+    "origin": "origin",
+    "origin-when-cross-origin": "origin-when-cross-origin",
+    "same": "same-origin",
+    "strict": "strict-origin",
+    "strict-origin-when-cross-origin": "strict-origin-when-cross-origin",
+    "unsafe": "unsafe-url"
+  },
+  "rel" : {
+    "alternate": "alternate",
+    "author": "author",
+    "bookmark": "bookmark",
+    "canonical": "canonical",
+    "external": "external",
+    "help": "help",
+    "icon": "icon",
+    "license": "license",
+    "manifest": "manifest",
+    "modulepreload": "modulepreload",
+    "next": "next",
+    "nofollow": "nofollow",
+    "noopener": "noopener",
+    "noreferrer": "noreferrer",
+    "pingback": "pingback",
+    "prefetch": "prefetch",
+    "preload": "preload",
+    "prev": "prev",
+    "search": "search",
+    "shortlink": "shortlink",
+    "stylesheet": "stylesheet",
+    "tag": "tag"
+  },
+  "sandbox" : {
+    "forms": "allow-forms",
+    "modals": "allow-modals",
+    "orientation-lock": "allow-orientation-lock",
+    "pointer-lock": "allow-pointer-lock",
+    "popups": "allow-popups",
+    "popups-to-escape-sandbox": "allow-popups-to-escape-sandbox",
+    "presentation": "allow-presentation",
+    "same-origin": "allow-same-origin",
+    "scripts": "allow-scripts",
+    "top-navigation": "allow-top-navigation",
+    "top-navigation-by-user": "allow-top-navigation-by-user-activation"
+  },
+  "scope" : {
+    "auto": "auto",
+    "col": "col",
+    "colgroup": "colgroup",
+    "row": "row",
+    "rowgroup": "rowgroup"
   },
   "spellcheck" : {
     "default": "default",
@@ -19,13 +181,37 @@
     "true": "true"
   },
   "target" : {
-    "self": "_self",
     "blank": "_blank",
     "parent": "_parent",
+    "self": "_self",
     "top": "_top"
+  },
+  "type_javascript" : {
+    "app-ecmascript": "application/ecmascript",
+    "app-javascript": "application/javascript",
+    "text-ecmascript": "text/ecmascript",
+    "text-javascript": "text/javascript"
+  },
+  "type_list" : {
+    "letter-lowercase": "a",
+    "letter-uppercase": "A",
+    "numbers": "1",
+    "roman-numerals-lowercase": "i",
+    "roman-numerals-uppercase": "I"
+  },
+  "type_menu" : {
+    "toolbar": "toolbar"
+  },
+  "type_menuitem" : {
+    "command": "command",
+    "checkbox": "checkbox",
+    "radio": "radio"
   },
   "wrap" : {
     "hard": "hard",
     "soft": "soft"
+  },
+  "xmlns" : {
+    "xhtml": "http://www.w3.org/1999/xhtml"
   }
 }

@@ -1,0 +1,92 @@
+{
+  "application": {
+    "javascript": {
+      "ecmascript": "application/javascript",
+      "javascript": "application/javascript"
+    },
+    "octet": "application/octet-stream",
+    "zip": "application/zip"
+  },
+
+  "audio": {
+    "3gp": [
+      "audio/3gpp",
+      "audio/3gpp2",
+      "audio/3gp2"
+    ],
+    "adts": [
+      "audio/aac",
+      "audio/mpeg"
+    ],
+    "flac": [
+      "audio/flac",
+      "audio/x-flac"
+    ],
+    "mpeg": "audio/mpeg",
+    "mp4": "audio/mp4",
+    "ogg": "audio/ogg",
+    "wave": [
+      "audio/wave",
+      "audio/wav",
+      "audio/x-wav",
+      "audio/x-pn-wav"
+    ],
+    "webm": "audio/webm"
+  },
+
+  "font": {
+    "otf": "font/otf",
+    "ttf": "font/ttf",
+    "woff": "font/woff",
+    "woff2": "font/woff2"
+  },
+
+  "image": {
+    "apng": "image/apng",
+    "bmp": "image/bmp",
+    "gif": "image/gif",
+    "ico": "image/x-icon",
+    "jpeg": "image/jpeg",
+    "png": "image/png",
+    "svg": "image/svg+xml",
+    "tiff": "image/tiff",
+    "webp": "image/webp"
+  },
+
+  "model": {
+  },
+
+  "message": {
+    "partial": "message/partial",
+    "rfc822": "message/rfc822"
+  },
+
+  "multipart": {
+    "byteranges": "multipart/byteranges",
+    "form-data": "multipart/form-data"
+  },
+
+  "text": {
+    "css": "text/css",
+    "csv": "text/csv",
+    "html": "text/html",
+    "javascript": {
+      "ecmascript": "text/javascript",
+      "javascript": "text/javascript"
+    },
+    "plain": "text/plain"
+  },
+
+  "video": {
+    "3gp": [
+      "video/3gpp",
+      "video/3gpp2",
+      "video/3gp2"
+    ],
+    "mpeg": "video/mpeg",
+    "mp4": "video/mp4",
+    "ogg": "video/ogg",
+    "quicktime": "video/quicktime",
+    "webm": "video/webm"
+  }
+}
