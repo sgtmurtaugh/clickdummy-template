@@ -13,10 +13,19 @@
     "post": "post",
     "dialog": "dialog"
   },
+  "spellcheck" : {
+    "default": "default",
+    "false": "false",
+    "true": "true"
+  },
   "target" : {
     "self": "_self",
     "blank": "_blank",
     "parent": "_parent",
     "top": "_top"
+  },
+  "wrap" : {
+    "hard": "hard",
+    "soft": "soft"
   }
 }
