@@ -13,6 +13,16 @@
     "video": "video",
     "worker": "worker"
   },
+
+  "autocapitalize" : {
+    "characters": "characters",
+    "none": "none",
+    "off": "off",
+    "on": "on",
+    "sentences": "sentences",
+    "words": "words"
+  },
+
   "autocomplete" : {
     "off": "off",
     "on": "on",
@@ -69,24 +79,45 @@
     "url": "url",
     "photo": "photo"
   },
+
   "allow" : {
     "fullscreen": "fullscreen",
     "payment": "payment"
   },
+
+  "contenteditable" : {
+    "false": "false",
+    "true": "true"
+  },
+
   "crossorigin" : {
     "anonymous": "anonymous",
     "use-credentials": "use-credentials"
   },
+
   "decoding" : {
     "auto": "auto",
     "async": "async",
     "sync": "sync"
   },
+
+  "dir" : {
+    "auto": "auto",
+    "ltr": "ltr",
+    "rtl": "rtl"
+  },
+
+  "draggable" : {
+    "false": "false",
+    "true": "true"
+  },
+
   "enctype" : {
     "multipart": "multipart/form-data",
     "plain": "text/plain",
     "urlencoded": "application/x-www-form-urlencoded"
   },
+
   "http-equiv" : {
     "content-security-policy": "content-security-policy",
     "content-type": "content-type",
@@ -94,6 +125,7 @@
     "refresh": "refresh",
     "x-ua-compatible": "x-ua-compatible"
   },
+
   "kind" : {
     "subtitles": "subtitles",
     "captions": "captions",
@@ -101,26 +133,31 @@
     "chapters": "chapters",
     "metadata": "metadata"
   },
+
   "loading" : {
     "eager": "eager",
     "lazy": "lazy"
   },
+
   "media" : {
     "all": "all",
     "print": "print",
     "screen": "screen",
     "speech": "speech"
   },
+
   "method" : {
     "dialog": "dialog",
     "get": "get",
     "post": "post"
   },
+
   "preload" : {
     "auto": "auto",
     "metadata": "metadata",
     "none": "none"
   },
+
   "referrerpolicy" : {
     "no": "no-referrer",
     "no-when-downgrade": "no-referrer-when-downgrade",
@@ -131,6 +168,7 @@
     "strict-origin-when-cross-origin": "strict-origin-when-cross-origin",
     "unsafe": "unsafe-url"
   },
+
   "rel" : {
     "alternate": "alternate",
     "author": "author",
@@ -155,6 +193,7 @@
     "stylesheet": "stylesheet",
     "tag": "tag"
   },
+
   "sandbox" : {
     "forms": "allow-forms",
     "modals": "allow-modals",
@@ -168,6 +207,7 @@
     "top-navigation": "allow-top-navigation",
     "top-navigation-by-user": "allow-top-navigation-by-user-activation"
   },
+
   "scope" : {
     "auto": "auto",
     "col": "col",
@@ -175,42 +215,50 @@
     "row": "row",
     "rowgroup": "rowgroup"
   },
+
   "spellcheck" : {
     "default": "default",
     "false": "false",
     "true": "true"
   },
+
   "target" : {
     "blank": "_blank",
     "parent": "_parent",
     "self": "_self",
     "top": "_top"
   },
-  "type_javascript" : {
+
+  "type-javascript" : {
     "app-ecmascript": "application/ecmascript",
     "app-javascript": "application/javascript",
     "text-ecmascript": "text/ecmascript",
     "text-javascript": "text/javascript"
   },
-  "type_list" : {
+
+  "type_-list" : {
     "letter-lowercase": "a",
     "letter-uppercase": "A",
     "numbers": "1",
     "roman-numerals-lowercase": "i",
     "roman-numerals-uppercase": "I"
   },
-  "type_menu" : {
+
+  "type_-menu" : {
     "toolbar": "toolbar"
   },
-  "type_menuitem" : {
+
+  "type-menuitem" : {
     "command": "command",
     "checkbox": "checkbox",
     "radio": "radio"
   },
+
   "wrap" : {
     "hard": "hard",
     "soft": "soft"
   },
+
   "xmlns" : {
     "xhtml": "http://www.w3.org/1999/xhtml"
   }

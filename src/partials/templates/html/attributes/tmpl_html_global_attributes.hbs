@@ -1,0 +1,147 @@
+{{!--
+    HTML GLOBAL / UNIVERSAL attributes
+
+    param accesskey    leerzeichen-separierte Liste einzelner Zeichen
+    param class   Zeichenkette
+    param contenteditable     true|false
+    param contextmenu die id des gewünschten Menu-Elements
+    param data-*  selbst definierte Attribute
+    param dir rtl|ltr|auto
+    param draggable   true|false|auto
+    param dropzone    copy|move|link
+    param hidden  leer
+    param id  ein nicht leerer String ohne Leerzeichen
+    param inputmode Provides a hint as to the type of data that might be entered by the user while editing the element or its contents. The attribute can be used with form controls (such as the value of textarea elements), or in elements in an editing host (e.g., using contenteditable attribute).
+    param itemprop    Property des angegebenen Mikroformats
+    param itemid  URL
+    param itemref id des referenzierten Elements
+    param itemscope   leer
+    param itemtype    Typen nach https://schema.org/docs/schemas.html
+    param lang    Sprachkürzel https://wiki.selfhtml.org/wiki/Sprachk%C3%BCrzel
+    param spellcheck  true|false
+    param style   durch Semikolon getrennte Liste von CSS-Deklarationen
+    param tabindex    ganze Zahl zwischen -1 und 32767
+            -1: Element ist nicht per Tabulator fokussierbar
+            0: Element ist fokussierbar, Reihenfolge durch das Markup festgelegt
+            >0: Element ist fokussierbar, Reihenfolge durch das Attribut festgelegt
+    param title   eine Zeichenkette
+
+    Custom
+    param hsize    - Headline-Size Indicator
+    param vsize    - Virtual-Size Indicator
+
+--}}{{!--
+
+                                --}}{{#if id}}{{!--
+--}} id={{id}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if class}}{{!--
+--}} class="{{class}}{{!--
+                                    --}}{{#if vsize}}{{!--
+                                        --}}{{#if (headlineSize vsize)}}{{!--
+            --}} h{{vsize}}{{!--
+                                        --}}{{/if}}{{!--
+                                    --}}{{/if}}{{!--
+--}}"{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if title}}{{!--
+--}} title={{title}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if accesskey}}{{!--
+--}} accesskey={{accesskey}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if contenteditable}}{{!--
+--}} contenteditable{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if contextmenu}}{{!--
+--}} contextmenu={{contextmenu}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if dir}}{{!--
+--}} dir={{dir}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if draggable}}{{!--
+--}} draggable={{draggable}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if dropzone}}{{!--
+--}} dropzone={{dropzone}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if hidden}}{{!--
+--}} hidden{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if inputmode}}{{!--
+--}} inputmode={{inputmode}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if itemprop}}{{!--
+--}} itemprop={{itemprop}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if itemid}}{{!--
+--}} itemid={{itemid}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if itemref}}{{!--
+--}} itemref={{itemref}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if itemscope}}{{!--
+--}} itemscope{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if itemtype}}{{!--
+--}} itemtype={{itemtype}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if lang}}{{!--
+--}} lang={{lang}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if spellcheck}}{{!--
+--}} spellcheck={{spellcheck}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if style}}{{!--
+--}} style={{style}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if tabindex}}{{!--
+--}} tabindex={{tabindex}}{{!--
+                                --}}{{/if}}{{!--
+
+
+                                --}}{{#if data}}{{!--
+                                    --}}{{#each data}}{{!--
+--}} data-{{@key}}={{this}}{{!--
+                                    --}}{{/if}}{{!--
+                                --}}{{/if}}{{!--
+
+                                --}}
