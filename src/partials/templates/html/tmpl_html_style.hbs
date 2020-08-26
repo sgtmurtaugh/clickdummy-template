@@ -1,30 +1,10 @@
 {{!--
-    HTML STYLE attributes
+    HTML STYLE
 
-    param media
-    param nonce
-    param title
-    param type
-
---}}{{!--
-                                --}}{{#if media}}{{!--
---}} media="{{media}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if nonce}}{{!--
---}} nonce="{{nonce}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if title}}{{!--
---}} title="{{title}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<style {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_style }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</style>{{!--
 --}}

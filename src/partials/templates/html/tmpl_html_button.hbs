@@ -1,73 +1,10 @@
 {{!--
-    HTML BUTTON attributes
+    HTML BUTTON
 
-    param autofocus - Automatically focus the form control when the page is loaded
-    param disabled - Whether the form control is disabled
-    param form - Associates the control with a form element
-    param formaction - URL to use for form submission
-    param formenctype - Form data set encoding type to use for form submission
-    param formmethod - HTTP method to use for form submission
-    param formnovalidate - Bypass form control validation for form submission
-    param formtarget - Browsing context for form submission
-    param type - Type of form control
-    param name - Name of the form control. Submitted with the form as part of a name/value pair.
-    param value - Current value of the form control. Submitted with the form as part of a name/value pair.
-
---}}{{!--
-
-                                --}}{{#if autofocus}}{{!--
---}} autofocus="{{autofocus}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if disabled}}{{!--
---}} disabled{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if form}}{{!--
---}} form="{{form}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if formaction}}{{!--
---}} formaction="{{formaction}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if formenctype}}{{!--
---}} formenctype="{{formenctype}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if formmethod}}{{!--
---}} formmethod="{{formmethod}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if formnovalidate}}{{!--
---}} formnovalidate="{{formnovalidate}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if formtarget}}{{!--
---}} formtarget="{{formtarget}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if value}}{{!--
---}} value="{{value}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<button {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_button }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</button>{{!--
 --}}

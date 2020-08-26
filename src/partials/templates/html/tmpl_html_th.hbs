@@ -1,37 +1,10 @@
 {{!--
-    HTML TH attributes
+    HTML TH
 
-    param abbr
-    param colspan
-    param headers
-    param rowspan
-    param scope
-
---}}{{!--
-
-                                --}}{{#if abbr}}{{!--
---}} abbr="{{abbr}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if colspan}}{{!--
---}} colspan="{{colspan}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if headers}}{{!--
---}} headers="{{headers}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rowspan}}{{!--
---}} rowspan="{{rowspan}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if scope}}{{!--
---}} scope="{{scope}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<th {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_th }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</th>{{!--
 --}}

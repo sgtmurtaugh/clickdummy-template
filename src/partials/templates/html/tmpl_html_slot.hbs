@@ -1,13 +1,10 @@
 {{!--
-    HTML SLOT attributes
+    HTML SLOT
 
-    param name
-
---}}{{!--
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<slot {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_slot }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</slot>{{!--
 --}}

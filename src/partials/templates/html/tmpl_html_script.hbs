@@ -1,60 +1,10 @@
 {{!--
-    HTML SCRIPT attributes
+    HTML SCRIPT
 
-    param async
-    param crossorigin
-    param defer
-    param integrity
-    param nomodule
-    param nonce
-    param referrerpolicy
-    param src
-    param type
-
---}}{{!--
-                                --}}{{#if async}}{{!--
---}} async{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if crossorigin}}{{!--
---}} crossorigin="{{crossorigin}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if defer}}{{!--
---}} defer{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if integrity}}{{!--
---}} integrity="{{integrity}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if nomodule}}{{!--
---}} nomodule{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if nonce}}{{!--
---}} nonce="{{nonce}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if referrerpolicy}}{{!--
---}} referrerpolicy="{{referrerpolicy}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if src}}{{!--
---}} src="{{src}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<script {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_script }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</script>{{!--
 --}}

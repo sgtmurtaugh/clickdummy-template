@@ -1,66 +1,10 @@
 {{!--
-    HTML IFRAME attributes
+    HTML IFRAME
 
-    param allow
-    param allowfullscreen
-    param allowpaymentrequest
-    param height
-    param name
-    param referrerpolicy
-    param sandbox
-    param src
-    param srcdoc
-    param width
-
---}}{{!--
-                                --}}{{#if allow}}{{!--
---}} allow="{{allow}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if allowfullscreen}}{{!--
---}} allowfullscreen="{{allowfullscreen}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if allowpaymentrequest}}{{!--
---}} allowpaymentrequest="{{allowpaymentrequest}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if height}}{{!--
---}} height="{{height}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if referrerpolicy}}{{!--
---}} referrerpolicy="{{referrerpolicy}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sandbox}}{{!--
---}} sandbox="{{sandbox}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if src}}{{!--
---}} src="{{src}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcdoc}}{{!--
---}} srcdoc="{{srcdoc}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if width}}{{!--
---}} width="{{width}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<iframe {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_iframe }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</iframe>{{!--
 --}}

@@ -1,25 +1,10 @@
 {{!--
-    HTML FIELDSET attributes
+    HTML FIELDSET
 
-    param disabled - Whether the form control is disabled
-    param form - Associates the control with a form element
-    param name - The name associated with the group.
-
---}}{{!--
-
-                                --}}{{#if disabled}}{{!--
---}} disabled{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if form}}{{!--
---}} form="{{form}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<fieldset {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_fieldset }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</fieldset>{{!--
 --}}

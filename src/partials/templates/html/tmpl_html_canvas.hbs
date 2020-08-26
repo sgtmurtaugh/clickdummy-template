@@ -1,18 +1,10 @@
 {{!--
-    HTML CANVAS attributes
+    HTML CANVAS
 
-    param height
-    param width
-
---}}{{!--
-                                --}}{{#if height}}{{!--
---}} height="{{height}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if width}}{{!--
---}} width="{{width}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<canvas {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_canvas }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</canvas>{{!--
 --}}

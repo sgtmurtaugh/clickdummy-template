@@ -1,19 +1,10 @@
 {{!--
-    HTML PARAM attributes
+    HTML PARAM
 
-    param name
-    param value
-
---}}{{!--
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if value}}{{!--
---}} value="{{value}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<params {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_params }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</params>{{!--
 --}}

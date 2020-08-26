@@ -1,48 +1,10 @@
 {{!--
-    HTML A attributes
+    HTML A
 
-    param download
-    param href
-    param hreflang
-    param ping
-    param rel
-    param target
-    param type
-
---}}{{!--
-                                --}}{{#if download}}{{!--
---}} download="{{download}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if href}}{{!--
---}} href="{{href}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if hreflang}}{{!--
---}} hreflang="{{hreflang}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if ping}}{{!--
---}} ping="{{ping}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rel}}{{!--
---}} rel="{{rel}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if target}}{{!--
---}} target="{{target}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<a {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_a }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</a>{{!--
 --}}

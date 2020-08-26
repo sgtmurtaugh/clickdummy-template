@@ -1,36 +1,8 @@
 {{!--
-    HTML SOURCE attributes
+    HTML SOURCE
 
-    param media
-    param sizes
-    param src
-    param srcset
-    param type
-
---}}{{!--
-                                --}}{{#if media}}{{!--
---}} media="{{media}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if sizes}}{{!--
---}} sizes="{{sizes}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if src}}{{!--
---}} src="{{src}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if srcset}}{{!--
---}} srcset="{{srcset}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<source {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_source }}{{!--
+--}}>{{!--
 --}}

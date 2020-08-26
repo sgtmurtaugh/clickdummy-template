@@ -1,13 +1,10 @@
 {{!--
-    HTML DATA attributes
+    HTML DATA
 
-    param value - This attribute specifies the machine-readable translation of the content of the element
-
---}}{{!--
-
-                                --}}{{#if value}}{{!--
---}} value="{{value}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<data {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_data }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</data>{{!--
 --}}

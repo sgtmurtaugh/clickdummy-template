@@ -1,31 +1,10 @@
 {{!--
-    HTML OPTION attributes
+    HTML OPTION
 
-    param disabled
-    param label
-    param selected
-    param disabled
-
---}}{{!--
-
-                                --}}{{#if disabled}}{{!--
---}} disabled{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if label}}{{!--
---}} label="{{label}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if selected}}{{!--
---}} selected{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if value}}{{!--
---}} value="{{value}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<option {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_option }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</option>{{!--
 --}}

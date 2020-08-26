@@ -1,24 +1,10 @@
 {{!--
-    HTML OL attributes
+    HTML OL
 
-    param reversed
-    param start
-    param type
-
---}}{{!--
-                                --}}{{#if reversed}}{{!--
---}} reversed{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if start}}{{!--
---}} start="{{start}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<ol {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_ol }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</ol>{{!--
 --}}

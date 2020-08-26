@@ -1,19 +1,10 @@
 {{!--
-    HTML PROGRESS attributes
+    HTML PROGRESS
 
-    param max
-    param value
-
---}}{{!--
-
-                                --}}{{#if max}}{{!--
---}} max="{{max}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if value}}{{!--
---}} value="{{value}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<progress {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_progress }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</progress>{{!--
 --}}

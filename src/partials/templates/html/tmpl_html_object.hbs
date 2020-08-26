@@ -1,54 +1,10 @@
 {{!--
-    HTML OBJECT attributes
+    HTML OBJECT
 
-    param data
-    param form
-    param height
-    param name
-    param type
-    param typemustmatch
-    param usemap
-    param width
-
---}}{{!--
-                                --}}{{#if data}}{{!--
---}} data="{{data}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if form}}{{!--
---}} form="{{form}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if height}}{{!--
---}} height="{{height}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if type}}{{!--
---}} type="{{type}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if typemustmatch}}{{!--
---}} typemustmatch{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if usemap}}{{!--
---}} usemap="{{usemap}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if width}}{{!--
---}} width="{{width}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<object {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_object }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</object>{{!--
 --}}

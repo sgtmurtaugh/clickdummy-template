@@ -1,19 +1,10 @@
 {{!--
-    HTML OPTGROUP attributes
+    HTML OPTGROUP
 
-    param disabled
-    param label
-
---}}{{!--
-
-                                --}}{{#if disabled}}{{!--
---}} disabled{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if label}}{{!--
---}} label="{{label}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<optgroup {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_optgroup }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</optgroup>{{!--
 --}}

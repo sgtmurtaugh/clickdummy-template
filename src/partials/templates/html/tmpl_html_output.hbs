@@ -1,25 +1,10 @@
 {{!--
-    HTML OUTPUT attributes
+    HTML OUTPUT
 
-    param for
-    param form
-    param selected
-
---}}{{!--
-
-                                --}}{{#if for}}{{!--
---}} for="{{for}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if form}}{{!--
---}} form="{{form}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if name}}{{!--
---}} name="{{name}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<output {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_output }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</output>{{!--
 --}}

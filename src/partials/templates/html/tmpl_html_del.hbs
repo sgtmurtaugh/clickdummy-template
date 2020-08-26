@@ -1,19 +1,10 @@
 {{!--
-    HTML DEL attributes
+    HTML DEL
 
-    param cite
-    param datetime
-
---}}{{!--
-
-                                --}}{{#if cite}}{{!--
---}} cite="{{cite}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if datetime}}{{!--
---}} datetime="{{datetime}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<del {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_del }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</del>{{!--
 --}}

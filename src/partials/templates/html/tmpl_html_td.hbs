@@ -1,25 +1,10 @@
 {{!--
-    HTML TD attributes
+    HTML TD
 
-    param colspan
-    param headers
-    param rowspan
-
---}}{{!--
-
-                                --}}{{#if colspan}}{{!--
---}} colspan="{{colspan}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if headers}}{{!--
---}} headers="{{headers}}"{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if rowspan}}{{!--
---}} rowspan="{{rowspan}}"{{!--
-                                --}}{{/if}}{{!--
-
-
+--}}<td {{!--
+    --}}{{> tmpl_html_base_attributes }}{{!--
+    --}}{{> tmpl_html_attributes_td }}{{!--
+--}}>{{!--
+    --}}{{> tmpl_partialContext }}{{!--
+--}}</td>{{!--
 --}}
