@@ -44,7 +44,7 @@
     "gulp-load-plugins": "^2.0.2",
     "require-dir": "^1.2.0",
     "colors": "^1.4.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "underscore": "^1.9.2",
     "lodash": "^4.17.15",
     "console-logging": "^2019.1.0",
