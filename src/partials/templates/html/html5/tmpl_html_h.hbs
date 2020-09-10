@@ -1,23 +1,16 @@
 {{!--
-                                --}}{{#if (hlp_headlineSize hsize offset defaultHsize)}}
-<h{{hlp_headlineSize hsize offset defaultHsize}}{{!--
-                                --}}{{else}}
-<p{{!--
-                                --}}{{/if}}{{!--
-
-
-                                --}}{{#if vsize}}{{!--
---}} {{{hlp_attributes this test1="bla" class=(hlp_concat class "headline" (hlp_addParamValues "font-h" vsize "-style") )}}}{{!--
-                                --}}{{else}}{{!--
---}} {{{hlp_attributes this test1="bla"}}}{{!--
-                                --}}{{/if}}{{!--
-
+                                --}}{{#if (hlp_headlineSize offset)}}
+<h{{hlp_headlineSize offset}}{{!--
+    --}}{{> tmpl_html_base_attributes class=(hlp_concat class "headline") }}{{!--
+    --}}{{> tmpl_html_attributes_h }}{{!--
 --}}>
-{{> tmpl_partialBlock}}{{!--
+    {{> @partial-block}}{{!--
+--}}</h{{hlp_headlineSize offset}}>{{!--
 
-
-                                --}}{{#if (hlp_headlineSize hsize offset defaultHsize)}}{{!--
---}}</h{{hlp_headlineSize hsize offset defaultHsize}}>{{!--
                                 --}}{{else}}{{!--
---}}</p>{{!--
+
+--}}{{#> tmpl_html_p class=(hlp_concat class "headline") }}{{!––
+    --}}{{> @partial-block}}{{!--
+--}}{{/tmpl_html_p}}{{!--
+
                                 --}}{{/if}}

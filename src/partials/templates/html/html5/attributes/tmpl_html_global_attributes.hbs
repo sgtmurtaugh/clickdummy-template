@@ -27,7 +27,6 @@
     param title   eine Zeichenkette
 
     Custom
-    param hsize    - Headline-Size Indicator
     param vsize    - Virtual-Size Indicator
 
 --}}{{!--
@@ -37,15 +36,15 @@
                                 --}}{{/if}}{{!--
 
 
+--}} class="{{!--
                                 --}}{{#if class}}{{!--
---}} class="{{class}}{{!--
-                                    --}}{{#if vsize}}{{!--
-                                        --}}{{#if (headlineSize vsize)}}{{!--
-            --}} h{{vsize}}{{!--
-                                        --}}{{/if}}{{!--
-                                    --}}{{/if}}{{!--
---}}"{{!--
+    --}}{{class}}{{!--
                                 --}}{{/if}}{{!--
+
+                                --}}{{#if (hlp_virtualSize vsize voffset)}}{{!--
+    --}} {{hlp_append "font-h" (hlp_virtualSize vsize voffset) "-style"}}{{!--
+                                --}}{{/if}}{{!--
+--}}"{{!--
 
 
                                 --}}{{#if title}}{{!--
@@ -141,7 +140,7 @@
                                 --}}{{#if data}}{{!--
                                     --}}{{#each data}}{{!--
 --}} data-{{@key}}={{this}}{{!--
-                                    --}}{{/if}}{{!--
+                                    --}}{{/each}}{{!--
                                 --}}{{/if}}{{!--
 
                                 --}}

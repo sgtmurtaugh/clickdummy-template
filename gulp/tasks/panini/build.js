@@ -32,12 +32,18 @@ module.exports = function ( _gulp, _plugins, _app ) {
 function initPanini() {
     // load and register additional module
     let panini = app.fn.app.requireModule('panini')({
-        root: app.fn.path.srcFolder(),
-        layouts: app.fn.path.srcFolder(app.config.paths.layouts),
-        pageLayouts: app.config.panini.defaultPageLayout,
-        partials: app.fn.path.srcFolder(app.config.paths.partials),
-        data: app.fn.path.srcFolder(app.config.paths.data),
-        helpers: app.fn.path.srcFolder(app.config.paths.helpers)
+        _root: app.fn.path.srcFolder(),
+        _layouts: app.app.fn.path.srcFolder(app.config.paths.layouts),
+        _pageLayouts: app.config.panini.defaultPageLayout,
+        _partials: app.fn.path.srcFolder(app.config.paths.partials),
+        _data: app.fn.path.srcFolder(app.config.paths.data),
+        _helpers: app.fn.path.srcFolder(app.config.paths.helpers),
+
+        root: 'src/pages/',
+        layouts: 'src/layouts/',
+        partials: 'src/partials/',
+        data: 'src/data/',
+        helpers: 'src/helpers/'
     });
     app.fn.app.addInstance( 'panini', panini );
 }

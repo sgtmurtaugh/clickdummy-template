@@ -1,0 +1,19 @@
+/* ==============================
+    # components-print
+   ============================== */
+
+@media print {
+
+  /* ------------------------------
+    # Hide: Components
+   ------------------------------ */
+  .component-XY {
+    display: none !important;
+  }
+
+  /* ------------------------------
+    # include separate print component files
+   ------------------------------ */
+  @import "component-XY-print";
+
+}

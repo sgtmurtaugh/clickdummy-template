@@ -1,8 +1,8 @@
 'use strict';
 
 /*!
- * @name TODO_MODULENAME
- * @author @boelenbe
+ * @name TODO module_XY
+ * @author @ckraus
  * @description
  */
 ;(function ($) {
@@ -10,7 +10,7 @@
         $.modules = {};
     }
 
-    $.modules. < TODO_MODULENAME > = function (el, options) {
+    $.modules.module_XY = function (el, options) {
         // To avoid scope issues, use 'base' instead of 'this' to reference this class from internal events / functions.
         var base = this;
 
@@ -19,13 +19,13 @@
         base.el = el;
 
         // Add a reverse reference to the DOM object
-        base.$el.data("modules.<TODO_MODULENAME>", base);
+        base.$el.data("modules.module_XY", base);
 
         /*
          * Initializer function for this module
          */
         base.init = function () {
-            base.options = $.extend({}, $.modules. < TODO_MODULENAME >.defaultOptions, options
+            base.options = $.extend({}, $.modules.module_XY.defaultOptions, options
         )
             ;
 
@@ -37,18 +37,15 @@
         base.init();
     };
 
-    $.modules. < TODO_MODULENAME >
-.
-    defaultOptions = {};
+    $.modules.module_XY.defaultOptions = {};
 
     // Search Reset
-    $.fn.module_ < TODO_MODULENAME > = function (options) {
+    $.fn.module_module_XY = function (options) {
         return this.each(function () {
-            (new $.modules. < TODO_MODULENAME > (this, options));
+            (new $.modules.module_XY(this, options));
         });
     };
 
 })(jQuery);
 
-//
-// $("#topbar").module_<TODO_MODULENAME>();
+$("body").module_XY();

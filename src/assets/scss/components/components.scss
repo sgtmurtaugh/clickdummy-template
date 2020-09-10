@@ -1,16 +1,30 @@
 /* ==============================
-     # components
+    # component
    ============================== */
+.component {
+
+  .component-headline {
+  }
+
+  > .component-container {
+
+    > .component-inner-container {
+      margin: 0 auto;
+    }
+  }
+
+  .component_action {
+  }
+}
+
 
 /* ------------------------------
     # include separate component files
    ------------------------------ */
-@import 'reformatting/reformatting';
-@import 'mixins/mixins';
-@import 'utils';
-@import "sprites/sprites";
-@import 'font';
-@import 'structure/structure';
-@import 'forms/forms';
-@import 'tables';
-@import 'modules/modules';
+//@import "component-XY";
+@import "component-footer";
+
+/* ------------------------------
+    # print
+   ------------------------------ */
+@import './print/components-print';

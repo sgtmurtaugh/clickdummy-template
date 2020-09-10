@@ -1,0 +1,40 @@
+/* ==============================
+    # modules
+   ============================== */
+.module {
+  margin: 0 auto;
+  width: 100%;
+
+  /* ------------------------------
+      ## Module headlines
+     ------------------------------ */
+
+  .module-headline {
+  }
+
+  > .module-container {
+
+    > .module-inner-container {
+      margin: 0 auto;
+    }
+  }
+
+  .module_action {
+  }
+}
+
+
+/* ------------------------------
+    # include separate module files
+   ------------------------------ */
+//@import "module-XY";
+
+/* ------------------------------
+    # include separate module_part files
+   ------------------------------ */
+@import "parts/moduleParts";
+
+/* ------------------------------
+    # print
+   ------------------------------ */
+@import 'src/assets/scss/modules/print/modules-print';

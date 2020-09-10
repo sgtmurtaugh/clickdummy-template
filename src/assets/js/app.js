@@ -1,7 +1,8 @@
 'use strict';
 
-import './modules/modules';
 import './vendor/vendor';
+import './modules/components';
+import './modules/modules';
 
 /*! foundation-customizer-core */
 
