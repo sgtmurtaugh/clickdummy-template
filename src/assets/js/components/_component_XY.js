@@ -25,9 +25,7 @@
          * Initializer function for this module
          */
         base.init = function () {
-            base.options = $.extend({}, $.components.component_XY.defaultOptions, options
-        )
-            ;
+            base.options = $.extend({}, $.components.component_XY.defaultOptions, options);
 
             // modul specific magic ...
 
