@@ -45,7 +45,7 @@
     "require-dir": "^1.2.0",
     "colors": "^1.4.0",
     "jquery": "^3.4.1",
-    "underscore": "^1.9.2",
+    "underscore": "^1.12.1",
     "lodash": "^4.17.15",
     "console-logging": "^2019.1.0",
     "flat": "^5.0.0",
