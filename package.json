@@ -52,7 +52,7 @@
     "array-sort": "^1.0.0",
     "panini": "^1.6.3",
     "camel-case": "^4.1.1",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.27.10",
     "rimraf": "^3.0.2",
     "gulp-files-sync": "^0.3.2"
   },
