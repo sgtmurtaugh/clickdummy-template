@@ -48,7 +48,7 @@
     "underscore": "^1.9.2",
     "lodash": "^4.17.15",
     "console-logging": "^2019.1.0",
-    "flat": "^5.0.0",
+    "flat": "^5.0.1",
     "array-sort": "^1.0.0",
     "panini": "^1.6.3",
     "camel-case": "^4.1.1",
